@@ -37,10 +37,7 @@ class MyJsonLoader
             }
 
             foreach ($r["rewards"] as $reward) {
-                if (
-                    isset($reward["item"]["name"]) &&
-                    $reward["item"]["name"] === $itemName
-                ) {
+                if (isset($reward["item"]) && $reward["item"] === $itemName) {
                     return true;
                 }
             }
@@ -58,8 +55,8 @@ class MyJsonLoader
 
         foreach ($allRelics as $relic) {
             if (isset($relic["name"]) && $relic["name"] === $relicName) {
-                if (isset($relic["vaultInfo"]["vaulted"])) {
-                    return (bool) $relic["vaultInfo"]["vaulted"];
+                if (isset($relic["vaulted"])) {
+                    return (bool) $relic["vaulted"];
                 }
                 return false;
             }

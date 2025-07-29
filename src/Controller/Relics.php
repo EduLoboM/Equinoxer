@@ -16,12 +16,23 @@ class Relics extends AbstractController
 
         $unvaulted = array_filter(
             $allRelics,
-            fn(array $r) => isset($r["vaultInfo"]["vaulted"]) &&
-                $r["vaultInfo"]["vaulted"] === false,
+            fn(array $r) => isset($r["vaulted"]) && $r["vaulted"] === false,
         );
 
         return $this->render("relics/unvaulted.html.twig", [
             "relics" => $unvaulted,
+        ]);
+    }
+
+    #[Route("/relics/{slug}", name: "relic_show")]
+    public function show(string $slug, MyJsonLoader $loader): Response
+    {
+        $allRelics = $loader->load("Relics_Normalized.json");
+        $relic = array_filter($allRelics, fn(array $r) => $r["slug"] === $slug);
+        $relic = array_shift($relic);
+
+        return $this->render("relics/show.html.twig", [
+            "relic" => $relic,
         ]);
     }
 }
