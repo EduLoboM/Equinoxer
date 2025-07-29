@@ -1,4 +1,4 @@
-<h1>{{ warframe.name }}</h1>
+<h1>{{ prime.name }}</h1>
 {% for part in parts %}
   <section>
     <h2>{{ part.name }}</h2>
@@ -10,7 +10,9 @@
           <li>
             {{ relic.name }}
             {% if loader.isVaulted(relic.name) %}
-              <span style="color: red;"> ✓</span>
+              <span style="color: red;"> X</span>
+            {% else %}
+              <span style="color: green;"> ✓</span>
             {% endif %}
           </li>
         {% endfor %}

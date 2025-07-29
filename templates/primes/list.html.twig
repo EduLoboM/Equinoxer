@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<body>
+
+    <h1>LISTA DE PRIMES</h1>
+
+    <div class="primes-list">
+        {% for prime in primes %}
+            <div class="prime-item">
+                <a href="/primes/{{ prime.slug }}">{{ prime.name }}</a><br>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

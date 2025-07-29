@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class Relics extends AbstractController
 {
-    #[Route("/relics", name: "relic_list")]
+    #[Route("/relics/unvaulted", name: "relic_list")]
     public function list(MyJsonLoader $loader): Response
     {
         $allRelics = $loader->load("Relics_Normalized.json");
@@ -20,42 +20,8 @@ class Relics extends AbstractController
                 $r["vaultInfo"]["vaulted"] === false,
         );
 
-        return $this->render("relics.html.twig", ["relics" => $unvaulted]);
-    }
-
-    #[Route("/warframes/{slug}", name: "relic_show")]
-    public function show(string $slug, MyJsonLoader $loader): Response
-    {
-        $warframes = $loader->load("Warframes_Normalized.json");
-        $entry = array_values(
-            array_filter($warframes, function ($w) use ($slug) {
-                return $w["slug"] === $slug;
-            }),
-        );
-
-        if (!$entry) {
-            throw $this->createNotFoundException(
-                "Warframe '{$slug}' não encontrado",
-            );
-        }
-
-        $warframe = $entry[0];
-        $parts = [];
-
-        foreach ($warframe["parts"] as $partName) {
-            $fullItemName = $warframe["name"] . " " . $partName;
-
-            $parts[] = [
-                "name" => $partName,
-                "fullName" => $fullItemName,
-                "relics" => $loader->findRelicsByItem($fullItemName),
-            ];
-        }
-
-        return $this->render("warframes/show.html.twig", [
-            "warframe" => $warframe,
-            "parts" => $parts,
-            "loader" => $loader,
+        return $this->render("relics/unvaulted.html.twig", [
+            "relics" => $unvaulted,
         ]);
     }
 }
