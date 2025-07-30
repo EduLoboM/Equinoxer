@@ -1,14 +1,8 @@
-{# templates/relic/show.html.twig #}
 {% extends 'base.html.twig' %}
-
 {% block title %}{{ relic.name }}{% endblock %}
-
 {% block body %}
   <h1>
     {{ relic.name }}
-    <span style="color: {{ relic.vaulted ? 'red' : 'green' }}; margin-left: 0.5em;">
-      {{ relic.vaulted ? 'X' : '✓' }}
-    </span>
   </h1>
   {% set chances = [] %}
   {% for reward in relic.rewards %}
@@ -18,7 +12,6 @@
   {% endfor %}
   {# Agora ordena esse array de números #}
   {% set chances = chances | sort %}
-
   <ul>
     {% for chance in chances %}
       {% set items = [] %}
@@ -27,9 +20,8 @@
           {% set items = items | merge([ reward ]) %}
         {% endif %}
       {% endfor %}
-
       <li>
-        <strong>{{ chance }} %</strong> ({{ items|length }})
+        <strong>{{ chance }} %</strong> ({{ items|length }})
         <ul>
           {% for it in items %}
             <li>{{ it.item }}</li>
@@ -38,4 +30,34 @@
       </li>
     {% endfor %}
   </ul>
+
+  <h3>Missões onde encontrar a reliquia:</h3>
+  {% if rewards is empty %}
+    <div class="alert alert-info">
+      <p>Nenhuma missão disponível para esta relíquia no momento.</p>
+    </div>
+  {% else %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Planeta</th>
+                <th>Missão</th>
+                <th>Modo</th>
+                <th>Rotação</th>
+                <th>Chance</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reward in rewards %}
+                <tr>
+                    <td>{{ reward.planet }}</td>
+                    <td>{{ reward.mission }}</td>
+                    <td>{{ reward.gameMode }}</td>
+                    <td>{{ reward.rotation }}</td>
+                    <td>{{ reward.chance }}%</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+  {% endif %}
 {% endblock %}

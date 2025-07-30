@@ -51,7 +51,6 @@ class Primes extends AbstractController
         return $this->render("primes/show.html.twig", [
             "prime" => $prime,
             "parts" => $parts,
-            "loader" => $loader,
         ]);
     }
 }

@@ -11,16 +11,11 @@
     {% else %}
       <ul>
         {% for relic in part.relics %}
-          {% set slug = relic.name|lower|replace({' ': '_'}) %}
+          {% set base_name = relic.name|replace({' Relic': ''}) %}
+          {% set slug = base_name|lower|replace({' ': '_'}) %}
 
           <li>
             <a href="/relics/{{ slug }}">{{ relic.name }}</a>
-
-            {% if loader.isVaulted(relic.name) %}
-              <span style="color: red;"> X</span>
-            {% else %}
-              <span style="color: green;"> ✓</span>
-            {% endif %}
           </li>
         {% endfor %}
       </ul>

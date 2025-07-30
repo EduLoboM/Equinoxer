@@ -1,7 +1,17 @@
 [
   {
-    "name": "Akstiletto Prime",
-    "slug": "akstiletto_prime",
+    "name": "Acceltra Prime",
+    "slug": "acceltra_prime",
+    "parts": [
+      "Barrel",
+      "Blueprint",
+      "Receiver",
+      "Stock"
+    ]
+  },
+  {
+    "name": "Afuris Prime",
+    "slug": "afuris_prime",
     "parts": [
       "Barrel",
       "Blueprint",
@@ -10,148 +20,13 @@
     ]
   },
   {
-    "name": "Trinity Prime",
-    "slug": "trinity_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Fragor Prime",
-    "slug": "fragor_prime",
-    "parts": [
-      "Blueprint",
-      "Handle",
-      "Head"
-    ]
-  },
-  {
-    "name": "Dual Kamas Prime",
-    "slug": "dual_kamas_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Braton Prime",
-    "slug": "braton_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Nikana Prime",
-    "slug": "nikana_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Hilt"
-    ]
-  },
-  {
-    "name": "Aksomati Prime",
-    "slug": "aksomati_prime",
+    "name": "Akarius Prime",
+    "slug": "akarius_prime",
     "parts": [
       "Barrel",
       "Blueprint",
       "Link",
       "Receiver"
-    ]
-  },
-  {
-    "name": "Wukong Prime",
-    "slug": "wukong_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Paris Prime",
-    "slug": "paris_prime",
-    "parts": [
-      "Blueprint",
-      "Grip",
-      "Lower Limb",
-      "String",
-      "Upper Limb"
-    ]
-  },
-  {
-    "name": "Akbronco Prime",
-    "slug": "akbronco_prime",
-    "parts": [
-      "Blueprint",
-      "Link"
-    ]
-  },
-  {
-    "name": "Stradavar Prime",
-    "slug": "stradavar_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Atlas Prime",
-    "slug": "atlas_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Pangolin Prime",
-    "slug": "pangolin_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Zhuge Prime",
-    "slug": "zhuge_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Grip",
-      "Receiver",
-      "String"
-    ]
-  },
-  {
-    "name": "Fang Prime",
-    "slug": "fang_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Burston Prime",
-    "slug": "burston_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
     ]
   },
   {
@@ -165,299 +40,11 @@
     ]
   },
   {
-    "name": "Helios Prime",
-    "slug": "helios_prime",
-    "parts": [
-      "Blueprint",
-      "Carapace",
-      "Cerebrum",
-      "Systems"
-    ]
-  },
-  {
-    "name": "Banshee Prime",
-    "slug": "banshee_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Mirage Prime",
-    "slug": "mirage_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Kogake Prime",
-    "slug": "kogake_prime",
-    "parts": [
-      "Blueprint",
-      "Boot",
-      "Gauntlet"
-    ]
-  },
-  {
-    "name": "Orthos Prime",
-    "slug": "orthos_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Inaros Prime",
-    "slug": "inaros_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Karyst Prime",
-    "slug": "karyst_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Nidus Prime",
-    "slug": "nidus_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Zakti Prime",
-    "slug": "zakti_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver"
-    ]
-  },
-  {
-    "name": "Volnus Prime",
-    "slug": "volnus_prime",
-    "parts": [
-      "Blueprint",
-      "Handle",
-      "Head"
-    ]
-  },
-  {
-    "name": "Aklex Prime",
-    "slug": "aklex_prime",
+    "name": "Akbronco Prime",
+    "slug": "akbronco_prime",
     "parts": [
       "Blueprint",
       "Link"
-    ]
-  },
-  {
-    "name": "Lex Prime",
-    "slug": "lex_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver"
-    ]
-  },
-  {
-    "name": "Hydroid Prime",
-    "slug": "hydroid_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Cernos Prime",
-    "slug": "cernos_prime",
-    "parts": [
-      "Blueprint",
-      "Grip",
-      "Lower Limb",
-      "String",
-      "Upper Limb"
-    ]
-  },
-  {
-    "name": "Ballistica Prime",
-    "slug": "ballistica_prime",
-    "parts": [
-      "Blueprint",
-      "Lower Limb",
-      "Receiver",
-      "String",
-      "Upper Limb"
-    ]
-  },
-  {
-    "name": "Zephyr Prime",
-    "slug": "zephyr_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Akvasto Prime",
-    "slug": "akvasto_prime",
-    "parts": [
-      "Blueprint",
-      "Link"
-    ]
-  },
-  {
-    "name": "Vasto Prime",
-    "slug": "vasto_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver"
-    ]
-  },
-  {
-    "name": "Tipedo Prime",
-    "slug": "tipedo_prime",
-    "parts": [
-      "Blueprint",
-      "Handle",
-      "Ornament"
-    ]
-  },
-  {
-    "name": "Chroma Prime",
-    "slug": "chroma_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Ash Prime",
-    "slug": "ash_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Carrier Prime",
-    "slug": "carrier_prime",
-    "parts": [
-      "Blueprint",
-      "Carapace",
-      "Cerebrum",
-      "Systems"
-    ]
-  },
-  {
-    "name": "Gram Prime",
-    "slug": "gram_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Pyrana Prime",
-    "slug": "pyrana_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver"
-    ]
-  },
-  {
-    "name": "Equinox Prime",
-    "slug": "equinox_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Ivara Prime",
-    "slug": "ivara_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Rubico Prime",
-    "slug": "rubico_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Kavasa Prime",
-    "slug": "kavasa_prime",
-    "parts": [
-      "Band",
-      "Buckle",
-      "Kubrow Collar Blueprint"
-    ]
-  },
-  {
-    "name": "Euphona Prime",
-    "slug": "euphona_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver"
-    ]
-  },
-  {
-    "name": "Sybaris Prime",
-    "slug": "sybaris_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Baza Prime",
-    "slug": "baza_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
     ]
   },
   {
@@ -471,48 +58,52 @@
     ]
   },
   {
-    "name": "Vectis Prime",
-    "slug": "vectis_prime",
+    "name": "Aklex Prime",
+    "slug": "aklex_prime",
+    "parts": [
+      "Blueprint",
+      "Link"
+    ]
+  },
+  {
+    "name": "Akmagnus Prime",
+    "slug": "akmagnus_prime",
+    "parts": [
+      "Blueprint",
+      "Link"
+    ]
+  },
+  {
+    "name": "Aksomati Prime",
+    "slug": "aksomati_prime",
     "parts": [
       "Barrel",
       "Blueprint",
-      "Receiver",
-      "Stock"
+      "Link",
+      "Receiver"
     ]
   },
   {
-    "name": "Silva & Aegis Prime",
-    "slug": "silva_aegis_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Guard",
-      "Hilt"
-    ]
-  },
-  {
-    "name": "Corinth Prime",
-    "slug": "corinth_prime",
+    "name": "Akstiletto Prime",
+    "slug": "akstiletto_prime",
     "parts": [
       "Barrel",
       "Blueprint",
-      "Receiver",
-      "Stock"
+      "Link",
+      "Receiver"
     ]
   },
   {
-    "name": "Panthera Prime",
-    "slug": "panthera_prime",
+    "name": "Akvasto Prime",
+    "slug": "akvasto_prime",
     "parts": [
-      "Barrel",
       "Blueprint",
-      "Receiver",
-      "Stock"
+      "Link"
     ]
   },
   {
-    "name": "Tekko Prime",
-    "slug": "tekko_prime",
+    "name": "Ankyros Prime",
+    "slug": "ankyros_prime",
     "parts": [
       "Blade",
       "Blueprint",
@@ -520,198 +111,8 @@
     ]
   },
   {
-    "name": "Pandero Prime",
-    "slug": "pandero_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver"
-    ]
-  },
-  {
-    "name": "Tenora Prime",
-    "slug": "tenora_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Bronco Prime",
-    "slug": "bronco_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver"
-    ]
-  },
-  {
-    "name": "Magnus Prime",
-    "slug": "magnus_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver"
-    ]
-  },
-  {
-    "name": "Destreza Prime",
-    "slug": "destreza_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Tiberon Prime",
-    "slug": "tiberon_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Limbo Prime",
-    "slug": "limbo_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Ember Prime",
-    "slug": "ember_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Glaive Prime",
-    "slug": "glaive_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Disc"
-    ]
-  },
-  {
-    "name": "Latron Prime",
-    "slug": "latron_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Sicarus Prime",
-    "slug": "sicarus_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver"
-    ]
-  },
-  {
-    "name": "Frost Prime",
-    "slug": "frost_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Galatine Prime",
-    "slug": "galatine_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Nekros Prime",
-    "slug": "nekros_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Saryn Prime",
-    "slug": "saryn_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Redeemer Prime",
-    "slug": "redeemer_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Kronen Prime",
-    "slug": "kronen_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Ninkondi Prime",
-    "slug": "ninkondi_prime",
-    "parts": [
-      "Blueprint",
-      "Chain",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Gara Prime",
-    "slug": "gara_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Nezha Prime",
-    "slug": "nezha_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Garuda Prime",
-    "slug": "garuda_prime",
+    "name": "Ash Prime",
+    "slug": "ash_prime",
     "parts": [
       "Blueprint",
       "Chassis Blueprint",
@@ -730,12 +131,173 @@
     ]
   },
   {
-    "name": "Dual Keres Prime",
-    "slug": "dual_keres_prime",
+    "name": "Atlas Prime",
+    "slug": "atlas_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Ballistica Prime",
+    "slug": "ballistica_prime",
+    "parts": [
+      "Blueprint",
+      "Lower Limb",
+      "Receiver",
+      "String",
+      "Upper Limb"
+    ]
+  },
+  {
+    "name": "Banshee Prime",
+    "slug": "banshee_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Baruuk Prime",
+    "slug": "baruuk_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Baza Prime",
+    "slug": "baza_prime",
+    "parts": [
+      "Barrel",
+      "Blueprint",
+      "Receiver",
+      "Stock"
+    ]
+  },
+  {
+    "name": "Bo Prime",
+    "slug": "bo_prime",
+    "parts": [
+      "Blueprint",
+      "Handle",
+      "Ornament"
+    ]
+  },
+  {
+    "name": "Boar Prime",
+    "slug": "boar_prime",
+    "parts": [
+      "Barrel",
+      "Blueprint",
+      "Receiver",
+      "Stock"
+    ]
+  },
+  {
+    "name": "Boltor Prime",
+    "slug": "boltor_prime",
+    "parts": [
+      "Barrel",
+      "Blueprint",
+      "Receiver",
+      "Stock"
+    ]
+  },
+  {
+    "name": "Braton Prime",
+    "slug": "braton_prime",
+    "parts": [
+      "Barrel",
+      "Blueprint",
+      "Receiver",
+      "Stock"
+    ]
+  },
+  {
+    "name": "Bronco Prime",
+    "slug": "bronco_prime",
+    "parts": [
+      "Barrel",
+      "Blueprint",
+      "Receiver"
+    ]
+  },
+  {
+    "name": "Burston Prime",
+    "slug": "burston_prime",
+    "parts": [
+      "Barrel",
+      "Blueprint",
+      "Receiver",
+      "Stock"
+    ]
+  },
+  {
+    "name": "Carrier Prime",
+    "slug": "carrier_prime",
+    "parts": [
+      "Blueprint",
+      "Carapace",
+      "Cerebrum",
+      "Systems"
+    ]
+  },
+  {
+    "name": "Cedo Prime",
+    "slug": "cedo_prime",
+    "parts": [
+      "Barrel",
+      "Blueprint",
+      "Receiver",
+      "Stock"
+    ]
+  },
+  {
+    "name": "Cernos Prime",
+    "slug": "cernos_prime",
+    "parts": [
+      "Blueprint",
+      "Grip",
+      "Lower Limb",
+      "String",
+      "Upper Limb"
+    ]
+  },
+  {
+    "name": "Chroma Prime",
+    "slug": "chroma_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Cobra & Crane Prime",
+    "slug": "cobra_crane_prime",
     "parts": [
       "Blade",
       "Blueprint",
-      "Handle"
+      "Guard",
+      "Hilt"
+    ]
+  },
+  {
+    "name": "Corinth Prime",
+    "slug": "corinth_prime",
+    "parts": [
+      "Barrel",
+      "Blueprint",
+      "Receiver",
+      "Stock"
     ]
   },
   {
@@ -749,23 +311,21 @@
     ]
   },
   {
-    "name": "Oberon Prime",
-    "slug": "oberon_prime",
+    "name": "Dakra Prime",
+    "slug": "dakra_prime",
     "parts": [
+      "Blade",
       "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
+      "Handle"
     ]
   },
   {
-    "name": "Mesa Prime",
-    "slug": "mesa_prime",
+    "name": "Destreza Prime",
+    "slug": "destreza_prime",
     "parts": [
+      "Blade",
       "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
+      "Handle"
     ]
   },
   {
@@ -779,8 +339,101 @@
     ]
   },
   {
-    "name": "Strun Prime",
-    "slug": "strun_prime",
+    "name": "Dual Kamas Prime",
+    "slug": "dual_kamas_prime",
+    "parts": [
+      "Blade",
+      "Blueprint",
+      "Handle"
+    ]
+  },
+  {
+    "name": "Dual Keres Prime",
+    "slug": "dual_keres_prime",
+    "parts": [
+      "Blade",
+      "Blueprint",
+      "Handle"
+    ]
+  },
+  {
+    "name": "Dual Zoren Prime",
+    "slug": "dual_zoren_prime",
+    "parts": [
+      "Blade",
+      "Blueprint",
+      "Handle"
+    ]
+  },
+  {
+    "name": "Ember Prime",
+    "slug": "ember_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Epitaph Prime",
+    "slug": "epitaph_prime",
+    "parts": [
+      "Barrel",
+      "Blueprint",
+      "Receiver"
+    ]
+  },
+  {
+    "name": "Equinox Prime",
+    "slug": "equinox_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Euphona Prime",
+    "slug": "euphona_prime",
+    "parts": [
+      "Barrel",
+      "Blueprint",
+      "Receiver"
+    ]
+  },
+  {
+    "name": "Fang Prime",
+    "slug": "fang_prime",
+    "parts": [
+      "Blade",
+      "Blueprint",
+      "Handle"
+    ]
+  },
+  {
+    "name": "Fragor Prime",
+    "slug": "fragor_prime",
+    "parts": [
+      "Blueprint",
+      "Handle",
+      "Head"
+    ]
+  },
+  {
+    "name": "Frost Prime",
+    "slug": "frost_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Fulmin Prime",
+    "slug": "fulmin_prime",
     "parts": [
       "Barrel",
       "Blueprint",
@@ -789,13 +442,108 @@
     ]
   },
   {
-    "name": "Odonata Prime",
-    "slug": "odonata_prime",
+    "name": "Galatine Prime",
+    "slug": "galatine_prime",
+    "parts": [
+      "Blade",
+      "Blueprint",
+      "Handle"
+    ]
+  },
+  {
+    "name": "Gara Prime",
+    "slug": "gara_prime",
     "parts": [
       "Blueprint",
-      "Harness Blueprint",
-      "Systems Blueprint",
-      "Wings Blueprint"
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Garuda Prime",
+    "slug": "garuda_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Gauss Prime",
+    "slug": "gauss_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Glaive Prime",
+    "slug": "glaive_prime",
+    "parts": [
+      "Blade",
+      "Blueprint",
+      "Disc"
+    ]
+  },
+  {
+    "name": "Gram Prime",
+    "slug": "gram_prime",
+    "parts": [
+      "Blade",
+      "Blueprint",
+      "Handle"
+    ]
+  },
+  {
+    "name": "Grendel Prime",
+    "slug": "grendel_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Guandao Prime",
+    "slug": "guandao_prime",
+    "parts": [
+      "Blade",
+      "Blueprint",
+      "Handle"
+    ]
+  },
+  {
+    "name": "Gunsen Prime",
+    "slug": "gunsen_prime",
+    "parts": [
+      "Blade",
+      "Blueprint",
+      "Handle"
+    ]
+  },
+  {
+    "name": "Harrow Prime",
+    "slug": "harrow_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Helios Prime",
+    "slug": "helios_prime",
+    "parts": [
+      "Blueprint",
+      "Carapace",
+      "Cerebrum",
+      "Systems"
     ]
   },
   {
@@ -808,6 +556,83 @@
     ]
   },
   {
+    "name": "Hildryn Prime",
+    "slug": "hildryn_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Hydroid Prime",
+    "slug": "hydroid_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Hystrix Prime",
+    "slug": "hystrix_prime",
+    "parts": [
+      "Barrel",
+      "Blueprint",
+      "Receiver"
+    ]
+  },
+  {
+    "name": "Inaros Prime",
+    "slug": "inaros_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Ivara Prime",
+    "slug": "ivara_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Karyst Prime",
+    "slug": "karyst_prime",
+    "parts": [
+      "Blade",
+      "Blueprint",
+      "Handle"
+    ]
+  },
+  {
+    "name": "Kavasa Prime",
+    "slug": "kavasa_prime",
+    "parts": [
+      "Band",
+      "Buckle",
+      "Kubrow Collar Blueprint"
+    ]
+  },
+  {
+    "name": "Khora Prime",
+    "slug": "khora_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
     "name": "Knell Prime",
     "slug": "knell_prime",
     "parts": [
@@ -817,8 +642,230 @@
     ]
   },
   {
-    "name": "Harrow Prime",
-    "slug": "harrow_prime",
+    "name": "Kogake Prime",
+    "slug": "kogake_prime",
+    "parts": [
+      "Blueprint",
+      "Boot",
+      "Gauntlet"
+    ]
+  },
+  {
+    "name": "Kronen Prime",
+    "slug": "kronen_prime",
+    "parts": [
+      "Blade",
+      "Blueprint",
+      "Handle"
+    ]
+  },
+  {
+    "name": "Larkspur Prime",
+    "slug": "larkspur_prime",
+    "parts": [
+      "Barrel",
+      "Blueprint",
+      "Receiver",
+      "Stock"
+    ]
+  },
+  {
+    "name": "Latron Prime",
+    "slug": "latron_prime",
+    "parts": [
+      "Barrel",
+      "Blueprint",
+      "Receiver",
+      "Stock"
+    ]
+  },
+  {
+    "name": "Lavos Prime",
+    "slug": "lavos_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Lex Prime",
+    "slug": "lex_prime",
+    "parts": [
+      "Barrel",
+      "Blueprint",
+      "Receiver"
+    ]
+  },
+  {
+    "name": "Limbo Prime",
+    "slug": "limbo_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Loki Prime",
+    "slug": "loki_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Mag Prime",
+    "slug": "mag_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Magnus Prime",
+    "slug": "magnus_prime",
+    "parts": [
+      "Barrel",
+      "Blueprint",
+      "Receiver"
+    ]
+  },
+  {
+    "name": "Masseter Prime",
+    "slug": "masseter_prime",
+    "parts": [
+      "Blade",
+      "Blueprint",
+      "Handle"
+    ]
+  },
+  {
+    "name": "Mesa Prime",
+    "slug": "mesa_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Mirage Prime",
+    "slug": "mirage_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Nagantaka Prime",
+    "slug": "nagantaka_prime",
+    "parts": [
+      "Barrel",
+      "Blueprint",
+      "Receiver",
+      "Stock"
+    ]
+  },
+  {
+    "name": "Nami Skyla Prime",
+    "slug": "nami_skyla_prime",
+    "parts": [
+      "Blade",
+      "Blueprint",
+      "Handle"
+    ]
+  },
+  {
+    "name": "Nautilus Prime",
+    "slug": "nautilus_prime",
+    "parts": [
+      "Blueprint",
+      "Carapace",
+      "Cerebrum",
+      "Systems"
+    ]
+  },
+  {
+    "name": "Nekros Prime",
+    "slug": "nekros_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Nezha Prime",
+    "slug": "nezha_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Nidus Prime",
+    "slug": "nidus_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Nikana Prime",
+    "slug": "nikana_prime",
+    "parts": [
+      "Blade",
+      "Blueprint",
+      "Hilt"
+    ]
+  },
+  {
+    "name": "Ninkondi Prime",
+    "slug": "ninkondi_prime",
+    "parts": [
+      "Blueprint",
+      "Chain",
+      "Handle"
+    ]
+  },
+  {
+    "name": "Nova Prime",
+    "slug": "nova_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Nyx Prime",
+    "slug": "nyx_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Oberon Prime",
+    "slug": "oberon_prime",
     "parts": [
       "Blueprint",
       "Chassis Blueprint",
@@ -837,18 +884,36 @@
     ]
   },
   {
-    "name": "Khora Prime",
-    "slug": "khora_prime",
+    "name": "Odonata Prime",
+    "slug": "odonata_prime",
     "parts": [
       "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
+      "Harness Blueprint",
+      "Systems Blueprint",
+      "Wings Blueprint"
     ]
   },
   {
-    "name": "Hystrix Prime",
-    "slug": "hystrix_prime",
+    "name": "Okina Prime",
+    "slug": "okina_prime",
+    "parts": [
+      "Blade",
+      "Blueprint",
+      "Handle"
+    ]
+  },
+  {
+    "name": "Orthos Prime",
+    "slug": "orthos_prime",
+    "parts": [
+      "Blade",
+      "Blueprint",
+      "Handle"
+    ]
+  },
+  {
+    "name": "Pandero Prime",
+    "slug": "pandero_prime",
     "parts": [
       "Barrel",
       "Blueprint",
@@ -856,8 +921,17 @@
     ]
   },
   {
-    "name": "Nagantaka Prime",
-    "slug": "nagantaka_prime",
+    "name": "Pangolin Prime",
+    "slug": "pangolin_prime",
+    "parts": [
+      "Blade",
+      "Blueprint",
+      "Handle"
+    ]
+  },
+  {
+    "name": "Panthera Prime",
+    "slug": "panthera_prime",
     "parts": [
       "Barrel",
       "Blueprint",
@@ -866,70 +940,14 @@
     ]
   },
   {
-    "name": "Loki Prime",
-    "slug": "loki_prime",
+    "name": "Paris Prime",
+    "slug": "paris_prime",
     "parts": [
       "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Reaper Prime",
-    "slug": "reaper_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Wyrm Prime",
-    "slug": "wyrm_prime",
-    "parts": [
-      "Blueprint",
-      "Carapace",
-      "Cerebrum",
-      "Systems"
-    ]
-  },
-  {
-    "name": "Nami Skyla Prime",
-    "slug": "nami_skyla_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Volt Prime",
-    "slug": "volt_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Bo Prime",
-    "slug": "bo_prime",
-    "parts": [
-      "Blueprint",
-      "Handle",
-      "Ornament"
-    ]
-  },
-  {
-    "name": "Titania Prime",
-    "slug": "titania_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
+      "Grip",
+      "Lower Limb",
+      "String",
+      "Upper Limb"
     ]
   },
   {
@@ -943,12 +961,59 @@
     ]
   },
   {
-    "name": "Venka Prime",
-    "slug": "venka_prime",
+    "name": "Protea Prime",
+    "slug": "protea_prime",
     "parts": [
-      "Blades",
       "Blueprint",
-      "Gauntlet"
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Pyrana Prime",
+    "slug": "pyrana_prime",
+    "parts": [
+      "Barrel",
+      "Blueprint",
+      "Receiver"
+    ]
+  },
+  {
+    "name": "Quassus Prime",
+    "slug": "quassus_prime",
+    "parts": [
+      "Blade",
+      "Blueprint",
+      "Handle"
+    ]
+  },
+  {
+    "name": "Reaper Prime",
+    "slug": "reaper_prime",
+    "parts": [
+      "Blade",
+      "Blueprint",
+      "Handle"
+    ]
+  },
+  {
+    "name": "Redeemer Prime",
+    "slug": "redeemer_prime",
+    "parts": [
+      "Blade",
+      "Blueprint",
+      "Handle"
+    ]
+  },
+  {
+    "name": "Revenant Prime",
+    "slug": "revenant_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
     ]
   },
   {
@@ -962,26 +1027,8 @@
     ]
   },
   {
-    "name": "Dakra Prime",
-    "slug": "dakra_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Ankyros Prime",
-    "slug": "ankyros_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Gauntlet"
-    ]
-  },
-  {
-    "name": "Boltor Prime",
-    "slug": "boltor_prime",
+    "name": "Rubico Prime",
+    "slug": "rubico_prime",
     "parts": [
       "Barrel",
       "Blueprint",
@@ -990,23 +1037,13 @@
     ]
   },
   {
-    "name": "Mag Prime",
-    "slug": "mag_prime",
+    "name": "Saryn Prime",
+    "slug": "saryn_prime",
     "parts": [
       "Blueprint",
       "Chassis Blueprint",
       "Neuroptics Blueprint",
       "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Boar Prime",
-    "slug": "boar_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
     ]
   },
   {
@@ -1029,22 +1066,42 @@
     ]
   },
   {
-    "name": "Guandao Prime",
-    "slug": "guandao_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Nyx Prime",
-    "slug": "nyx_prime",
+    "name": "Sevagoth Prime",
+    "slug": "sevagoth_prime",
     "parts": [
       "Blueprint",
       "Chassis Blueprint",
       "Neuroptics Blueprint",
       "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Shade Prime",
+    "slug": "shade_prime",
+    "parts": [
+      "Blueprint",
+      "Carapace",
+      "Cerebrum",
+      "Systems"
+    ]
+  },
+  {
+    "name": "Sicarus Prime",
+    "slug": "sicarus_prime",
+    "parts": [
+      "Barrel",
+      "Blueprint",
+      "Receiver"
+    ]
+  },
+  {
+    "name": "Silva & Aegis Prime",
+    "slug": "silva_aegis_prime",
+    "parts": [
+      "Blade",
+      "Blueprint",
+      "Guard",
+      "Hilt"
     ]
   },
   {
@@ -1058,16 +1115,6 @@
     ]
   },
   {
-    "name": "Nova Prime",
-    "slug": "nova_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
     "name": "Spira Prime",
     "slug": "spira_prime",
     "parts": [
@@ -1077,8 +1124,28 @@
     ]
   },
   {
-    "name": "Tigris Prime",
-    "slug": "tigris_prime",
+    "name": "Stradavar Prime",
+    "slug": "stradavar_prime",
+    "parts": [
+      "Barrel",
+      "Blueprint",
+      "Receiver",
+      "Stock"
+    ]
+  },
+  {
+    "name": "Strun Prime",
+    "slug": "strun_prime",
+    "parts": [
+      "Barrel",
+      "Blueprint",
+      "Receiver",
+      "Stock"
+    ]
+  },
+  {
+    "name": "Sybaris Prime",
+    "slug": "sybaris_prime",
     "parts": [
       "Barrel",
       "Blueprint",
@@ -1096,13 +1163,81 @@
     ]
   },
   {
-    "name": "Vauban Prime",
-    "slug": "vauban_prime",
+    "name": "Tekko Prime",
+    "slug": "tekko_prime",
+    "parts": [
+      "Blade",
+      "Blueprint",
+      "Gauntlet"
+    ]
+  },
+  {
+    "name": "Tenora Prime",
+    "slug": "tenora_prime",
+    "parts": [
+      "Barrel",
+      "Blueprint",
+      "Receiver",
+      "Stock"
+    ]
+  },
+  {
+    "name": "Tiberon Prime",
+    "slug": "tiberon_prime",
+    "parts": [
+      "Barrel",
+      "Blueprint",
+      "Receiver",
+      "Stock"
+    ]
+  },
+  {
+    "name": "Tigris Prime",
+    "slug": "tigris_prime",
+    "parts": [
+      "Barrel",
+      "Blueprint",
+      "Receiver",
+      "Stock"
+    ]
+  },
+  {
+    "name": "Tipedo Prime",
+    "slug": "tipedo_prime",
+    "parts": [
+      "Blueprint",
+      "Handle",
+      "Ornament"
+    ]
+  },
+  {
+    "name": "Titania Prime",
+    "slug": "titania_prime",
     "parts": [
       "Blueprint",
       "Chassis Blueprint",
       "Neuroptics Blueprint",
       "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Trinity Prime",
+    "slug": "trinity_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Trumna Prime",
+    "slug": "trumna_prime",
+    "parts": [
+      "Barrel",
+      "Blueprint",
+      "Receiver",
+      "Stock"
     ]
   },
   {
@@ -1116,13 +1251,148 @@
     ]
   },
   {
-    "name": "Revenant Prime",
-    "slug": "revenant_prime",
+    "name": "Vasto Prime",
+    "slug": "vasto_prime",
+    "parts": [
+      "Barrel",
+      "Blueprint",
+      "Receiver"
+    ]
+  },
+  {
+    "name": "Vauban Prime",
+    "slug": "vauban_prime",
     "parts": [
       "Blueprint",
       "Chassis Blueprint",
       "Neuroptics Blueprint",
       "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Vectis Prime",
+    "slug": "vectis_prime",
+    "parts": [
+      "Barrel",
+      "Blueprint",
+      "Receiver",
+      "Stock"
+    ]
+  },
+  {
+    "name": "Velox Prime",
+    "slug": "velox_prime",
+    "parts": [
+      "Barrel",
+      "Blueprint",
+      "Receiver"
+    ]
+  },
+  {
+    "name": "Venka Prime",
+    "slug": "venka_prime",
+    "parts": [
+      "Blades",
+      "Blueprint",
+      "Gauntlet"
+    ]
+  },
+  {
+    "name": "Volnus Prime",
+    "slug": "volnus_prime",
+    "parts": [
+      "Blueprint",
+      "Handle",
+      "Head"
+    ]
+  },
+  {
+    "name": "Volt Prime",
+    "slug": "volt_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Wisp Prime",
+    "slug": "wisp_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Wukong Prime",
+    "slug": "wukong_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Wyrm Prime",
+    "slug": "wyrm_prime",
+    "parts": [
+      "Blueprint",
+      "Carapace",
+      "Cerebrum",
+      "Systems"
+    ]
+  },
+  {
+    "name": "Xaku Prime",
+    "slug": "xaku_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Zakti Prime",
+    "slug": "zakti_prime",
+    "parts": [
+      "Barrel",
+      "Blueprint",
+      "Receiver"
+    ]
+  },
+  {
+    "name": "Zephyr Prime",
+    "slug": "zephyr_prime",
+    "parts": [
+      "Blueprint",
+      "Chassis Blueprint",
+      "Neuroptics Blueprint",
+      "Systems Blueprint"
+    ]
+  },
+  {
+    "name": "Zhuge Prime",
+    "slug": "zhuge_prime",
+    "parts": [
+      "Barrel",
+      "Blueprint",
+      "Grip",
+      "Receiver",
+      "String"
+    ]
+  },
+  {
+    "name": "Zylok Prime",
+    "slug": "zylok_prime",
+    "parts": [
+      "Barrel",
+      "Blueprint",
+      "Receiver"
     ]
   }
 ]
