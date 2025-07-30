@@ -1,0 +1,20 @@
+<h1>{{ warframe.name }}</h1>
+{% for part in parts %}
+  <section>
+    <h2>{{ part.name }}</h2>
+    {% if part.relics is empty %}
+      <p>Nenhuma relic dropa esse componente.</p>
+    {% else %}
+      <ul>
+        {% for relic in part.relics %}
+          <li>
+            {{ relic.name }}
+            {% if loader.isVaulted(relic.name) %}
+              <span style="color: red;"> ✓</span>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </section>
+{% endfor %}

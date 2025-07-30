@@ -1,0 +1,53 @@
+{# templates/relics/list.html.twig #}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Relics Unvaulted</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2rem;
+            background: #f5f5f5;
+        }
+        h1 {
+            text-align: center;
+        }
+        .relic-list {
+            max-width: 600px;
+            margin: 1.5rem auto;
+            padding: 1rem;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .relic-item {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .relic-item:last-child {
+            border-bottom: none;
+        }
+        .relic-name {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Relics Não Vaulted</h1>
+
+    <div class="relic-list">
+        {% if relics is empty %}
+            <p>Nenhum relic disponível no momento.</p>
+        {% else %}
+            {% for relic in relics %}
+                <div class="relic-item">
+                    <span class="relic-name">{{ relic.name }}</span>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+</body>
+</html>
