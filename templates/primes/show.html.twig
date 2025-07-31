@@ -1,24 +1,55 @@
-<h1>
-    {{ prime.name }}
-</h1>
+{% extends 'base.html.twig' %}
 
-{% for part in parts %}
-  <section>
-    <h2>{{ part.name }}</h2>
+{% block title %}{{ prime.name }}{% endblock %}
 
-    {% if part.relics is empty %}
-      <p>Nenhuma relic dropa esse componente.</p>
-    {% else %}
-      <ul>
-        {% for relic in part.relics %}
-          {% set base_name = relic.name|replace({' Relic': ''}) %}
-          {% set slug = base_name|lower|replace({' ': '_'}) %}
+{% block body %}
+  <h1>{{ prime.name }}</h1>
 
-          <li>
-            <a href="/relics/{{ slug }}">{{ relic.name }}</a>
-          </li>
-        {% endfor %}
-      </ul>
-    {% endif %}
-  </section>
-{% endfor %}
+  {% for part in parts %}
+    <section>
+      <h2>{{ part.name }}</h2>
+
+      {% if part.relics is empty %}
+        <p>Nenhuma relic dropa esse componente.</p>
+      {% else %}
+        <ul>
+          {% for relic in part.relics %}
+            {% if relic.dropsGrouped is not empty %}
+              {% set best = null %}
+              {% for d in relic.dropsGrouped %}
+                {% set eff = (d.efficiency|replace({'%':''})) + 0 %}
+                {% if best is null or eff > ((best.efficiency|replace({'%':''})) + 0) %}
+                  {% set best = d %}
+                {% endif %}
+              {% endfor %}
+
+              {% set highest = best.rotations|last %}
+
+              {% if highest == 'A' %}
+                {% set pattern = 'AA' %}
+              {% elseif highest == 'B' %}
+                {% set pattern = 'AAB' %}
+              {% else %}
+                {% set pattern = 'AABC' %}
+              {% endif %}
+
+              {% set slug = relic.name|replace({' Relic':''})|lower|replace({' ':'_'}) %}
+
+              <li>
+                <a href="/relic/{{ slug }}">{{ relic.name }}</a> —
+                {{ best.planet }} / {{ best.mission }} ({{ best.gameMode }}) —
+                Chance no ciclo: {{ best.cycleChance }} —
+                Eficiência: {{ best.efficiency }} —
+                Parar em: {{ pattern }}
+              </li>
+            {% else %}
+              <li>
+                <strong>{{ relic.name }}</strong> — Sem drops disponíveis no momento.
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </section>
+  {% endfor %}
+{% endblock %}
