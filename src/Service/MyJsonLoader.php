@@ -44,23 +44,4 @@ class MyJsonLoader
             return false;
         });
     }
-
-    public function isVaulted(string $relicName): bool
-    {
-        $allRelics = $this->load("Relics_Normalized.json");
-
-        if (!is_array($allRelics)) {
-            return false;
-        }
-
-        foreach ($allRelics as $relic) {
-            if (isset($relic["name"]) && $relic["name"] === $relicName) {
-                if (isset($relic["vaulted"])) {
-                    return (bool) $relic["vaulted"];
-                }
-                return false;
-            }
-        }
-        return false;
-    }
 }

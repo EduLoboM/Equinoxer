@@ -37,27 +37,51 @@
       <p>Nenhuma missão disponível para esta relíquia no momento.</p>
     </div>
   {% else %}
+    {% set groups = {} %}
+    {% for r in rewards %}
+      {% set key = r.planet ~ '|' ~ r.mission ~ '|' ~ r.gameMode %}
+      {% if groups[key] is not defined %}
+        {% set groups = groups|merge({
+          (key): {
+            'planet':    r.planet,
+            'mission':   r.mission,
+            'gameMode':  r.gameMode,
+            'rotations': [ r.rotation ],
+            'chances':   [ r.chance ]
+          }
+        }) %}
+      {% else %}
+        {% set entry = groups[key] %}
+        {% set entry = entry|merge({
+          'rotations': entry.rotations | merge([ r.rotation ]),
+          'chances':   entry.chances   | merge([ r.chance   ])
+        }) %}
+        {% set groups = groups|merge({ (key): entry }) %}
+      {% endif %}
+    {% endfor %}
+
     <table class="table">
-        <thead>
-            <tr>
-                <th>Planeta</th>
-                <th>Missão</th>
-                <th>Modo</th>
-                <th>Rotação</th>
-                <th>Chance</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for reward in rewards %}
-                <tr>
-                    <td>{{ reward.planet }}</td>
-                    <td>{{ reward.mission }}</td>
-                    <td>{{ reward.gameMode }}</td>
-                    <td>{{ reward.rotation }}</td>
-                    <td>{{ reward.chance }}%</td>
-                </tr>
-            {% endfor %}
-        </tbody>
+      <thead>
+        <tr>
+          <th>Planeta</th>
+          <th>Missão</th>
+          <th>Modo</th>
+          <th>Rotação(s)</th>
+          <th>Chance(s)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for key, entry in groups %}
+          <tr>
+            <td>{{ entry.planet }}</td>
+            <td>{{ entry.mission }}</td>
+            <td>{{ entry.gameMode }}</td>
+            <td>{{ entry.rotations | join(',') }}</td>
+            <td>{{ entry.chances   | join(',') }}%</td>
+          </tr>
+        {% endfor %}
+      </tbody>
     </table>
   {% endif %}
-{% endblock %}
+
+  {% endblock %}
