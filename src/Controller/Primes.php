@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class Primes extends AbstractController
 {
     #[Route("/primes", name: "primes")]
-    public function list(MyJsonLoader $loader)
+    public function list(MyJsonLoader $loader): Response
     {
         $primes = $loader->load("Primes_Normalized.json");
 
