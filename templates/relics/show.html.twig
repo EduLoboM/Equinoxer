@@ -1,6 +1,12 @@
 {% extends 'base.html.twig' %}
 {% block title %}{{ relic.name }}{% endblock %}
 {% block body %}
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ relic.name }}</title>
+<link rel="stylesheet" href="{{ asset('css/main.css') }}">
+</head>
   <h1>
     {{ relic.name }}
   </h1>
@@ -10,7 +16,6 @@
       {% set chances = chances | merge([ reward.chance ]) %}
     {% endif %}
   {% endfor %}
-  {# Agora ordena esse array de números #}
   {% set chances = chances | sort %}
   <ul>
     {% for chance in chances %}
@@ -31,9 +36,8 @@
     {% endfor %}
   </ul>
 
-  <h3>Missões onde encontrar a reliquia:</h3>
   {% if rewards is empty %}
-    <div class="alert alert-info">
+    <div class="alert-info">
       <p>Nenhuma missão disponível para esta relíquia no momento.</p>
     </div>
   {% else %}

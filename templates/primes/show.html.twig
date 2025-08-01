@@ -3,6 +3,13 @@
 {% block title %}{{ prime.name }}{% endblock %}
 
 {% block body %}
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ prime.name }}</title>
+<link rel="stylesheet" href="{{ asset('css/main.css') }}">
+</head>
+
   <h1>{{ prime.name }}</h1>
 
   {% for part in parts %}
@@ -36,7 +43,7 @@
               {% set slug = relic.name|replace({' Relic':''})|lower|replace({' ':'_'}) %}
 
               <li>
-                <a href="/relic/{{ slug }}">{{ relic.name }}</a> —
+                <a href="/relics/{{ slug }}">{{ relic.name }}</a>
                 {{ best.planet }} / {{ best.mission }} ({{ best.gameMode }}) —
                 Chance no ciclo: {{ best.cycleChance }} —
                 Eficiência: {{ best.efficiency }} —
@@ -44,7 +51,8 @@
               </li>
             {% else %}
               <li>
-                <strong>{{ relic.name }}</strong> — Sem drops disponíveis no momento.
+                {% set slug = relic.name|replace({' Relic':''})|lower|replace({' ':'_'}) %}
+                <a href="/relics/{{ slug }}">{{ relic.name }}</a> Sem drops disponíveis no momento.
               </li>
             {% endif %}
           {% endfor %}
