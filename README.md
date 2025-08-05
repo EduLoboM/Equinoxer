@@ -76,9 +76,5 @@ Contribuições são muito bem-vindas! Se você tem ideias para novas funcionali
 4.  Fazer o **Push** para a sua Branch (`git push origin feature/sua-feature-incrivel`).
 5.  Abrir um **Pull Request**.
 
-## 📄 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](https://github.com/EduLoboM/Equinoxer/blob/main/LICENSE) para mais detalhes.
-
 ---
 <p align="center">Desenvolvido com ❤️ pela comunidade Warframe.</p>
