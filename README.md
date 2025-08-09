@@ -14,8 +14,6 @@ Equinoxer é uma plataforma web desenvolvida para ajudar os jogadores de **Warfr
 
 Este projeto foi construído com o framework **Symfony**, focando em uma experiência de usuário limpa, rápida e eficiente.
 
-## 🖼️ Exemplo Visual
-
 ## ✨ Funcionalidades
 
 * **Busca Inteligente:** Pesquise por Warframe, arma, ou item Prime específico.
