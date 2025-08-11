@@ -37,7 +37,7 @@ class MyJsonLoader
             }
 
             foreach ($r["rewards"] as $reward) {
-                if (isset($reward["item"]) && $reward["item"] === $itemName) {
+                if (isset($reward["item"]) && str_contains($reward["item"], $itemName)) {
                     return true;
                 }
             }

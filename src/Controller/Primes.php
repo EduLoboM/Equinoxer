@@ -41,7 +41,13 @@ class Primes extends AbstractController
         $positions = ["A" => 1, "B" => 2, "C" => 3];
 
         $parts = [];
-        foreach ($prime["parts"] as $partName) {
+        foreach ($prime["parts"] as $partData) {
+            $partName = is_array($partData) ? ($partData['name'] ?? 'Unknown') : $partData;
+            
+            if (in_array($partName, ['Orokin Cell', 'Argon Crystal', 'Tellurium', 'Nitain Extract', 'Neural Sensors', 'Neurodes'])) {
+                continue;
+            }
+
             $fullItemName = "{$prime["name"]} {$partName}";
             $rawRelics = $loader->findRelicsByItem($fullItemName);
             $relicsWithDrops = [];

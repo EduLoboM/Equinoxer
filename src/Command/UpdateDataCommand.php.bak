@@ -1,0 +1,260 @@
+<?php
+
+namespace App\Command;
+
+use Symfony\Component\Console\Attribute\AsCommand;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
+
+#[AsCommand(
+    name: 'app:update-data',
+    description: 'Updates local JSON data from Warframe API',
+)]
+class UpdateDataCommand extends Command
+{
+    private HttpClientInterface $httpClient;
+    private string $dataDir;
+
+    public function __construct(
+        HttpClientInterface $httpClient,
+        #[Autowire('%kernel.project_dir%/data')] string $dataDir
+    ) {
+        $this->httpClient = $httpClient;
+        $this->dataDir = $dataDir;
+        parent::__construct();
+    }
+
+    protected function execute(InputInterface $input, OutputInterface $output): int
+    {
+        ini_set('memory_limit', '-1');
+        try {
+            $output->writeln('Fetching items from Warframe API by category...');
+
+            $output->writeln('Processing Relics...');
+            $relicItems = $this->fetchCategory('Relics', $output);
+            $this->processRelics($relicItems, $output);
+
+            $output->writeln('Processing Primes...');
+            $primeCategories = ['Warframes', 'Primary', 'Secondary', 'Melee', 'Archwing', 'Sentinels', 'Pets', 'Skins'];
+            
+            $primeItems = [];
+            
+            foreach ($primeCategories as $cat) {
+                 gc_collect_cycles();
+                 $catItems = $this->fetchCategory($cat, $output);
+                 $primeItems = array_merge($primeItems, $catItems);
+            }
+            
+            $this->processPrimes($primeItems, $output);
+
+            $output->writeln('Data update complete.');
+
+            return Command::SUCCESS;
+        } catch (\Throwable $e) {
+            $output->writeln('CRITICAL ERROR: ' . $e->getMessage());
+            $output->writeln($e->getTraceAsString());
+            return Command::FAILURE;
+        }
+    }
+
+    private function fetchCategory(string $category, OutputInterface $output): array
+    {
+        $output->writeln(" - Fetching category: {$category} (query param)");
+        
+        try {
+            // Use query parameter to ensure category filtering, not string search.
+            // Try normalized category first (usually Capitalized or lowercase depending on API)
+            // WarframeStat API categories are often Capitalized e.g. "Relics", "Warframes"
+            
+            $response = $this->httpClient->request('GET', "https://api.warframestat.us/items", [
+                'query' => [
+                    'category' => $category,
+                     // 'remove' => 'components,patchlogs' // Optimization? No, we need components for Primes
+                ],
+                'timeout' => 60,
+            ]);
+            
+            if ($response->getStatusCode() !== 200) {
+                 $output->writeln("   Request failed (Status {$response->getStatusCode()})");
+                 return [];
+            }
+            
+            $data = $response->toArray();
+            
+            if (empty($data)) {
+                 $output->writeln("   Warning: API returned empty data for {$category}.");
+                 return [];
+            }
+
+            // Normalization: Ensure it is a list of items
+            if (!array_is_list($data)) {
+                 $data = array_values($data);
+            }
+            
+            return $data;
+        } catch (\Exception $e) {
+            $output->writeln("   Error fetching {$category}: " . $e->getMessage());
+            return [];
+        }
+    }
+
+    private function processRelics(array $items, OutputInterface $output): void
+    {
+        $relics = [];
+        $seenRelics = [];
+        
+        foreach ($items as $item) {
+            if (!is_array($item)) { continue; }
+            
+            $cat = $item['category'] ?? '';
+            $name = $item['name'] ?? '';
+
+            if (stripos($cat, 'Relic') === false && stripos($name, 'Relic') === false) {
+                 continue;
+            }
+            if (!isset($item['rewards'])) {
+                continue;
+            }
+
+            // Normalize Name: Remove "(Intact)", "(Radiant)"
+            $baseName = preg_replace('/\s+\((Intact|Exceptional|Flawless|Radiant)\)$/i', '', $name);
+            $baseName = trim($baseName); // e.g. "Meso P17 Relic"
+
+            if (isset($seenRelics[$baseName])) {
+                continue;
+            }
+            $seenRelics[$baseName] = true;
+
+            // Simple slug logic
+            $slug = strtolower(str_replace(' ', '_', $baseName));
+            // Try matching "Axi A1" pattern if desired, but "meso_p17_relic" is fine or "meso_p17"
+            $parts = explode(' ', $baseName);
+            // Expected: "Meso P17 Relic" -> parts[0]=Meso, parts[1]=P17
+            if (count($parts) >= 2) {
+                 $tier = strtolower($parts[0]);
+                 $code = strtolower($parts[1]);
+                 if ($tier !== 'unknown') {
+                     // Standard relic slug usually just "meso_p17" (without _relic suffix if possible)
+                     if (strtolower($parts[2] ?? '') === 'relic') {
+                          $slug = "{$tier}_{$code}";
+                     }
+                     if ($tier === 'requiem') {
+                          $slug = "requiem_{$code}";
+                     }
+                 }
+            }
+
+            $rewards = [];
+            foreach ($item['rewards'] as $reward) {
+                $rewards[] = [
+                    'rarity' => $reward['rarity'],
+                    'chance' => $reward['chance'],
+                    'item' => $reward['itemName'] ?? 'Unknown',
+                ];
+            }
+            
+            $relics[] = [
+                'name' => $baseName,
+                'slug' => $slug,
+                'rewards' => $rewards,
+            ];
+        }
+
+        // Sort by name
+        usort($relics, fn($a, $b) => strcmp($a['name'], $b['name']));
+
+        file_put_contents(
+            $this->dataDir . '/Relics_Normalized.json',
+            json_encode($relics, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)
+        );
+        $output->writeln(sprintf('Saved %d relics.', count($relics)));
+    }
+
+    private function processPrimes(array $items, OutputInterface $output): void
+    {
+        // Target Categories: 'Warframes', 'Primary', 'Secondary', 'Melee', 'Archwing', 'Sentinels', 'Kubrow' (Collar)
+        // Must contain "Prime" in name.
+        
+        $primes = [];
+        $seen = []; // Avoid duplicates if categories overlap
+        
+        foreach ($items as $item) {
+            if (!is_array($item)) {
+                continue;
+            }
+            
+            $name = $item['name'] ?? '';
+            if ($name === '') {
+                 continue;
+            }
+            
+            if (isset($seen[$name])) {
+                continue;
+    private function processPrimes(array $items, OutputInterface $output): void
+    {
+        // Target Categories: 'Warframes', 'Primary', 'Secondary', 'Melee', 'Archwing', 'Sentinels', 'Kubrow' (Collar)
+        // Must contain "Prime" in name.
+        
+        $primes = [];
+        $seen = []; // Avoid duplicates if categories overlap
+        
+        foreach ($items as $item) {
+            if (!is_array($item)) { continue; }
+            
+            $name = $item['name'] ?? '';
+            if ($name === '') { continue; }
+            
+            $name = trim($name);
+            
+            if (isset($seen[$name])) {
+                continue;
+            }
+            
+            if (!str_contains($name, 'Prime')) {
+                continue;
+            }
+            if (str_contains($name, 'Set')) {
+                // Ignore "Set" items, we want the Main item
+                continue;
+            }
+            
+            // Check for components.
+            if (empty($item['components'])) {
+                continue;
+            }
+
+            $seen[$name] = true;
+
+            $slug = strtolower(str_replace(' ', '_', $name));
+            
+            $parts = [];
+            foreach ($item['components'] as $component) {
+                $compName = $component['name'];
+                $cleanName = str_ireplace($name . ' ', '', $compName);
+                
+                $parts[] = [
+                    'name' => trim($cleanName),
+                    'count' => $component['itemCount'] ?? 1,
+                ];
+            }
+            
+            $primes[] = [
+                'name' => $name,
+                'slug' => $slug,
+                'parts' => $parts,
+            ];
+        }
+
+        // Sort by name
+        usort($primes, fn($a, $b) => strcmp($a['name'], $b['name']));
+
+        file_put_contents(
+            $this->dataDir . '/Primes_Normalized.json',
+            json_encode($primes, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)
+        );
+        $output->writeln(sprintf('Saved %d primes.', count($primes)));
+    }
+}
