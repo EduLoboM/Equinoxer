@@ -1,38 +1,40 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Equinoxer - Primes{% endblock %}
+{% block title %}Relics List{% endblock %}
 
 {% block body %}
-    <h1>EQUINOXER - Primes List</h1>
+    <h1>EQUINOXER - Relics List</h1>
 
     <section>
         <div style="text-align: center; margin-bottom: 2rem;">
-            <input type="text" id="primeSearch" placeholder="Search primes..." 
+            <input type="text" id="relicSearch" placeholder="Search relics..." 
                    style="padding: 10px; width: 300px; border-radius: 5px; border: 1px solid #ccc; background: #333; color: #fff;">
             <br>
             <a href="{{ path('home') }}" style="color: #fffdd0; text-decoration: none; margin-top: 10px; display: inline-block;">Back to Home</a>
         </div>
 
-        <ul class="primes-list" id="primesContainer">
-            {% for prime in primes %}
-                <li class="prime-item" data-name="{{ prime.name|lower }}">
-                    <a href="{{ path('primes_show', { slug: prime.slug }) }}">
-                        <strong>{{ prime.name }}</strong>
+        <ul class="relics-list" id="relicsList">
+            {% for relic in relics %}
+                <li class="relic-item" data-name="{{ relic.name|lower }}">
+                    <a href="{{ path('relic_show', { slug: relic.slug }) }}">
+                        {{ relic.name }}
                     </a>
                 </li>
+            {% else %}
+                <li>No relics found.</li>
             {% endfor %}
         </ul>
     </section>
 
     <script>
-        document.getElementById('primeSearch').addEventListener('input', function(e) {
+        document.getElementById('relicSearch').addEventListener('input', function(e) {
             const term = e.target.value.toLowerCase();
-            const items = document.querySelectorAll('.prime-item');
+            const items = document.querySelectorAll('.relic-item');
             
             items.forEach(item => {
                 const name = item.getAttribute('data-name');
                 if (name.includes(term)) {
-                    item.style.display = 'block';
+                    item.style.display = '';
                 } else {
                     item.style.display = 'none';
                 }

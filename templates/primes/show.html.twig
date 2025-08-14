@@ -43,16 +43,24 @@
               {% set slug = relic.name|replace({' Relic':''})|lower|replace({' ':'_'}) %}
 
               <li>
-                <a href="/relics/{{ slug }}">{{ relic.name }}</a>
-                {{ best.planet }} / {{ best.mission }} ({{ best.gameMode }}) —
-                Chance no ciclo: {{ best.cycleChance }} —
-                Eficiência: {{ best.efficiency }} —
-                Parar em: {{ pattern }}
+                <a href="/relics/{{ slug }}">
+                    <strong>{{ relic.name }}</strong>
+                    <span class="mission-info">
+                        <br>
+                        {{ best.planet }} / {{ best.mission }} ({{ best.gameMode }})<br>
+                        Chance no ciclo: {{ best.cycleChance }}<br>
+                        Eficiência: {{ best.efficiency }}<br>
+                        Parar em: {{ pattern }}
+                    </span>
+                </a>
               </li>
             {% else %}
               <li>
                 {% set slug = relic.name|replace({' Relic':''})|lower|replace({' ':'_'}) %}
-                <a href="/relics/{{ slug }}">{{ relic.name }}</a> Sem drops disponíveis no momento.
+                <a href="/relics/{{ slug }}">
+                    <strong>{{ relic.name }}</strong>
+                    <span class="mission-info"><br>Sem drops disponíveis no momento.</span>
+                </a>
               </li>
             {% endif %}
           {% endfor %}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equinoxer - Home</title>
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .home-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .menu-buttons {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: #0a0a14; /* Dark text on light button */
+            background: #fffdd0; /* Pale Moon Yellow */
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            font-family: "Orbitron", sans-serif;
+            font-weight: 700;
+            border: 2px solid transparent;
+        }
+        .btn:hover {
+            background: #ffffff; /* White Glow */
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+        .btn-update {
+            background: transparent;
+            color: #fffdd0;
+            border: 2px solid #fffdd0;
+        }
+        .btn-update:hover {
+            background: #fffdd0;
+            border-color: #fffdd0;
+            color: #0a0a14;
+            box-shadow: 0 0 15px rgba(255, 253, 208, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="home-container">
+        <h1>Welcome to Equinoxer</h1>
+        <p>Warframe Drop Optimizer & Planner</p>
+
+        <div class="menu-buttons">
+            <a href="{{ path('primes') }}" class="btn">
+                <i class="fas fa-robot"></i> Primes List
+            </a>
+            
+            <a href="{{ path('relics_list') }}" class="btn">
+                <i class="fas fa-box-open"></i> Relics List
+            </a>
+
+            <a href="{{ path('run_update') }}" class="btn btn-update">
+                <i class="fas fa-sync"></i> Update Data
+            </a>
+        </div>
+    </div>
+</body>
+</html>
