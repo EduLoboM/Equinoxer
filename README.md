@@ -11,9 +11,9 @@
 
 > **Uma plataforma otimizada para rastreamento de drops e relíquias de Warframe.**
 
-**Equinoxer** é uma aplicação web desenvolvida em **PHP/Symfony**, criada para fornecer aos jogadores de Warframe uma maneira rápida, limpa e eficiente de planejar seus farms de itens Prime.
+**Equinoxer** é uma aplicação web desenvolvida em **PHP/Symfony**, criada para fornecer aos jogadores de Warframe uma maneira rápida, limpa e eficiente de planejar seus farms de itens Prime com o fator de eficiência que te da a melhor missão para farmar uma relíquia específica com base na chance de drop e tempo médio da rotação te informando a rotação mais eficiente para farmar a relíquia.
 
-A interface utiliza uma estética moderna "Sci-Fi" com cores neon (Ciano/Verde) inspirada na identidade visual do jogo, focando em usabilidade e performance.
+A interface utiliza uma estética moderna "Sci-Fi" com cores neon (Azul/Amarelo) inspirada na identidade visual do jogo e no warframe equinox prime, focando em usabilidade e performance.
 
 ## 🎯 Funcionalidades Principais
 
