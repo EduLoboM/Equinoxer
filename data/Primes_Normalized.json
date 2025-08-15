@@ -1,1398 +1,3810 @@
 [
-  {
-    "name": "Acceltra Prime",
-    "slug": "acceltra_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Afuris Prime",
-    "slug": "afuris_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Link",
-      "Receiver"
-    ]
-  },
-  {
-    "name": "Akarius Prime",
-    "slug": "akarius_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Link",
-      "Receiver"
-    ]
-  },
-  {
-    "name": "Akbolto Prime",
-    "slug": "akbolto_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Link",
-      "Receiver"
-    ]
-  },
-  {
-    "name": "Akbronco Prime",
-    "slug": "akbronco_prime",
-    "parts": [
-      "Blueprint",
-      "Link"
-    ]
-  },
-  {
-    "name": "Akjagara Prime",
-    "slug": "akjagara_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Link",
-      "Receiver"
-    ]
-  },
-  {
-    "name": "Aklex Prime",
-    "slug": "aklex_prime",
-    "parts": [
-      "Blueprint",
-      "Link"
-    ]
-  },
-  {
-    "name": "Akmagnus Prime",
-    "slug": "akmagnus_prime",
-    "parts": [
-      "Blueprint",
-      "Link"
-    ]
-  },
-  {
-    "name": "Aksomati Prime",
-    "slug": "aksomati_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Link",
-      "Receiver"
-    ]
-  },
-  {
-    "name": "Akstiletto Prime",
-    "slug": "akstiletto_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Link",
-      "Receiver"
-    ]
-  },
-  {
-    "name": "Akvasto Prime",
-    "slug": "akvasto_prime",
-    "parts": [
-      "Blueprint",
-      "Link"
-    ]
-  },
-  {
-    "name": "Ankyros Prime",
-    "slug": "ankyros_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Gauntlet"
-    ]
-  },
-  {
-    "name": "Ash Prime",
-    "slug": "ash_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Astilla Prime",
-    "slug": "astilla_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Atlas Prime",
-    "slug": "atlas_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Ballistica Prime",
-    "slug": "ballistica_prime",
-    "parts": [
-      "Blueprint",
-      "Lower Limb",
-      "Receiver",
-      "String",
-      "Upper Limb"
-    ]
-  },
-  {
-    "name": "Banshee Prime",
-    "slug": "banshee_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Baruuk Prime",
-    "slug": "baruuk_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Baza Prime",
-    "slug": "baza_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Bo Prime",
-    "slug": "bo_prime",
-    "parts": [
-      "Blueprint",
-      "Handle",
-      "Ornament"
-    ]
-  },
-  {
-    "name": "Boar Prime",
-    "slug": "boar_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Boltor Prime",
-    "slug": "boltor_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Braton Prime",
-    "slug": "braton_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Bronco Prime",
-    "slug": "bronco_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver"
-    ]
-  },
-  {
-    "name": "Burston Prime",
-    "slug": "burston_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Carrier Prime",
-    "slug": "carrier_prime",
-    "parts": [
-      "Blueprint",
-      "Carapace",
-      "Cerebrum",
-      "Systems"
-    ]
-  },
-  {
-    "name": "Cedo Prime",
-    "slug": "cedo_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Cernos Prime",
-    "slug": "cernos_prime",
-    "parts": [
-      "Blueprint",
-      "Grip",
-      "Lower Limb",
-      "String",
-      "Upper Limb"
-    ]
-  },
-  {
-    "name": "Chroma Prime",
-    "slug": "chroma_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Cobra & Crane Prime",
-    "slug": "cobra_crane_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Guard",
-      "Hilt"
-    ]
-  },
-  {
-    "name": "Corinth Prime",
-    "slug": "corinth_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Corvas Prime",
-    "slug": "corvas_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Dakra Prime",
-    "slug": "dakra_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Destreza Prime",
-    "slug": "destreza_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Dethcube Prime",
-    "slug": "dethcube_prime",
-    "parts": [
-      "Blueprint",
-      "Carapace",
-      "Cerebrum",
-      "Systems"
-    ]
-  },
-  {
-    "name": "Dual Kamas Prime",
-    "slug": "dual_kamas_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Dual Keres Prime",
-    "slug": "dual_keres_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Dual Zoren Prime",
-    "slug": "dual_zoren_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Ember Prime",
-    "slug": "ember_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Epitaph Prime",
-    "slug": "epitaph_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver"
-    ]
-  },
-  {
-    "name": "Equinox Prime",
-    "slug": "equinox_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Euphona Prime",
-    "slug": "euphona_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver"
-    ]
-  },
-  {
-    "name": "Fang Prime",
-    "slug": "fang_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Fragor Prime",
-    "slug": "fragor_prime",
-    "parts": [
-      "Blueprint",
-      "Handle",
-      "Head"
-    ]
-  },
-  {
-    "name": "Frost Prime",
-    "slug": "frost_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Fulmin Prime",
-    "slug": "fulmin_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Galatine Prime",
-    "slug": "galatine_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Gara Prime",
-    "slug": "gara_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Garuda Prime",
-    "slug": "garuda_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Gauss Prime",
-    "slug": "gauss_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Glaive Prime",
-    "slug": "glaive_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Disc"
-    ]
-  },
-  {
-    "name": "Gram Prime",
-    "slug": "gram_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Grendel Prime",
-    "slug": "grendel_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Guandao Prime",
-    "slug": "guandao_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Gunsen Prime",
-    "slug": "gunsen_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Harrow Prime",
-    "slug": "harrow_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Helios Prime",
-    "slug": "helios_prime",
-    "parts": [
-      "Blueprint",
-      "Carapace",
-      "Cerebrum",
-      "Systems"
-    ]
-  },
-  {
-    "name": "Hikou Prime",
-    "slug": "hikou_prime",
-    "parts": [
-      "Blueprint",
-      "Pouch",
-      "Stars"
-    ]
-  },
-  {
-    "name": "Hildryn Prime",
-    "slug": "hildryn_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Hydroid Prime",
-    "slug": "hydroid_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Hystrix Prime",
-    "slug": "hystrix_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver"
-    ]
-  },
-  {
-    "name": "Inaros Prime",
-    "slug": "inaros_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Ivara Prime",
-    "slug": "ivara_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Karyst Prime",
-    "slug": "karyst_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Kavasa Prime",
-    "slug": "kavasa_prime",
-    "parts": [
-      "Band",
-      "Buckle",
-      "Kubrow Collar Blueprint"
-    ]
-  },
-  {
-    "name": "Khora Prime",
-    "slug": "khora_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Knell Prime",
-    "slug": "knell_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver"
-    ]
-  },
-  {
-    "name": "Kogake Prime",
-    "slug": "kogake_prime",
-    "parts": [
-      "Blueprint",
-      "Boot",
-      "Gauntlet"
-    ]
-  },
-  {
-    "name": "Kronen Prime",
-    "slug": "kronen_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Larkspur Prime",
-    "slug": "larkspur_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Latron Prime",
-    "slug": "latron_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Lavos Prime",
-    "slug": "lavos_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Lex Prime",
-    "slug": "lex_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver"
-    ]
-  },
-  {
-    "name": "Limbo Prime",
-    "slug": "limbo_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Loki Prime",
-    "slug": "loki_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Mag Prime",
-    "slug": "mag_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Magnus Prime",
-    "slug": "magnus_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver"
-    ]
-  },
-  {
-    "name": "Masseter Prime",
-    "slug": "masseter_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Mesa Prime",
-    "slug": "mesa_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Mirage Prime",
-    "slug": "mirage_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Nagantaka Prime",
-    "slug": "nagantaka_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Nami Skyla Prime",
-    "slug": "nami_skyla_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Nautilus Prime",
-    "slug": "nautilus_prime",
-    "parts": [
-      "Blueprint",
-      "Carapace",
-      "Cerebrum",
-      "Systems"
-    ]
-  },
-  {
-    "name": "Nekros Prime",
-    "slug": "nekros_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Nezha Prime",
-    "slug": "nezha_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Nidus Prime",
-    "slug": "nidus_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Nikana Prime",
-    "slug": "nikana_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Hilt"
-    ]
-  },
-  {
-    "name": "Ninkondi Prime",
-    "slug": "ninkondi_prime",
-    "parts": [
-      "Blueprint",
-      "Chain",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Nova Prime",
-    "slug": "nova_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Nyx Prime",
-    "slug": "nyx_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Oberon Prime",
-    "slug": "oberon_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Octavia Prime",
-    "slug": "octavia_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Odonata Prime",
-    "slug": "odonata_prime",
-    "parts": [
-      "Blueprint",
-      "Harness Blueprint",
-      "Systems Blueprint",
-      "Wings Blueprint"
-    ]
-  },
-  {
-    "name": "Okina Prime",
-    "slug": "okina_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Orthos Prime",
-    "slug": "orthos_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Pandero Prime",
-    "slug": "pandero_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver"
-    ]
-  },
-  {
-    "name": "Pangolin Prime",
-    "slug": "pangolin_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Panthera Prime",
-    "slug": "panthera_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Paris Prime",
-    "slug": "paris_prime",
-    "parts": [
-      "Blueprint",
-      "Grip",
-      "Lower Limb",
-      "String",
-      "Upper Limb"
-    ]
-  },
-  {
-    "name": "Phantasma Prime",
-    "slug": "phantasma_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Protea Prime",
-    "slug": "protea_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Pyrana Prime",
-    "slug": "pyrana_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver"
-    ]
-  },
-  {
-    "name": "Quassus Prime",
-    "slug": "quassus_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Reaper Prime",
-    "slug": "reaper_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Redeemer Prime",
-    "slug": "redeemer_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Revenant Prime",
-    "slug": "revenant_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Rhino Prime",
-    "slug": "rhino_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Rubico Prime",
-    "slug": "rubico_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Saryn Prime",
-    "slug": "saryn_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Scindo Prime",
-    "slug": "scindo_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Scourge Prime",
-    "slug": "scourge_prime",
-    "parts": [
-      "Barrel",
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Sevagoth Prime",
-    "slug": "sevagoth_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Shade Prime",
-    "slug": "shade_prime",
-    "parts": [
-      "Blueprint",
-      "Carapace",
-      "Cerebrum",
-      "Systems"
-    ]
-  },
-  {
-    "name": "Sicarus Prime",
-    "slug": "sicarus_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver"
-    ]
-  },
-  {
-    "name": "Silva & Aegis Prime",
-    "slug": "silva_aegis_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Guard",
-      "Hilt"
-    ]
-  },
-  {
-    "name": "Soma Prime",
-    "slug": "soma_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Spira Prime",
-    "slug": "spira_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Pouch"
-    ]
-  },
-  {
-    "name": "Stradavar Prime",
-    "slug": "stradavar_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Strun Prime",
-    "slug": "strun_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Sybaris Prime",
-    "slug": "sybaris_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Tatsu Prime",
-    "slug": "tatsu_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Handle"
-    ]
-  },
-  {
-    "name": "Tekko Prime",
-    "slug": "tekko_prime",
-    "parts": [
-      "Blade",
-      "Blueprint",
-      "Gauntlet"
-    ]
-  },
-  {
-    "name": "Tenora Prime",
-    "slug": "tenora_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Tiberon Prime",
-    "slug": "tiberon_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Tigris Prime",
-    "slug": "tigris_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Tipedo Prime",
-    "slug": "tipedo_prime",
-    "parts": [
-      "Blueprint",
-      "Handle",
-      "Ornament"
-    ]
-  },
-  {
-    "name": "Titania Prime",
-    "slug": "titania_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Trinity Prime",
-    "slug": "trinity_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Trumna Prime",
-    "slug": "trumna_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Valkyr Prime",
-    "slug": "valkyr_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Vasto Prime",
-    "slug": "vasto_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver"
-    ]
-  },
-  {
-    "name": "Vauban Prime",
-    "slug": "vauban_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Vectis Prime",
-    "slug": "vectis_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver",
-      "Stock"
-    ]
-  },
-  {
-    "name": "Velox Prime",
-    "slug": "velox_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver"
-    ]
-  },
-  {
-    "name": "Venka Prime",
-    "slug": "venka_prime",
-    "parts": [
-      "Blades",
-      "Blueprint",
-      "Gauntlet"
-    ]
-  },
-  {
-    "name": "Volnus Prime",
-    "slug": "volnus_prime",
-    "parts": [
-      "Blueprint",
-      "Handle",
-      "Head"
-    ]
-  },
-  {
-    "name": "Volt Prime",
-    "slug": "volt_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Wisp Prime",
-    "slug": "wisp_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Wukong Prime",
-    "slug": "wukong_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Wyrm Prime",
-    "slug": "wyrm_prime",
-    "parts": [
-      "Blueprint",
-      "Carapace",
-      "Cerebrum",
-      "Systems"
-    ]
-  },
-  {
-    "name": "Xaku Prime",
-    "slug": "xaku_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Zakti Prime",
-    "slug": "zakti_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver"
-    ]
-  },
-  {
-    "name": "Zephyr Prime",
-    "slug": "zephyr_prime",
-    "parts": [
-      "Blueprint",
-      "Chassis Blueprint",
-      "Neuroptics Blueprint",
-      "Systems Blueprint"
-    ]
-  },
-  {
-    "name": "Zhuge Prime",
-    "slug": "zhuge_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Grip",
-      "Receiver",
-      "String"
-    ]
-  },
-  {
-    "name": "Zylok Prime",
-    "slug": "zylok_prime",
-    "parts": [
-      "Barrel",
-      "Blueprint",
-      "Receiver"
-    ]
-  }
+    {
+        "name": "Acceltra Prime",
+        "slug": "acceltra_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            },
+            {
+                "name": "Stock",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Afuris Prime",
+        "slug": "afuris_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 2
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Link",
+                "count": 1
+            },
+            {
+                "name": "Receiver",
+                "count": 2
+            }
+        ]
+    },
+    {
+        "name": "Akarius Prime",
+        "slug": "akarius_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 2
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Link",
+                "count": 1
+            },
+            {
+                "name": "Receiver",
+                "count": 2
+            }
+        ]
+    },
+    {
+        "name": "Akbolto Prime",
+        "slug": "akbolto_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 2
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Link",
+                "count": 1
+            },
+            {
+                "name": "Receiver",
+                "count": 2
+            }
+        ]
+    },
+    {
+        "name": "Akbronco Prime",
+        "slug": "akbronco_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Bronco Prime",
+                "count": 1
+            },
+            {
+                "name": "Bronco Prime",
+                "count": 1
+            },
+            {
+                "name": "Link",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Akjagara Prime",
+        "slug": "akjagara_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 2
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Link",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 2
+            }
+        ]
+    },
+    {
+        "name": "Aklex Prime",
+        "slug": "aklex_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Lex Prime",
+                "count": 1
+            },
+            {
+                "name": "Lex Prime",
+                "count": 1
+            },
+            {
+                "name": "Link",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Akmagnus Prime",
+        "slug": "akmagnus_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Link",
+                "count": 1
+            },
+            {
+                "name": "Magnus Prime",
+                "count": 1
+            },
+            {
+                "name": "Magnus Prime",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Aksomati Prime",
+        "slug": "aksomati_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 2
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Link",
+                "count": 1
+            },
+            {
+                "name": "Receiver",
+                "count": 2
+            }
+        ]
+    },
+    {
+        "name": "Akstiletto Prime",
+        "slug": "akstiletto_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 2
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Link",
+                "count": 1
+            },
+            {
+                "name": "Receiver",
+                "count": 2
+            }
+        ]
+    },
+    {
+        "name": "Akvasto Prime",
+        "slug": "akvasto_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Link",
+                "count": 1
+            },
+            {
+                "name": "Vasto Prime",
+                "count": 1
+            },
+            {
+                "name": "Vasto Prime",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Alternox Prime",
+        "slug": "alternox_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            },
+            {
+                "name": "Stock",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Ankyros Prime",
+        "slug": "ankyros_prime",
+        "parts": [
+            {
+                "name": "Blade",
+                "count": 2
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Gauntlet",
+                "count": 2
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            }
+        ]
+    },
+    {
+        "name": "Ash Prime",
+        "slug": "ash_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 1
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Astilla Prime",
+        "slug": "astilla_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            },
+            {
+                "name": "Stock",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Atlas Prime",
+        "slug": "atlas_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Ballistica Prime",
+        "slug": "ballistica_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Lower Limb",
+                "count": 1
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            },
+            {
+                "name": "String",
+                "count": 1
+            },
+            {
+                "name": "Upper Limb",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Banshee Prime",
+        "slug": "banshee_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Baruuk Prime",
+        "slug": "baruuk_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Baza Prime",
+        "slug": "baza_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            },
+            {
+                "name": "Stock",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Bo Prime",
+        "slug": "bo_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Handle",
+                "count": 1
+            },
+            {
+                "name": "Ornament",
+                "count": 2
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            }
+        ]
+    },
+    {
+        "name": "Boar Prime",
+        "slug": "boar_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            },
+            {
+                "name": "Stock",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Boltor Prime",
+        "slug": "boltor_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            },
+            {
+                "name": "Stock",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Braton Prime",
+        "slug": "braton_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            },
+            {
+                "name": "Stock",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Bronco Prime",
+        "slug": "bronco_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Burston Prime",
+        "slug": "burston_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            },
+            {
+                "name": "Stock",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Caliban Prime",
+        "slug": "caliban_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Carrier Prime",
+        "slug": "carrier_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Carapace",
+                "count": 1
+            },
+            {
+                "name": "Cerebrum",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 6
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Cedo Prime",
+        "slug": "cedo_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            },
+            {
+                "name": "Stock",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Cernos Prime",
+        "slug": "cernos_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Grip",
+                "count": 1
+            },
+            {
+                "name": "Lower Limb",
+                "count": 1
+            },
+            {
+                "name": "String",
+                "count": 1
+            },
+            {
+                "name": "Upper Limb",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Chroma Prime",
+        "slug": "chroma_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Cobra & Crane Prime",
+        "slug": "cobra_&_crane_prime",
+        "parts": [
+            {
+                "name": "Blade",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Guard",
+                "count": 1
+            },
+            {
+                "name": "Hilt",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            }
+        ]
+    },
+    {
+        "name": "Corinth Prime",
+        "slug": "corinth_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            },
+            {
+                "name": "Stock",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Corvas Prime",
+        "slug": "corvas_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            },
+            {
+                "name": "Stock",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Daikyu Prime",
+        "slug": "daikyu_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Grip",
+                "count": 1
+            },
+            {
+                "name": "Lower Limb",
+                "count": 1
+            },
+            {
+                "name": "String",
+                "count": 1
+            },
+            {
+                "name": "Upper Limb",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Dakra Prime",
+        "slug": "dakra_prime",
+        "parts": [
+            {
+                "name": "Blade",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Handle",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 15
+            }
+        ]
+    },
+    {
+        "name": "Destreza Prime",
+        "slug": "destreza_prime",
+        "parts": [
+            {
+                "name": "Blade",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Handle",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            }
+        ]
+    },
+    {
+        "name": "Dethcube Prime",
+        "slug": "dethcube_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Carapace",
+                "count": 1
+            },
+            {
+                "name": "Cerebrum",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 6
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Distilling Extractor Prime",
+        "slug": "distilling_extractor_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Oxium",
+                "count": 300
+            },
+            {
+                "name": "Polymer Bundle",
+                "count": 2000
+            }
+        ]
+    },
+    {
+        "name": "Dual Kamas Prime",
+        "slug": "dual_kamas_prime",
+        "parts": [
+            {
+                "name": "Blade",
+                "count": 2
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Handle",
+                "count": 2
+            }
+        ]
+    },
+    {
+        "name": "Dual Keres Prime",
+        "slug": "dual_keres_prime",
+        "parts": [
+            {
+                "name": "Blade",
+                "count": 2
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Handle",
+                "count": 2
+            }
+        ]
+    },
+    {
+        "name": "Dual Zoren Prime",
+        "slug": "dual_zoren_prime",
+        "parts": [
+            {
+                "name": "Blade",
+                "count": 2
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Handle",
+                "count": 2
+            }
+        ]
+    },
+    {
+        "name": "Ember Prime",
+        "slug": "ember_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 1
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Epitaph Prime",
+        "slug": "epitaph_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Equinox Prime",
+        "slug": "equinox_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Euphona Prime",
+        "slug": "euphona_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Fang Prime",
+        "slug": "fang_prime",
+        "parts": [
+            {
+                "name": "Blade",
+                "count": 2
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Handle",
+                "count": 2
+            }
+        ]
+    },
+    {
+        "name": "Fragor Prime",
+        "slug": "fragor_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Handle",
+                "count": 1
+            },
+            {
+                "name": "Head",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            }
+        ]
+    },
+    {
+        "name": "Frost Prime",
+        "slug": "frost_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 1
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Fulmin Prime",
+        "slug": "fulmin_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            },
+            {
+                "name": "Stock",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Galariak Prime",
+        "slug": "galariak_prime",
+        "parts": [
+            {
+                "name": "Blade",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Handle",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            }
+        ]
+    },
+    {
+        "name": "Galatine Prime",
+        "slug": "galatine_prime",
+        "parts": [
+            {
+                "name": "Blade",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Handle",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 15
+            }
+        ]
+    },
+    {
+        "name": "Gara Prime",
+        "slug": "gara_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Garuda Prime",
+        "slug": "garuda_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Gauss Prime",
+        "slug": "gauss_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Glaive Prime",
+        "slug": "glaive_prime",
+        "parts": [
+            {
+                "name": "Blade",
+                "count": 2
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Disc",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            }
+        ]
+    },
+    {
+        "name": "Gram Prime",
+        "slug": "gram_prime",
+        "parts": [
+            {
+                "name": "Blade",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Handle",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 15
+            }
+        ]
+    },
+    {
+        "name": "Grendel Prime",
+        "slug": "grendel_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Guandao Prime",
+        "slug": "guandao_prime",
+        "parts": [
+            {
+                "name": "Blade",
+                "count": 2
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Handle",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 15
+            }
+        ]
+    },
+    {
+        "name": "Gunsen Prime",
+        "slug": "gunsen_prime",
+        "parts": [
+            {
+                "name": "Blade",
+                "count": 2
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Handle",
+                "count": 2
+            }
+        ]
+    },
+    {
+        "name": "Gyre Prime",
+        "slug": "gyre_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Harrow Prime",
+        "slug": "harrow_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Helios Prime",
+        "slug": "helios_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Carapace",
+                "count": 1
+            },
+            {
+                "name": "Cerebrum",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 6
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Hikou Prime",
+        "slug": "hikou_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 8
+            },
+            {
+                "name": "Pouch",
+                "count": 2
+            },
+            {
+                "name": "Stars",
+                "count": 2
+            }
+        ]
+    },
+    {
+        "name": "Hildryn Prime",
+        "slug": "hildryn_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Hydroid Prime",
+        "slug": "hydroid_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Hystrix Prime",
+        "slug": "hystrix_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Inaros Prime",
+        "slug": "inaros_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Ivara Prime",
+        "slug": "ivara_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Karyst Prime",
+        "slug": "karyst_prime",
+        "parts": [
+            {
+                "name": "Blade",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Handle",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 15
+            }
+        ]
+    },
+    {
+        "name": "Kavasa Prime Kubrow Collar",
+        "slug": "kavasa_prime_kubrow_collar",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Kavasa Prime Band",
+                "count": 1
+            },
+            {
+                "name": "Kavasa Prime Buckle",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Kestrel Prime",
+        "slug": "kestrel_prime",
+        "parts": [
+            {
+                "name": "Blade",
+                "count": 2
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Grip",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            }
+        ]
+    },
+    {
+        "name": "Khora Prime",
+        "slug": "khora_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Knell Prime",
+        "slug": "knell_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Kogake Prime",
+        "slug": "kogake_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Boot",
+                "count": 2
+            },
+            {
+                "name": "Gauntlet",
+                "count": 2
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 15
+            }
+        ]
+    },
+    {
+        "name": "Kompressa Prime",
+        "slug": "kompressa_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Kronen Prime",
+        "slug": "kronen_prime",
+        "parts": [
+            {
+                "name": "Blade",
+                "count": 2
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Handle",
+                "count": 2
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 15
+            }
+        ]
+    },
+    {
+        "name": "Larkspur Prime",
+        "slug": "larkspur_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            },
+            {
+                "name": "Stock",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Latron Prime",
+        "slug": "latron_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            },
+            {
+                "name": "Stock",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Lavos Prime",
+        "slug": "lavos_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Lex Prime",
+        "slug": "lex_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Limbo Prime",
+        "slug": "limbo_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Loki Prime",
+        "slug": "loki_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 1
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Mag Prime",
+        "slug": "mag_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 3
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Magnus Prime",
+        "slug": "magnus_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Masseter Prime",
+        "slug": "masseter_prime",
+        "parts": [
+            {
+                "name": "Blade",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Handle",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 15
+            }
+        ]
+    },
+    {
+        "name": "Mesa Prime",
+        "slug": "mesa_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Mirage Prime",
+        "slug": "mirage_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Nagantaka Prime",
+        "slug": "nagantaka_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            },
+            {
+                "name": "Stock",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Nami Skyla Prime",
+        "slug": "nami_skyla_prime",
+        "parts": [
+            {
+                "name": "Blade",
+                "count": 2
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Handle",
+                "count": 2
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 15
+            }
+        ]
+    },
+    {
+        "name": "Nautilus Prime",
+        "slug": "nautilus_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Carapace",
+                "count": 1
+            },
+            {
+                "name": "Cerebrum",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 6
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Nekros Prime",
+        "slug": "nekros_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 3
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Nezha Prime",
+        "slug": "nezha_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Nidus Prime",
+        "slug": "nidus_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Nikana Prime",
+        "slug": "nikana_prime",
+        "parts": [
+            {
+                "name": "Blade",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Hilt",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 15
+            }
+        ]
+    },
+    {
+        "name": "Ninkondi Prime",
+        "slug": "ninkondi_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chain",
+                "count": 1
+            },
+            {
+                "name": "Handle",
+                "count": 2
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 15
+            }
+        ]
+    },
+    {
+        "name": "Nova Prime",
+        "slug": "nova_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 1
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Nyx Prime",
+        "slug": "nyx_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 1
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Oberon Prime",
+        "slug": "oberon_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Octavia Prime",
+        "slug": "octavia_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Odonata Prime",
+        "slug": "odonata_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Harness",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 1
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            },
+            {
+                "name": "Wings",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Okina Prime",
+        "slug": "okina_prime",
+        "parts": [
+            {
+                "name": "Blade",
+                "count": 2
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Handle",
+                "count": 2
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 15
+            }
+        ]
+    },
+    {
+        "name": "Orthos Prime",
+        "slug": "orthos_prime",
+        "parts": [
+            {
+                "name": "Blade",
+                "count": 2
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Handle",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            }
+        ]
+    },
+    {
+        "name": "Pandero Prime",
+        "slug": "pandero_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Pangolin Prime",
+        "slug": "pangolin_prime",
+        "parts": [
+            {
+                "name": "Blade",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Handle",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 15
+            }
+        ]
+    },
+    {
+        "name": "Panthera Prime",
+        "slug": "panthera_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            },
+            {
+                "name": "Stock",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Paris Prime",
+        "slug": "paris_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Grip",
+                "count": 1
+            },
+            {
+                "name": "Lower Limb",
+                "count": 1
+            },
+            {
+                "name": "String",
+                "count": 1
+            },
+            {
+                "name": "Upper Limb",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Phantasma Prime",
+        "slug": "phantasma_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            },
+            {
+                "name": "Stock",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Protea Prime",
+        "slug": "protea_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Pyrana Prime",
+        "slug": "pyrana_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Quassus Prime",
+        "slug": "quassus_prime",
+        "parts": [
+            {
+                "name": "Blade",
+                "count": 2
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Handle",
+                "count": 2
+            }
+        ]
+    },
+    {
+        "name": "Reaper Prime",
+        "slug": "reaper_prime",
+        "parts": [
+            {
+                "name": "Blade",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Handle",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            }
+        ]
+    },
+    {
+        "name": "Redeemer Prime",
+        "slug": "redeemer_prime",
+        "parts": [
+            {
+                "name": "Blade",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Handle",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 15
+            }
+        ]
+    },
+    {
+        "name": "Revenant Prime",
+        "slug": "revenant_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Rhino Prime",
+        "slug": "rhino_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 3
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Rubico Prime",
+        "slug": "rubico_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            },
+            {
+                "name": "Stock",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Sagek Prime",
+        "slug": "sagek_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Saryn Prime",
+        "slug": "saryn_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 1
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Scindo Prime",
+        "slug": "scindo_prime",
+        "parts": [
+            {
+                "name": "Blade",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Handle",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 15
+            }
+        ]
+    },
+    {
+        "name": "Scourge Prime",
+        "slug": "scourge_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blade",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Handle",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            }
+        ]
+    },
+    {
+        "name": "Sevagoth Prime",
+        "slug": "sevagoth_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 1
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Shade Prime",
+        "slug": "shade_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Carapace",
+                "count": 1
+            },
+            {
+                "name": "Cerebrum",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 6
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Sicarus Prime",
+        "slug": "sicarus_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Silva & Aegis Prime",
+        "slug": "silva_&_aegis_prime",
+        "parts": [
+            {
+                "name": "Blade",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Guard",
+                "count": 1
+            },
+            {
+                "name": "Hilt",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            }
+        ]
+    },
+    {
+        "name": "Soma Prime",
+        "slug": "soma_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            },
+            {
+                "name": "Stock",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Spira Prime",
+        "slug": "spira_prime",
+        "parts": [
+            {
+                "name": "Blade",
+                "count": 2
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 8
+            },
+            {
+                "name": "Pouch",
+                "count": 2
+            }
+        ]
+    },
+    {
+        "name": "Stradavar Prime",
+        "slug": "stradavar_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            },
+            {
+                "name": "Stock",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Strun Prime",
+        "slug": "strun_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            },
+            {
+                "name": "Stock",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Sybaris Prime",
+        "slug": "sybaris_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            },
+            {
+                "name": "Stock",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Tatsu Prime",
+        "slug": "tatsu_prime",
+        "parts": [
+            {
+                "name": "Blade",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Handle",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 15
+            }
+        ]
+    },
+    {
+        "name": "Tekko Prime",
+        "slug": "tekko_prime",
+        "parts": [
+            {
+                "name": "Blade",
+                "count": 2
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Gauntlet",
+                "count": 2
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 15
+            }
+        ]
+    },
+    {
+        "name": "Tenora Prime",
+        "slug": "tenora_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            },
+            {
+                "name": "Stock",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Tiberon Prime",
+        "slug": "tiberon_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            },
+            {
+                "name": "Stock",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Tigris Prime",
+        "slug": "tigris_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            },
+            {
+                "name": "Stock",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Tipedo Prime",
+        "slug": "tipedo_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Handle",
+                "count": 1
+            },
+            {
+                "name": "Ornament",
+                "count": 2
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 15
+            }
+        ]
+    },
+    {
+        "name": "Titan Extractor Prime",
+        "slug": "titan_extractor_prime",
+        "parts": [
+            {
+                "name": "Alloy Plate",
+                "count": 500
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Nano Spores",
+                "count": 300
+            }
+        ]
+    },
+    {
+        "name": "Titania Prime",
+        "slug": "titania_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Trinity Prime",
+        "slug": "trinity_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 1
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Trumna Prime",
+        "slug": "trumna_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            },
+            {
+                "name": "Stock",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Vadarya Prime",
+        "slug": "vadarya_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            },
+            {
+                "name": "Stock",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Valkyr Prime",
+        "slug": "valkyr_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 3
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Vasto Prime",
+        "slug": "vasto_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Vauban Prime",
+        "slug": "vauban_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Nitain Extract",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Vectis Prime",
+        "slug": "vectis_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            },
+            {
+                "name": "Stock",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Velox Prime",
+        "slug": "velox_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Venato Prime",
+        "slug": "venato_prime",
+        "parts": [
+            {
+                "name": "Blade",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Handle",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            }
+        ]
+    },
+    {
+        "name": "Venka Prime",
+        "slug": "venka_prime",
+        "parts": [
+            {
+                "name": "Blades",
+                "count": 2
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Gauntlet",
+                "count": 2
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 15
+            }
+        ]
+    },
+    {
+        "name": "Volnus Prime",
+        "slug": "volnus_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Handle",
+                "count": 1
+            },
+            {
+                "name": "Head",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 15
+            }
+        ]
+    },
+    {
+        "name": "Volt Prime",
+        "slug": "volt_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 1
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Wisp Prime",
+        "slug": "wisp_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Wukong Prime",
+        "slug": "wukong_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Wyrm Prime",
+        "slug": "wyrm_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Carapace",
+                "count": 1
+            },
+            {
+                "name": "Cerebrum",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 6
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Xaku Prime",
+        "slug": "xaku_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Yareli Prime",
+        "slug": "yareli_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Zakti Prime",
+        "slug": "zakti_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 10
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Zephyr Prime",
+        "slug": "zephyr_prime",
+        "parts": [
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Chassis",
+                "count": 1
+            },
+            {
+                "name": "Neuroptics",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Systems",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Zhuge Prime",
+        "slug": "zhuge_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Grip",
+                "count": 1
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            },
+            {
+                "name": "String",
+                "count": 1
+            }
+        ]
+    },
+    {
+        "name": "Zylok Prime",
+        "slug": "zylok_prime",
+        "parts": [
+            {
+                "name": "Barrel",
+                "count": 1
+            },
+            {
+                "name": "Blueprint",
+                "count": 1
+            },
+            {
+                "name": "Orokin Cell",
+                "count": 5
+            },
+            {
+                "name": "Receiver",
+                "count": 1
+            }
+        ]
+    }
 ]

@@ -1,78 +1,106 @@
-# Equinoxer - Warframe Prime Relic Tracker
+# 🌑🌕 Equinoxer
 
-<p align="center">
-  <img src="https://img.shields.io/github/languages/top/EduLoboM/Equinoxer?style=for-the-badge&color=blueviolet" alt="Linguagem Principal">
-  <img src="https://img.shields.io/github/last-commit/EduLoboM/Equinoxer?style=for-the-badge" alt="Último Commit">
-  <img src="https://img.shields.io/github/issues/EduLoboM/Equinoxer?style=for-the-badge&color=orange" alt="Issues">
-  <img src="https://img.shields.io/github/stars/EduLoboM/Equinoxer?style=for-the-badge&color=yellow" alt="Stars">
-  <img src="https://img.shields.io/github/license/EduLoboM/Equinoxer?style=for-the-badge" alt="Licença">
-</p>
+![Theme](https://img.shields.io/badge/Theme-Warframe-lightgrey?style=for-the-badge&labelColor=black)
+![Framework](https://img.shields.io/badge/Framework-Symfony-lightgrey?style=for-the-badge&logo=symfony&logoColor=white&labelColor=black)
+![Language](https://img.shields.io/badge/Made_with-PHP-lightgrey?style=for-the-badge&logo=php&logoColor=white&labelColor=black)
+![License](https://img.shields.io/badge/License-MIT-lightgrey?style=for-the-badge&labelColor=black)
+![Status](https://img.shields.io/badge/Status-Functional-lightgrey?style=for-the-badge&labelColor=black)
+![Last Commit](https://img.shields.io/github/last-commit/EduLoboM/Equinoxer?style=for-the-badge&logo=github&color=lightgrey&labelColor=black)
+![Stars](https://img.shields.io/github/stars/EduLoboM/Equinoxer?style=for-the-badge&color=lightgrey&logo=github&labelColor=black)
+![Forks](https://img.shields.io/github/forks/EduLoboM/Equinoxer?style=for-the-badge&color=lightgrey&logo=github&labelColor=black)
 
-## 📖 Sobre o Projeto
+> **Uma plataforma otimizada para rastreamento de drops e relíquias de Warframe.**
 
-Equinoxer é uma plataforma web desenvolvida para ajudar os jogadores de **Warframe** a encontrar de forma rápida e fácil a localização de *drop* de todas as relíquias Prime. Chega de pesquisar em wikis desatualizadas ou planilhas complexas! Encontre o que você precisa para seu próximo Warframe ou arma Prime em um só lugar.
+**Equinoxer** é uma aplicação web desenvolvida em **PHP/Symfony**, criada para fornecer aos jogadores de Warframe uma maneira rápida, limpa e eficiente de planejar seus farms de itens Prime.
 
-Este projeto foi construído com o framework **Symfony**, focando em uma experiência de usuário limpa, rápida e eficiente.
+A interface utiliza uma estética moderna "Sci-Fi" com cores neon (Ciano/Verde) inspirada na identidade visual do jogo, focando em usabilidade e performance.
 
-## ✨ Funcionalidades
+## 🎯 Funcionalidades Principais
 
-* **Busca Inteligente:** Pesquise por Warframe, arma, ou item Prime específico.
-* **Listagem de Relíquias:** Veja todas as relíquias (Lith, Meso, Neo, Axi) e os itens que elas contêm.
-* **Localização de Drops:** Descubra exatamente em quais missões e rotações cada relíquia pode ser obtida.
-* **Interface Moderna:** Design limpo e responsivo para uma ótima experiência em desktops e dispositivos móveis.
-* **Dados Atualizados:** Informações sempre sincronizadas com as atualizações mais recentes do Warframe.
+O projeto resolve o problema de navegar por wikis desatualizadas ou lentas, centralizando dados da API oficial e da comunidade.
 
-## 🛠️ Tecnologias Utilizadas
+| Feature de Jogo | Tecnologia / Implementação | Descrição |
+| :--- | :--- | :--- |
+| **Busca de Relíquias** | `Cache System` | Listagem completa de relíquias com busca instantânea e filtragem por era (Lith, Meso, Neo, Axi). |
+| **Cálculo de Eficiência** | `Math Logic` | Algoritmo que determina a melhor missão para farmar uma relíquia específica com base na chance de drop e tempo médio. |
+| **Primes Tracker** | `Data Aggregation` | Visualização de todos os Warframes e armas Prime, com links diretos para as relíquias de seus componentes. |
+| **Atualização Automática** | `Console Command` | Sistema de comando (`app:update-data`) que sincroniza o banco de dados local com a API `warframestat.us`. |
 
-* **Backend:** Symfony, PHP 8+
-* **Frontend:** Twig, Webpack Encore, CSS, JavaScript
-* **Banco de Dados:** Doctrine ORM
-* **DevOps:** Composer
+## 🗺️ Roadmap Futuro
 
-## 🚀 Instalação e Configuração
+* **v1.1** - Filtros avançados por Planeta e Tipo de Missão
+* **v1.2** - Criação de "Wishlists" para rastrear sets completos
+* **v1.3** - Integração com o Warframe Market para preços de platina
+* **v1.4** - Sistema de contas de usuário para salvar progresso
 
-Para executar este projeto localmente, siga os passos abaixo.
+## 🏗️ Arquitetura do Sistema
 
-**Pré-requisitos:**
-* PHP 8.1 ou superior
-* Composer
-* Symfony CLI
+O fluxo de dados segue uma estrutura MVC padrão do Symfony:
 
-**Passos:**
+```mermaid
+graph LR
 
-1.  **Clone o repositório:**
-    ```bash
-    git clone [https://github.com/EduLoboM/Equinoxer.git](https://github.com/EduLoboM/Equinoxer.git)
-    cd Equinoxer
-    ```
+    User["Usuário"]:::user --> Browser[Browser]:::client
+    Browser --> Controller["Controller (Symfony)"]:::process
+    
+    subgraph Backend
+        Controller --> Service["Services (Data Loader)"]:::logic
+        Service --> API["Warframe API"]:::external
+        Service --> Cache["Local JSON / Cache"]:::storage
+    end
 
-2.  **Instale as dependências do PHP:**
+    Controller --> Template["Twig Templates"]:::view
+    Template --> Browser
+```
+
+## 🚀 Como Executar
+
+### Requisitos
+
+* **PHP** (versão 8.1 ou superior)
+* **Composer**
+* **Symfony CLI**
+
+### Instalação
+
+```bash
+git clone https://github.com/EduLoboM/Equinoxer.git
+cd Equinoxer
+```
+
+### Configuração e Execução
+
+1.  Instale as dependências:
     ```bash
     composer install
     ```
 
-3.  **Inicie o servidor local:**
+2.  (Opcional) Atualize os dados locais:
+    ```bash
+    php bin/console app:update-data
+    ```
+
+3.  Inicie o servidor:
     ```bash
     symfony server:start
     ```
+    Ou use o servidor embutido do PHP:
+    ```bash
+    php -S 127.0.0.1:8000 -t public
+    ```
 
-Pronto! O site estará acessível em `https://127.0.0.1:8000` (ou na porta indicada pelo Symfony CLI).
+## 📚 Estrutura do Projeto
 
-## 🎮 Como Usar
-
-Após a instalação, acesse a URL local. A página inicial permitirá que você:
-1.  Navegue pelas listas de relíquias para ver seus conteúdos.
-2.  Clique em uma relíquia para ver em detalhes onde ela pode ser farmada no jogo.
-
-## 🤝 Contribuições
-
-Contribuições são muito bem-vindas! Se você tem ideias para novas funcionalidades, melhorias ou encontrou algum bug, sinta-se à vontade para:
-
-1.  Fazer um **Fork** do projeto.
-2.  Criar uma nova **Branch** (`git checkout -b feature/sua-feature-incrivel`).
-3.  Fazer o **Commit** das suas alterações (`git commit -m 'Adiciona funcionalidade X'`).
-4.  Fazer o **Push** para a sua Branch (`git push origin feature/sua-feature-incrivel`).
-5.  Abrir um **Pull Request**.
+* `src/Command/UpdateDataCommand.php`: Comando para baixar e normalizar dados da API.
+* `src/Controller`: Controladores para páginas de Home, Primes e Relíquias.
+* `src/Service/WarframeLoot.php`: Lógica de busca e cálculo de drop tables.
+* `templates/`: Arquivos de visualização Twig com tema customizado.
+* `public/css/main.css`: Estilização global (Dark Theme + Neon).
 
 ---
-<p align="center">Desenvolvido com ❤️ pela comunidade Warframe.</p>
+
+<p align="center">
+Desenvolvido com 💖 por <b>Eduardo Lôbo Moreira</b>.
+<br>
+<i>Inspirado pelo melhor Warframe Equinox Prime.</i>
+</p>
