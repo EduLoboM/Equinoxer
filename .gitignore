@@ -8,3 +8,22 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###
+
+###> IDEs and OS ###
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+###< IDEs and OS ###
+
+###> Node / Frontend ###
+/node_modules/
+/npm-debug.log
+/yarn-error.log
+/public/build/
+###< Node / Frontend ###
