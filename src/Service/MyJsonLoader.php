@@ -2,25 +2,44 @@
 
 namespace App\Service;
 
+use Symfony\Contracts\Cache\CacheInterface;
+use Symfony\Contracts\Cache\ItemInterface;
+
 class MyJsonLoader
 {
     private string $projectDir;
+    private CacheInterface $cache;
+    private array $memoized = [];
 
-    public function __construct(string $projectDir)
+    public function __construct(string $projectDir, CacheInterface $cache)
     {
         $this->projectDir = $projectDir;
+        $this->cache = $cache;
     }
 
     public function load(string $filename): array
     {
-        $path = $this->projectDir . "/data/" . $filename;
-        if (!file_exists($path)) {
-            throw new \RuntimeException(
-                "Arquivo JSON não encontrado em {$path}",
-            );
+        if (isset($this->memoized[$filename])) {
+            return $this->memoized[$filename];
         }
-        $json = file_get_contents($path);
-        return json_decode($json, true);
+
+        $this->memoized[$filename] = $this->cache->get(
+            'json_data_' . md5($filename),
+            function (ItemInterface $item) use ($filename) {
+                $item->expiresAfter(3600); // 1 hour cache
+                
+                $path = $this->projectDir . "/data/" . $filename;
+                if (!file_exists($path)) {
+                    throw new \RuntimeException(
+                        "Arquivo JSON não encontrado em {$path}",
+                    );
+                }
+                $json = file_get_contents($path);
+                return json_decode($json, true);
+            }
+        );
+
+        return $this->memoized[$filename];
     }
 
     public function findRelicsByItem(string $itemName): array
