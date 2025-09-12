@@ -23,6 +23,7 @@ body {
     font-family: "Inter", sans-serif;
     /* Moon Night Gradient: Deep Blue to Black */
     background: radial-gradient(circle at top center, #1a1a2e, #000000);
+    background-attachment: fixed;
     color: var(--text-primary);
     line-height: 1.6;
     min-height: 100vh;
