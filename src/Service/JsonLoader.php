@@ -5,7 +5,7 @@ namespace App\Service;
 use Symfony\Contracts\Cache\CacheInterface;
 use Symfony\Contracts\Cache\ItemInterface;
 
-class MyJsonLoader
+class JsonLoader
 {
     private string $projectDir;
     private CacheInterface $cache;
@@ -26,7 +26,7 @@ class MyJsonLoader
         $this->memoized[$filename] = $this->cache->get(
             'json_data_' . md5($filename),
             function (ItemInterface $item) use ($filename) {
-                $item->expiresAfter(3600); // 1 hour cache
+                $item->expiresAfter(3600);
                 
                 $path = $this->projectDir . "/data/" . $filename;
                 if (!file_exists($path)) {

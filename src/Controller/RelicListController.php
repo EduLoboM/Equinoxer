@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Service\MyJsonLoader;
+use App\Service\JsonLoader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Attribute\Route;
 class RelicListController extends AbstractController
 {
     #[Route('/relics', name: 'relics_list')]
-    public function index(MyJsonLoader $loader): Response
+    public function index(JsonLoader $loader): Response
     {
         $relics = $loader->load('Relics_Normalized.json');
 

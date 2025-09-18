@@ -2,18 +2,18 @@
 
 namespace App\Controller;
 
-use App\Service\MyJsonLoader;
+use App\Service\JsonLoader;
 use App\Service\WarframeLoot;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class Relics extends AbstractController
+class RelicController extends AbstractController
 {
     #[Route("/relics/{slug}", name: "relic_show")]
     public function show(
         string $slug,
-        MyJsonLoader $loader,
+        JsonLoader $loader,
         WarframeLoot $search,
     ): Response {
         $allRelics = $loader->load("Relics_Normalized.json");
@@ -55,7 +55,6 @@ class Relics extends AbstractController
         }
         unset($g);
 
-        // Sort groups by efficiency (descending)
         usort($groups, fn($a, $b) => floatval($b["efficiency"]) <=> floatval($a["efficiency"]));
 
         return $this->render("relics/show.html.twig", [

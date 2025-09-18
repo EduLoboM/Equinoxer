@@ -2,16 +2,16 @@
 
 namespace App\Controller;
 
-use App\Service\MyJsonLoader;
+use App\Service\JsonLoader;
 use App\Service\WarframeLoot;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class Primes extends AbstractController
+class PrimeController extends AbstractController
 {
     #[Route("/primes", name: "primes")]
-    public function list(MyJsonLoader $loader): Response
+    public function list(JsonLoader $loader): Response
     {
         $primes = $loader->load("Primes_Normalized.json");
 
@@ -23,7 +23,7 @@ class Primes extends AbstractController
     #[Route("/primes/{slug}", name: "primes_show")]
     public function show(
         string $slug,
-        MyJsonLoader $loader,
+        JsonLoader $loader,
         WarframeLoot $search,
     ): Response {
         $primes = $loader->load("Primes_Normalized.json");

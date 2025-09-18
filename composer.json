@@ -68,5 +68,12 @@
             "allow-contrib": false,
             "require": "7.3.*"
         }
+    },
+    "require-dev": {
+        "dbrekelmans/bdi": "^1.4",
+        "phpunit/phpunit": "^12.5",
+        "symfony/browser-kit": "7.3.*",
+        "symfony/css-selector": "7.3.*",
+        "symfony/panther": "^2.3"
     }
 }
