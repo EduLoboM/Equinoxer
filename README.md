@@ -97,6 +97,32 @@ cd Equinoxer
 * `templates/`: Arquivos de visualização Twig com tema customizado.
 * `public/css/main.css`: Estilização global (Dark Theme + Neon).
 
+## 🧪 Testes Robustos
+
+A aplicação conta com uma suíte de testes completa, garantindo a integridade em todas as camadas:
+
+*   **Testes de Sistema (Panther):** Simulam a interação real do usuário no navegador (Chrome/Chromium), verificando fluxos de navegação, busca e atualização de dados.
+*   **Testes de Integração (WebTestCase):** Validam a resposta HTTP, rotas, renderização de templates e acessibilidade de elementos chave sem necessidade de um browser completo.
+*   **Testes Unitários (PHPUnit):** Cobrem isoladamente a lógica de negócios em Services e Controllers, garantindo que cálculos de eficiência e parsing de JSON funcionem corretamente.
+
+Para rodar os testes:
+```bash
+php bin/phpunit
+```
+
+## 📸 Screenshots
+
+<p align="center">
+  <img src="public/screenshots/HOME.png" alt="Home Page" width="45%" style="margin: 5px;">
+  <img src="public/screenshots/PRIMESLIST.png" alt="Primes List" width="45%" style="margin: 5px;">
+  <br>
+  <img src="public/screenshots/PRIMESSHOW.png" alt="Prime Details" width="45%" style="margin: 5px;">
+  <img src="public/screenshots/RELICSLIST.png" alt="Relics List" width="45%" style="margin: 5px;">
+  <br>
+  <img src="public/screenshots/RELICSSHOW.png" alt="Relic Details" width="45%" style="margin: 5px;">
+  <img src="public/screenshots/UPDATEDATAOK.png" alt="Update Data" width="45%" style="margin: 5px;">
+</p>
+
 ---
 
 <p align="center">
