@@ -97,9 +97,7 @@ cd Equinoxer
 * `templates/`: Arquivos de visualização Twig com tema customizado.
 * `public/css/main.css`: Estilização global (Dark Theme + Neon).
 
-## 🧪 Testes Robustos
-
-A aplicação conta com uma suíte de testes completa, garantindo a integridade em todas as camadas:
+## 🧪 Testes
 
 *   **Testes de Sistema (Panther):** Simulam a interação real do usuário no navegador (Chrome/Chromium), verificando fluxos de navegação, busca e atualização de dados.
 *   **Testes de Integração (WebTestCase):** Validam a resposta HTTP, rotas, renderização de templates e acessibilidade de elementos chave sem necessidade de um browser completo.
@@ -112,16 +110,46 @@ php bin/phpunit
 
 ## 📸 Screenshots
 
-<p align="center">
-  <img src="public/screenshots/HOME.png" alt="Home Page" width="45%" style="margin: 5px;">
-  <img src="public/screenshots/PRIMESLIST.png" alt="Primes List" width="45%" style="margin: 5px;">
-  <br>
-  <img src="public/screenshots/PRIMESSHOW.png" alt="Prime Details" width="45%" style="margin: 5px;">
-  <img src="public/screenshots/RELICSLIST.png" alt="Relics List" width="45%" style="margin: 5px;">
-  <br>
-  <img src="public/screenshots/RELICSSHOW.png" alt="Relic Details" width="45%" style="margin: 5px;">
-  <img src="public/screenshots/UPDATEDATAOK.png" alt="Update Data" width="45%" style="margin: 5px;">
-</p>
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <img src="public/screenshots/HOME.png" alt="Home Page" width="100%">
+        <br>
+        <b>Página Inicial</b>
+      </td>
+      <td align="center">
+        <img src="public/screenshots/PRIMESLIST.png" alt="Primes List" width="100%">
+        <br>
+        <b>Lista de Primes</b>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="public/screenshots/PRIMESSHOW.png" alt="Prime Details" width="100%">
+        <br>
+        <b>Detalhes do Prime</b>
+      </td>
+      <td align="center">
+        <img src="public/screenshots/RELICSLIST.png" alt="Relics List" width="100%">
+        <br>
+        <b>Lista de Relíquias</b>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="public/screenshots/RELICSSHOW.png" alt="Relic Details" width="100%">
+        <br>
+        <b>Detalhes da Relíquia</b>
+      </td>
+      <td align="center">
+        <img src="public/screenshots/UPDATEDATAOK.png" alt="Update Data" width="100%">
+        <br>
+        <b>Atualização de Dados Sucesso</b>
+      </td>
+    </tr>
+  </table>
+</div>
 
 ---
 
