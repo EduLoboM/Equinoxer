@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  symfony-tests:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.2'
+        extensions: ctype, iconv, intl, pdo_sqlite
+        coverage: pcov
+
+    - name: Install Dependencies
+      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+
+    - name: Prepare Data
+      run: |
+        mkdir -p data
+        php bin/console app:update-data
+
+    - name: Install Panther Driver
+      run: vendor/bin/bdi detect drivers
+
+    - name: Check Code Style
+      run: vendor/bin/php-cs-fixer fix --dry-run --diff
+
+    - name: Execute Tests (PHPUnit)
+      env:
+        PANTHER_NO_HEADLESS: 0
+        PANTHER_APP_ENV: panther
+      run: php bin/phpunit --coverage-text

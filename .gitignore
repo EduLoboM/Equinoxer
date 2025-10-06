@@ -29,3 +29,8 @@ Thumbs.db
 /public/build/
 ###< Node / Frontend ###
 /drivers/
+
+###> friendsofphp/php-cs-fixer ###
+/.php-cs-fixer.php
+/.php-cs-fixer.cache
+###< friendsofphp/php-cs-fixer ###
