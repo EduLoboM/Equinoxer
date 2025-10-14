@@ -8,14 +8,14 @@ class UpdateDataTest extends PantherTestCase
 {
     public function testUpdateDataFlow(): void
     {
-        $client = static::createPantherClient(); 
-        
+        $client = static::createPantherClient();
+
         $crawler = $client->request('GET', '/');
 
         $this->assertSelectorExists('.btn-update');
-        
+
         $client->clickLink('Update Data');
-        
-        $this->assertSelectorTextContains('h1', 'DATA UPDATE RESULT'); 
+
+        $this->assertSelectorTextContains('h1', 'DATA UPDATE RESULT');
     }
 }

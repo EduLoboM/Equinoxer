@@ -15,7 +15,7 @@ class UpdateDataCommandTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->tempDir = sys_get_temp_dir() . '/equinoxer_test_' . uniqid();
+        $this->tempDir = sys_get_temp_dir().'/equinoxer_test_'.uniqid();
         if (!is_dir($this->tempDir)) {
             mkdir($this->tempDir, 0777, true);
         }
@@ -34,7 +34,7 @@ class UpdateDataCommandTest extends TestCase
         $mockResponseDrops = $this->createMock(ResponseInterface::class);
         $mockResponseDrops->method('getStatusCode')->willReturn(200);
         $mockResponseDrops->method('toArray')->willReturn([
-            ['place' => 'Void Relic', 'item' => 'Forma', 'rarity' => 'Common', 'chance' => 25.33]
+            ['place' => 'Void Relic', 'item' => 'Forma', 'rarity' => 'Common', 'chance' => 25.33],
         ]);
 
         $mockResponseItems = $this->createMock(ResponseInterface::class);
@@ -44,9 +44,9 @@ class UpdateDataCommandTest extends TestCase
                 'name' => 'Lith G1 Relic',
                 'category' => 'Relics',
                 'rewards' => [
-                    ['itemName' => 'Forma', 'rarity' => 'Common', 'chance' => 25.33]
-                ]
-            ]
+                    ['itemName' => 'Forma', 'rarity' => 'Common', 'chance' => 25.33],
+                ],
+            ],
         ]);
 
         $httpClient = $this->createMock(HttpClientInterface::class);
@@ -54,6 +54,7 @@ class UpdateDataCommandTest extends TestCase
             if (str_contains($url, '/drops')) {
                 return $mockResponseDrops;
             }
+
             return $mockResponseItems;
         });
 
@@ -65,14 +66,14 @@ class UpdateDataCommandTest extends TestCase
         $application->add($command);
         $command = $application->find('app:update-data');
         $commandTester = new CommandTester($command);
-        
+
         $commandTester->execute([]);
 
         $output = $commandTester->getDisplay();
-        
+
         // 4. Assertions
         $this->assertStringContainsString('Data update complete.', $output);
-        $this->assertFileExists($this->tempDir . '/Relics_Normalized.json');
-        $this->assertFileExists($this->tempDir . '/Primes_Normalized.json');
+        $this->assertFileExists($this->tempDir.'/Relics_Normalized.json');
+        $this->assertFileExists($this->tempDir.'/Primes_Normalized.json');
     }
 }

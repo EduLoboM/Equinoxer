@@ -9,13 +9,13 @@ class NavigationTest extends PantherTestCase
     public function testNavigationFlow(): void
     {
         $client = static::createPantherClient();
-        
+
         $crawler = $client->request('GET', '/');
         $this->assertSelectorTextContains('h1', 'WELCOME TO EQUINOXER');
 
         $client->clickLink('Primes List');
         $this->assertSelectorTextContains('h1', 'PRIMES LIST');
-        
+
         $client->clickLink('Back to Home');
         $this->assertSelectorTextContains('h1', 'WELCOME TO EQUINOXER');
 

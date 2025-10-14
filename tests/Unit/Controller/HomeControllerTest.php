@@ -5,9 +5,7 @@ namespace App\Tests\Unit\Controller;
 use App\Controller\HomeController;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
-use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\KernelInterface;
 use Twig\Environment;
 
 class HomeControllerTest extends TestCase

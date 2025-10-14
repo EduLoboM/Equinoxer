@@ -9,14 +9,14 @@ class PrimesIntegrationTest extends WebTestCase
     public function testShowPrime(): void
     {
         $client = static::createClient();
-        
+
         $crawler = $client->request('GET', '/primes');
         $this->assertResponseIsSuccessful();
-        
-        $link = $crawler->filter('.primes-list a')->first()->link(); 
+
+        $link = $crawler->filter('.primes-list a')->first()->link();
         $client->click($link);
 
         $this->assertResponseIsSuccessful();
-        $this->assertSelectorExists('h1'); 
+        $this->assertSelectorExists('h1');
     }
 }

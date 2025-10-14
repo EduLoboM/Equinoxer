@@ -1,9 +1,10 @@
 <?php
+
 namespace App\Service;
 
-use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\Cache\CacheInterface;
 use Symfony\Contracts\Cache\ItemInterface;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class WarframeLoot
 {
@@ -24,15 +25,16 @@ class WarframeLoot
 
         $candidates = [
             $relicName,
-            $relicName . " Relic",
-            preg_replace('/ (Intact|Exceptional|Flawless|Radiant)$/', '', $relicName) . " Relic"
+            $relicName.' Relic',
+            preg_replace('/ (Intact|Exceptional|Flawless|Radiant)$/', '', $relicName).' Relic',
         ];
 
         foreach ($candidates as $candidate) {
             if (!empty($lootTable[$candidate])) {
-                 $result = $lootTable[$candidate];
-                 usort($result, fn($a, $b) => $b["chance"] <=> $a["chance"]);
-                 return $result;
+                $result = $lootTable[$candidate];
+                usort($result, fn ($a, $b) => $b['chance'] <=> $a['chance']);
+
+                return $result;
             }
         }
 
@@ -42,9 +44,10 @@ class WarframeLoot
     private function getCachedLootTable(): array
     {
         return $this->cache->get(
-            "warframe_mission_rewards_v2",
+            'warframe_mission_rewards_v2',
             function (ItemInterface $item) {
                 $item->expiresAfter(3600 * 24);
+
                 return $this->fetchAndBuildIndex();
             },
         );
@@ -53,16 +56,16 @@ class WarframeLoot
     private function fetchAndBuildIndex(): array
     {
         $response = $this->httpClient->request(
-            "GET",
-            "https://drops.warframestat.us/data/missionRewards.json",
+            'GET',
+            'https://drops.warframestat.us/data/missionRewards.json',
         );
 
-        if ($response->getStatusCode() !== 200) {
+        if (200 !== $response->getStatusCode()) {
             return [];
         }
 
         $jsonData = $response->toArray();
-        $data = $jsonData["missionRewards"] ?? [];
+        $data = $jsonData['missionRewards'] ?? [];
         $index = [];
 
         foreach ($data as $planet => $missions) {
@@ -70,7 +73,7 @@ class WarframeLoot
                 continue;
             }
             foreach ($missions as $mission => $missionData) {
-                $rewards = $missionData["rewards"] ?? [];
+                $rewards = $missionData['rewards'] ?? [];
                 if (!is_array($rewards)) {
                     continue;
                 }
@@ -79,7 +82,7 @@ class WarframeLoot
                         continue;
                     }
                     foreach ($items as $item) {
-                        $itemName = $item["itemName"] ?? "";
+                        $itemName = $item['itemName'] ?? '';
                         if (!$itemName) {
                             continue;
                         }
@@ -89,12 +92,11 @@ class WarframeLoot
                         }
 
                         $index[$itemName][] = [
-                            "planet" => $planet,
-                            "mission" => $mission,
-                            "rotation" => $rotation,
-                            "chance" => $item["chance"] ?? 0,
-                            "gameMode" =>
-                                $missionData["gameMode"] ?? "Unknown",
+                            'planet' => $planet,
+                            'mission' => $mission,
+                            'rotation' => $rotation,
+                            'chance' => $item['chance'] ?? 0,
+                            'gameMode' => $missionData['gameMode'] ?? 'Unknown',
                         ];
                     }
                 }

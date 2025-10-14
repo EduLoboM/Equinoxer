@@ -9,10 +9,10 @@ class RelicsIntegrationTest extends WebTestCase
     public function testShowRelic(): void
     {
         $client = static::createClient();
-        
-        $crawler = $client->request('GET', '/relics'); 
+
+        $crawler = $client->request('GET', '/relics');
         $this->assertResponseIsSuccessful();
-        
+
         $link = $crawler->filter('.relics-list a')->first()->link();
         $crawler = $client->click($link);
 

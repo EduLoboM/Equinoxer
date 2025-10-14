@@ -10,13 +10,13 @@ class SearchTest extends PantherTestCase
     {
         $client = static::createPantherClient();
         $crawler = $client->request('GET', '/primes');
-        
+
         $client->waitFor('.primes-list');
-        
+
         $client->findElement(\Facebook\WebDriver\WebDriverBy::id('primeSearch'))->sendKeys('XyZ123NoMatch');
-        
-        sleep(1); 
-        
-        $this->assertTrue(true); 
+
+        sleep(1);
+
+        $this->assertTrue(true);
     }
 }

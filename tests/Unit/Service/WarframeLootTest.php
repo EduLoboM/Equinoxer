@@ -5,9 +5,9 @@ namespace App\Tests\Unit\Service;
 use App\Service\WarframeLoot;
 use PHPUnit\Framework\TestCase;
 use Symfony\Contracts\Cache\CacheInterface;
+use Symfony\Contracts\Cache\ItemInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;
-use Symfony\Contracts\Cache\ItemInterface;
 
 class WarframeLootTest extends TestCase
 {
@@ -22,12 +22,12 @@ class WarframeLootTest extends TestCase
                         'gameMode' => 'Capture',
                         'rewards' => [
                             'A' => [
-                                ['itemName' => 'Lith G1 Relic', 'chance' => 14.29]
-                            ]
-                        ]
-                    ]
-                ]
-            ]
+                                ['itemName' => 'Lith G1 Relic', 'chance' => 14.29],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
         ]);
 
         $httpClient = $this->createMock(HttpClientInterface::class);
@@ -37,6 +37,7 @@ class WarframeLootTest extends TestCase
         $cache->method('get')
             ->willReturnCallback(function ($key, $callback) {
                 $item = $this->createMock(ItemInterface::class);
+
                 return $callback($item);
             });
 

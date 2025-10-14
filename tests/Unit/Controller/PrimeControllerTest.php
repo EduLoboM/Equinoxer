@@ -7,7 +7,6 @@ use App\Service\JsonLoader;
 use App\Service\WarframeLoot;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Twig\Environment;
 

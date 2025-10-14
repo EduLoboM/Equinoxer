@@ -7,7 +7,6 @@ use App\Service\JsonLoader;
 use App\Service\WarframeLoot;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
-use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 
 class RelicControllerTest extends TestCase
@@ -16,7 +15,7 @@ class RelicControllerTest extends TestCase
     {
         $mockRelic = ['slug' => 'lith_g1', 'name' => 'Lith G1 Relic'];
         $mockMissions = [
-            ['planet' => 'Void', 'mission' => 'Hepit', 'gameMode' => 'Capture', 'rotation' => 'A', 'chance' => 14.29]
+            ['planet' => 'Void', 'mission' => 'Hepit', 'gameMode' => 'Capture', 'rotation' => 'A', 'chance' => 14.29],
         ];
 
         $loader = $this->createMock(JsonLoader::class);
@@ -28,8 +27,8 @@ class RelicControllerTest extends TestCase
         $twig = $this->createMock(Environment::class);
         $twig->expects($this->once())
              ->method('render')
-             ->with('relics/show.html.twig', $this->callback(function($context) {
-                 return isset($context['rewards']) && $context['rewards'][0]['efficiency'] !== null;
+             ->with('relics/show.html.twig', $this->callback(function ($context) {
+                 return isset($context['rewards']) && null !== $context['rewards'][0]['efficiency'];
              }))
              ->willReturn('ok');
 
@@ -41,7 +40,7 @@ class RelicControllerTest extends TestCase
         $controller->setContainer($container);
 
         $response = $controller->show('lith_g1', $loader, $search);
-        
+
         $this->assertEquals('ok', $response->getContent());
     }
 }

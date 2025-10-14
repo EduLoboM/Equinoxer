@@ -6,8 +6,8 @@ use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 #[AsCommand(
     name: 'app:update-data',
@@ -20,7 +20,7 @@ class UpdateDataCommand extends Command
 
     public function __construct(
         HttpClientInterface $httpClient,
-        #[Autowire('%kernel.project_dir%/data')] string $dataDir
+        #[Autowire('%kernel.project_dir%/data')] string $dataDir,
     ) {
         $this->httpClient = $httpClient;
         $this->dataDir = $dataDir;
@@ -42,23 +42,24 @@ class UpdateDataCommand extends Command
 
             $output->writeln('Processing Primes...');
             $primeCategories = ['Warframes', 'Primary', 'Secondary', 'Melee', 'Archwing', 'Sentinels', 'Pets', 'Skins'];
-            
+
             $primeItems = [];
-            
+
             foreach ($primeCategories as $cat) {
-                 gc_collect_cycles();
-                 $catItems = $this->fetchCategory($cat, $output);
-                 $primeItems = array_merge($primeItems, $catItems);
+                gc_collect_cycles();
+                $catItems = $this->fetchCategory($cat, $output);
+                $primeItems = array_merge($primeItems, $catItems);
             }
-            
+
             $this->processPrimes($primeItems, $output);
 
             $output->writeln('Data update complete.');
 
             return Command::SUCCESS;
         } catch (\Throwable $e) {
-            $output->writeln('CRITICAL ERROR: ' . $e->getMessage());
+            $output->writeln('CRITICAL ERROR: '.$e->getMessage());
             $output->writeln($e->getTraceAsString());
+
             return Command::FAILURE;
         }
     }
@@ -66,38 +67,39 @@ class UpdateDataCommand extends Command
     private function fetchDrops(OutputInterface $output): array
     {
         try {
-            $response = $this->httpClient->request('GET', "https://api.warframestat.us/drops", [
+            $response = $this->httpClient->request('GET', 'https://api.warframestat.us/drops', [
                 'timeout' => 120,
             ]);
-            
-            if ($response->getStatusCode() !== 200) {
-                 $output->writeln("   Drops fetch failed: " . $response->getStatusCode());
-                 return [];
+
+            if (200 !== $response->getStatusCode()) {
+                $output->writeln('   Drops fetch failed: '.$response->getStatusCode());
+
+                return [];
             }
-            
+
             $data = $response->toArray();
             $map = [];
-            
+
             foreach ($data as $drop) {
                 $place = $drop['place'] ?? '';
                 if (!str_contains($place, 'Relic')) {
                     continue;
                 }
-                
+
                 $basePlace = preg_replace('/\s+\(?(Intact|Exceptional|Flawless|Radiant)\)?$/i', '', $place);
                 $basePlace = trim($basePlace);
-                
+
                 if (!isset($map[$basePlace])) {
                     $map[$basePlace] = [];
                 }
-                
+
                 $map[$basePlace][] = [
                     'item' => $drop['item'],
                     'rarity' => $drop['rarity'],
                     'chance' => $drop['chance'],
                 ];
             }
-            
+
             foreach ($map as $k => $drops) {
                 $uniqueDrops = [];
                 foreach ($drops as $d) {
@@ -112,11 +114,13 @@ class UpdateDataCommand extends Command
                 }
                 $map[$k] = array_values($uniqueDrops);
             }
-            
-            $output->writeln("   Fetched and processed " . count($map) . " relic drop tables.");
+
+            $output->writeln('   Fetched and processed '.count($map).' relic drop tables.');
+
             return $map;
         } catch (\Exception $e) {
-            $output->writeln("   Error fetching drops: " . $e->getMessage());
+            $output->writeln('   Error fetching drops: '.$e->getMessage());
+
             return [];
         }
     }
@@ -124,34 +128,37 @@ class UpdateDataCommand extends Command
     private function fetchCategory(string $category, OutputInterface $output): array
     {
         $output->writeln(" - Fetching category: {$category} (query param)");
-        
+
         try {
-            $response = $this->httpClient->request('GET', "https://api.warframestat.us/items", [
+            $response = $this->httpClient->request('GET', 'https://api.warframestat.us/items', [
                 'query' => [
                     'category' => $category,
                 ],
                 'timeout' => 60,
             ]);
-            
-            if ($response->getStatusCode() !== 200) {
-                 $output->writeln("   Request failed (Status {$response->getStatusCode()})");
-                 return [];
+
+            if (200 !== $response->getStatusCode()) {
+                $output->writeln("   Request failed (Status {$response->getStatusCode()})");
+
+                return [];
             }
-            
+
             $data = $response->toArray();
-            
+
             if (empty($data)) {
-                 $output->writeln("   Warning: API returned empty data for {$category}.");
-                 return [];
+                $output->writeln("   Warning: API returned empty data for {$category}.");
+
+                return [];
             }
 
             if (!array_is_list($data)) {
-                 $data = array_values($data);
+                $data = array_values($data);
             }
-            
+
             return $data;
         } catch (\Exception $e) {
-            $output->writeln("   Error fetching {$category}: " . $e->getMessage());
+            $output->writeln("   Error fetching {$category}: ".$e->getMessage());
+
             return [];
         }
     }
@@ -160,15 +167,17 @@ class UpdateDataCommand extends Command
     {
         $relics = [];
         $seenRelics = [];
-        
+
         foreach ($items as $item) {
-            if (!is_array($item)) { continue; }
-            
+            if (!is_array($item)) {
+                continue;
+            }
+
             $cat = $item['category'] ?? '';
             $name = $item['name'] ?? '';
 
-            if (stripos($cat, 'Relic') === false && stripos($name, 'Relic') === false) {
-                 continue;
+            if (false === stripos($cat, 'Relic') && false === stripos($name, 'Relic')) {
+                continue;
             }
 
             $baseName = preg_replace('/\s+\(?(Intact|Exceptional|Flawless|Radiant)\)?$/i', '', $name);
@@ -181,7 +190,7 @@ class UpdateDataCommand extends Command
 
             $rewards = [];
             if (!empty($item['rewards'])) {
-                 foreach ($item['rewards'] as $reward) {
+                foreach ($item['rewards'] as $reward) {
                     $rewards[] = [
                         'rarity' => $reward['rarity'],
                         'chance' => $reward['chance'],
@@ -191,20 +200,22 @@ class UpdateDataCommand extends Command
             } elseif (isset($dropsMap[$baseName])) {
                 $rewards = $dropsMap[$baseName];
             } else {
-                if (isset($dropsMap[$baseName . " Relic"])) {
-                    $rewards = $dropsMap[$baseName . " Relic"];
+                if (isset($dropsMap[$baseName.' Relic'])) {
+                    $rewards = $dropsMap[$baseName.' Relic'];
                 }
             }
-            
+
             $slug = strtolower(str_replace(' ', '_', $baseName));
             $parts = explode(' ', $baseName);
             if (count($parts) >= 2) {
-                 $tier = strtolower($parts[0]);
-                 $code = strtolower($parts[1]);
-                 if ($tier !== 'unknown') {
-                      $slug = "{$tier}_{$code}";
-                      if ($tier === 'requiem') $slug = "requiem_{$code}";
-                 }
+                $tier = strtolower($parts[0]);
+                $code = strtolower($parts[1]);
+                if ('unknown' !== $tier) {
+                    $slug = "{$tier}_{$code}";
+                    if ('requiem' === $tier) {
+                        $slug = "requiem_{$code}";
+                    }
+                }
             }
 
             $relics[] = [
@@ -214,10 +225,10 @@ class UpdateDataCommand extends Command
             ];
         }
 
-        usort($relics, fn($a, $b) => strcmp($a['name'], $b['name']));
+        usort($relics, fn ($a, $b) => strcmp($a['name'], $b['name']));
 
         file_put_contents(
-            $this->dataDir . '/Relics_Normalized.json',
+            $this->dataDir.'/Relics_Normalized.json',
             json_encode($relics, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)
         );
         $output->writeln(sprintf('Saved %d relics.', count($relics)));
@@ -227,26 +238,30 @@ class UpdateDataCommand extends Command
     {
         $primes = [];
         $seen = [];
-        
+
         foreach ($items as $item) {
-            if (!is_array($item)) { continue; }
-            
+            if (!is_array($item)) {
+                continue;
+            }
+
             $name = $item['name'] ?? '';
-            if ($name === '') { continue; }
-            
+            if ('' === $name) {
+                continue;
+            }
+
             $name = trim($name);
-            
+
             if (isset($seen[$name])) {
                 continue;
             }
-            
+
             if (!str_contains($name, 'Prime')) {
                 continue;
             }
             if (str_contains($name, 'Set')) {
                 continue;
             }
-            
+
             if (empty($item['components'])) {
                 continue;
             }
@@ -254,18 +269,18 @@ class UpdateDataCommand extends Command
             $seen[$name] = true;
 
             $slug = strtolower(str_replace(' ', '_', $name));
-            
+
             $parts = [];
             foreach ($item['components'] as $component) {
-                 $compName = $component['name'];
-                 $cleanName = str_ireplace($name . ' ', '', $compName);
-                 
-                 $parts[] = [
-                     'name' => trim($cleanName),
-                     'count' => $component['itemCount'] ?? 1,
-                 ];
+                $compName = $component['name'];
+                $cleanName = str_ireplace($name.' ', '', $compName);
+
+                $parts[] = [
+                    'name' => trim($cleanName),
+                    'count' => $component['itemCount'] ?? 1,
+                ];
             }
-            
+
             $primes[] = [
                 'name' => $name,
                 'slug' => $slug,
@@ -273,10 +288,10 @@ class UpdateDataCommand extends Command
             ];
         }
 
-        usort($primes, fn($a, $b) => strcmp($a['name'], $b['name']));
+        usort($primes, fn ($a, $b) => strcmp($a['name'], $b['name']));
 
         file_put_contents(
-            $this->dataDir . '/Primes_Normalized.json',
+            $this->dataDir.'/Primes_Normalized.json',
             json_encode($primes, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)
         );
         $output->writeln(sprintf('Saved %d primes.', count($primes)));

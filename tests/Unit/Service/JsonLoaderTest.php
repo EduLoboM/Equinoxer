@@ -14,9 +14,9 @@ class JsonLoaderTest extends TestCase
         $cache->method('get')->willReturn(['some' => 'data']);
 
         $loader = new JsonLoader('/tmp', $cache);
-        
+
         $result = $loader->load('test.json');
-        
+
         $this->assertIsArray($result);
         $this->assertEquals(['some' => 'data'], $result);
     }
