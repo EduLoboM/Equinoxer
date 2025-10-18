@@ -2,65 +2,61 @@
 
 namespace App\Service;
 
-use Symfony\Contracts\Cache\CacheInterface;
-use Symfony\Contracts\Cache\ItemInterface;
+use Meilisearch\Client;
 
 class JsonLoader
 {
-    private string $projectDir;
-    private CacheInterface $cache;
-    private array $memoized = [];
+    private Client $client;
 
-    public function __construct(string $projectDir, CacheInterface $cache)
+    public function __construct(Client $client)
     {
-        $this->projectDir = $projectDir;
-        $this->cache = $cache;
+        $this->client = $client;
     }
 
     public function load(string $filename): array
     {
-        if (isset($this->memoized[$filename])) {
-            return $this->memoized[$filename];
+        $indexName = $this->getIndexName($filename);
+        if (!$indexName) {
+            throw new \RuntimeException("Unknown file mapping for: {$filename}");
         }
 
-        $this->memoized[$filename] = $this->cache->get(
-            'json_data_'.md5($filename),
-            function (ItemInterface $item) use ($filename) {
-                $item->expiresAfter(3600);
-
-                $path = $this->projectDir.'/data/'.$filename;
-                if (!file_exists($path)) {
-                    throw new \RuntimeException("Arquivo JSON não encontrado em {$path}");
-                }
-                $json = file_get_contents($path);
-
-                return json_decode($json, true);
+        try {
+            $query = (new \Meilisearch\Contracts\DocumentsQuery())->setLimit(10000); 
+            $result = $this->client->index($indexName)->getDocuments($query);
+            
+            if (is_iterable($result)) {
+                $hits = iterator_to_array($result);
+            } else {
+                $hits = method_exists($result, 'getResults') ? $result->getResults() : (array)$result;
             }
-        );
+            
+            return array_map(function($hit) {
+                return (array) $hit;
+            }, $hits);
 
-        return $this->memoized[$filename];
+        } catch (\Throwable $e) {
+            return [];
+        }
     }
 
     public function findRelicsByItem(string $itemName): array
     {
-        $allRelics = $this->load('Relics_Normalized.json');
+        $index = $this->client->index('relics');
+        
+        $hits = $index->search($itemName, [
+            'attributesToRetrieve' => ['*'],
+            'limit' => 1000
+        ])->getHits();
+        
+        return $hits;
+    }
 
-        if (!is_array($allRelics)) {
-            return [];
-        }
-
-        return array_filter($allRelics, function ($r) use ($itemName) {
-            if (!isset($r['rewards']) || !is_array($r['rewards'])) {
-                return false;
-            }
-
-            foreach ($r['rewards'] as $reward) {
-                if (isset($reward['item']) && str_contains($reward['item'], $itemName)) {
-                    return true;
-                }
-            }
-
-            return false;
-        });
+    private function getIndexName(string $filename): ?string
+    {
+        return match ($filename) {
+            'Primes_Normalized.json' => 'primes',
+            'Relics_Normalized.json' => 'relics',
+            default => null,
+        };
     }
 }
