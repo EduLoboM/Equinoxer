@@ -2,6 +2,7 @@
 
 namespace App\Command;
 
+use App\ValueObject\WarframeItemName;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -16,13 +17,16 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 class UpdateDataCommand extends Command
 {
     private HttpClientInterface $httpClient;
+    private \Meilisearch\Client $meiliClient;
     private string $dataDir;
 
     public function __construct(
         HttpClientInterface $httpClient,
+        \Meilisearch\Client $meiliClient,
         #[Autowire('%kernel.project_dir%/data')] string $dataDir,
     ) {
         $this->httpClient = $httpClient;
+        $this->meiliClient = $meiliClient;
         $this->dataDir = $dataDir;
         parent::__construct();
     }
@@ -35,23 +39,40 @@ class UpdateDataCommand extends Command
 
             $output->writeln('Fetching Global Drops (this may take a while)...');
             $dropsMap = $this->fetchDrops($output);
-
-            $output->writeln('Processing Relics...');
-            $relicItems = $this->fetchCategory('Relics', $output);
-            $this->processRelics($relicItems, $dropsMap, $output);
+            
+            if (empty($dropsMap)) {
+                $output->writeln('Drops fetch failed. Falling back to local Relics_Normalized.json');
+                $this->indexLocalFile('Relics_Normalized.json', 'relics', $output);
+            } else {
+                $output->writeln('Processing Relics...');
+                $relicItems = $this->fetchCategory('Relics', $output);
+                if (empty($relicItems)) {
+                    $output->writeln('Relic items fetch failed. Falling back to local Relics_Normalized.json');
+                    $this->indexLocalFile('Relics_Normalized.json', 'relics', $output);
+                } else {
+                    $this->processRelics($relicItems, $dropsMap, $output);
+                }
+            }
 
             $output->writeln('Processing Primes...');
             $primeCategories = ['Warframes', 'Primary', 'Secondary', 'Melee', 'Archwing', 'Sentinels', 'Pets', 'Skins'];
-
             $primeItems = [];
 
             foreach ($primeCategories as $cat) {
                 gc_collect_cycles();
                 $catItems = $this->fetchCategory($cat, $output);
+                if (empty($catItems)) {
+                    $output->writeln("Failed to fetch $cat");
+                }
                 $primeItems = array_merge($primeItems, $catItems);
             }
 
-            $this->processPrimes($primeItems, $output);
+            if (empty($primeItems)) {
+                 $output->writeln('Prime items fetch failed (or empty). Falling back to local Primes_Normalized.json');
+                 $this->indexLocalFile('Primes_Normalized.json', 'primes', $output);
+            } else {
+                $this->processPrimes($primeItems, $output);
+            }
 
             $output->writeln('Data update complete.');
 
@@ -63,9 +84,63 @@ class UpdateDataCommand extends Command
             return Command::FAILURE;
         }
     }
+    
+    private function indexLocalFile(string $filename, string $indexName, OutputInterface $output): void
+    {
+        $path = $this->dataDir.'/'.$filename;
+        if (!file_exists($path)) {
+            $output->writeln("Error: Local file $filename not found in $path. Cannot fallback.");
+            return;
+        }
+
+        $data = json_decode(file_get_contents($path), true);
+        if (!$data) {
+             $output->writeln("Error: Failed to decode $filename.");
+             return;
+        }
+        
+        foreach ($data as &$item) {
+            if (isset($item['slug'])) {
+                $item['slug'] = preg_replace('/[^a-zA-Z0-9_-]/', '_', $item['slug']);
+            }
+        }
+        unset($item);
+
+        $index = $this->meiliClient->index($indexName);
+        
+        $task = $index->deleteAllDocuments();
+        $this->meiliClient->waitForTask($task['taskUid']);
+        
+        $settings = match($indexName) {
+            'relics' => [
+                'searchableAttributes' => ['name', 'rewards.item'],
+                'filterableAttributes' => ['name'],
+                'sortableAttributes' => ['name'],
+            ],
+            'primes' => [
+                 'searchableAttributes' => ['name', 'parts.name'],
+                 'filterableAttributes' => ['name', 'slug'],
+                 'sortableAttributes' => ['name'],
+            ],
+            default => []
+        };
+
+        if ($settings) {
+            $task = $index->updateSettings($settings);
+            $this->meiliClient->waitForTask($task['taskUid']);
+        }
+
+        $task = $index->addDocuments($data, 'slug');
+        $this->meiliClient->waitForTask($task['taskUid']);
+        
+        $output->writeln(sprintf('Indexed %d documents from %s into %s.', count($data), $filename, $indexName));
+    }
+
 
     private function fetchDrops(OutputInterface $output): array
     {
+        $this->indexMissionRewards($output);
+
         try {
             $response = $this->httpClient->request('GET', 'https://api.warframestat.us/drops', [
                 'timeout' => 120,
@@ -73,7 +148,6 @@ class UpdateDataCommand extends Command
 
             if (200 !== $response->getStatusCode()) {
                 $output->writeln('   Drops fetch failed: '.$response->getStatusCode());
-
                 return [];
             }
 
@@ -86,8 +160,7 @@ class UpdateDataCommand extends Command
                     continue;
                 }
 
-                $basePlace = preg_replace('/\s+\(?(Intact|Exceptional|Flawless|Radiant)\)?$/i', '', $place);
-                $basePlace = trim($basePlace);
+                $basePlace = (new WarframeItemName($place))->getCleanName();
 
                 if (!isset($map[$basePlace])) {
                     $map[$basePlace] = [];
@@ -120,8 +193,90 @@ class UpdateDataCommand extends Command
             return $map;
         } catch (\Exception $e) {
             $output->writeln('   Error fetching drops: '.$e->getMessage());
-
             return [];
+        }
+    }
+
+    private function indexMissionRewards(OutputInterface $output): void
+    {
+        $output->writeln('Fetching and Indexing Mission Rewards...');
+        try {
+            $response = $this->httpClient->request('GET', 'https://drops.warframestat.us/data/missionRewards.json', [
+                 'timeout' => 120,
+            ]);
+
+            $data = [];
+            if ($response->getStatusCode() === 200) {
+                 $jsonData = $response->toArray();
+                 $data = $jsonData['missionRewards'] ?? [];
+                 file_put_contents($this->dataDir . '/missionRewards.json', json_encode($jsonData));
+            } elseif (file_exists($this->dataDir . '/missionRewards.json')) {
+                 $output->writeln('   Failed to fetch missionRewards.json, using local backup.');
+                 $jsonData = json_decode(file_get_contents($this->dataDir . '/missionRewards.json'), true);
+                 $data = $jsonData['missionRewards'] ?? [];
+            } else {
+                 $output->writeln('   Failed to fetch missionRewards.json and no local backup found.');
+                 return;
+            }
+
+            $indexData = [];
+            foreach ($data as $planet => $missions) {
+                if (!is_array($missions)) continue;
+                foreach ($missions as $mission => $missionData) {
+                    $rewards = $missionData['rewards'] ?? [];
+                    if (!is_array($rewards)) continue;
+                    foreach ($rewards as $rotation => $items) {
+                        if (!is_array($items)) continue;
+                        foreach ($items as $item) {
+                            $itemName = $item['itemName'] ?? '';
+                            if (!$itemName) continue;
+                            
+                            $slug = (new WarframeItemName($itemName))->getSlug();
+                            $slug = preg_replace('/[^a-zA-Z0-9_-]/', '_', $slug);
+                            
+                            if (!isset($indexData[$slug])) {
+                                $indexData[$slug] = [
+                                    'id' => $slug,
+                                    'name' => $itemName,
+                                    'locations' => []
+                                ];
+                            }
+                            
+                            $indexData[$slug]['locations'][] = [
+                                'planet' => $planet,
+                                'mission' => $mission,
+                                'rotation' => $rotation,
+                                'chance' => $item['chance'] ?? 0,
+                                'gameMode' => $missionData['gameMode'] ?? 'Unknown',
+                            ];
+                        }
+                    }
+                }
+            }
+            
+            $documents = array_values($indexData);
+
+            $index = $this->meiliClient->index('mission_rewards');
+            
+            $task = $index->deleteAllDocuments();
+            $this->meiliClient->waitForTask($task['taskUid']);
+            
+            $task = $index->updateSettings([
+                'searchableAttributes' => ['name'],
+                'filterableAttributes' => ['name'],
+            ]);
+            $this->meiliClient->waitForTask($task['taskUid']);
+            
+            $chunks = array_chunk($documents, 1000);
+            foreach ($chunks as $chunk) {
+                $task = $index->addDocuments($chunk, 'id');
+                $this->meiliClient->waitForTask($task['taskUid']);
+            }
+            
+            $output->writeln(sprintf('   Indexed mission rewards for %d items.', count($documents)));
+
+        } catch (\Exception $e) {
+            $output->writeln('   Error indexing mission rewards: ' . $e->getMessage());
         }
     }
 
@@ -180,8 +335,8 @@ class UpdateDataCommand extends Command
                 continue;
             }
 
-            $baseName = preg_replace('/\s+\(?(Intact|Exceptional|Flawless|Radiant)\)?$/i', '', $name);
-            $baseName = trim($baseName);
+            $itemName = new WarframeItemName($name);
+            $baseName = $itemName->getCleanName();
 
             if (isset($seenRelics[$baseName])) {
                 continue;
@@ -205,18 +360,7 @@ class UpdateDataCommand extends Command
                 }
             }
 
-            $slug = strtolower(str_replace(' ', '_', $baseName));
-            $parts = explode(' ', $baseName);
-            if (count($parts) >= 2) {
-                $tier = strtolower($parts[0]);
-                $code = strtolower($parts[1]);
-                if ('unknown' !== $tier) {
-                    $slug = "{$tier}_{$code}";
-                    if ('requiem' === $tier) {
-                        $slug = "requiem_{$code}";
-                    }
-                }
-            }
+            $slug = $itemName->getSlug();
 
             $relics[] = [
                 'name' => $baseName,
@@ -227,11 +371,22 @@ class UpdateDataCommand extends Command
 
         usort($relics, fn ($a, $b) => strcmp($a['name'], $b['name']));
 
-        file_put_contents(
-            $this->dataDir.'/Relics_Normalized.json',
-            json_encode($relics, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)
-        );
-        $output->writeln(sprintf('Saved %d relics.', count($relics)));
+        $index = $this->meiliClient->index('relics');
+        
+        $task = $index->deleteAllDocuments();
+        $this->meiliClient->waitForTask($task['taskUid']);
+        
+        $task = $index->updateSettings([
+            'searchableAttributes' => ['name', 'rewards.item'],
+            'filterableAttributes' => ['name'],
+            'sortableAttributes' => ['name'],
+        ]);
+        $this->meiliClient->waitForTask($task['taskUid']);
+        
+        $task = $index->addDocuments($relics, 'slug');
+        $this->meiliClient->waitForTask($task['taskUid']);
+
+        $output->writeln(sprintf('Indexed %d relics into Meilisearch.', count($relics)));
     }
 
     private function processPrimes(array $items, OutputInterface $output): void
@@ -290,10 +445,21 @@ class UpdateDataCommand extends Command
 
         usort($primes, fn ($a, $b) => strcmp($a['name'], $b['name']));
 
-        file_put_contents(
-            $this->dataDir.'/Primes_Normalized.json',
-            json_encode($primes, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)
-        );
-        $output->writeln(sprintf('Saved %d primes.', count($primes)));
+        $index = $this->meiliClient->index('primes');
+        
+        $task = $index->deleteAllDocuments();
+        $this->meiliClient->waitForTask($task['taskUid']);
+        
+        $task = $index->updateSettings([
+            'searchableAttributes' => ['name', 'parts.name'],
+            'filterableAttributes' => ['name', 'slug'],
+            'sortableAttributes' => ['name'],
+        ]);
+        $this->meiliClient->waitForTask($task['taskUid']);
+        
+        $task = $index->addDocuments($primes, 'slug');
+        $this->meiliClient->waitForTask($task['taskUid']);
+
+        $output->writeln(sprintf('Indexed %d primes into Meilisearch.', count($primes)));
     }
 }
