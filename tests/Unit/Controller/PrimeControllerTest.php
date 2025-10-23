@@ -3,6 +3,7 @@
 namespace App\Tests\Unit\Controller;
 
 use App\Controller\PrimeController;
+use App\Service\DropEfficiencyCalculator;
 use App\Service\JsonLoader;
 use App\Service\WarframeLoot;
 use PHPUnit\Framework\TestCase;
@@ -37,12 +38,13 @@ class PrimeControllerTest extends TestCase
         $loader->method('load')->willReturn([]); // Empty primes
 
         $search = $this->createMock(WarframeLoot::class);
+        $calculator = $this->createMock(DropEfficiencyCalculator::class);
 
         $controller = new PrimeController();
         $container = $this->createMock(ContainerInterface::class);
         $controller->setContainer($container);
 
         $this->expectException(NotFoundHttpException::class);
-        $controller->show('slug', $loader, $search);
+        $controller->show('slug', $loader, $search, $calculator);
     }
 }

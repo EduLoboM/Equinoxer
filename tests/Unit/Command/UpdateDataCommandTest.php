@@ -3,6 +3,8 @@
 namespace App\Tests\Unit\Command;
 
 use App\Command\UpdateDataCommand;
+use Meilisearch\Client;
+use Meilisearch\Endpoints\Indexes;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Tester\CommandTester;
@@ -12,6 +14,8 @@ use Symfony\Contracts\HttpClient\ResponseInterface;
 class UpdateDataCommandTest extends TestCase
 {
     private string $tempDir;
+    /** @var Client&\PHPUnit\Framework\MockObject\MockObject */
+    private $mockMeiliClient;
 
     protected function setUp(): void
     {
@@ -19,49 +23,36 @@ class UpdateDataCommandTest extends TestCase
         if (!is_dir($this->tempDir)) {
             mkdir($this->tempDir, 0777, true);
         }
+
+        file_put_contents($this->tempDir.'/Relics_Normalized.json', '[]');
+        file_put_contents($this->tempDir.'/Primes_Normalized.json', '[]');
+
+        $mockIndex = $this->createMock(Indexes::class);
+        $mockIndex->method('deleteAllDocuments')->willReturn(['taskUid' => 1]);
+        $mockIndex->method('updateSettings')->willReturn(['taskUid' => 2]);
+        $mockIndex->method('addDocuments')->willReturn(['taskUid' => 3]);
+
+        $this->mockMeiliClient = $this->createMock(Client::class);
+        $this->mockMeiliClient->method('index')->willReturn($mockIndex);
+        $this->mockMeiliClient->method('waitForTask')->willReturn(['status' => 'succeeded', 'details' => ['indexedDocuments' => 1]]);
     }
 
     protected function tearDown(): void
     {
-        // Cleanup temp files
         array_map('unlink', glob("$this->tempDir/*.*"));
-        rmdir($this->tempDir);
+        @rmdir($this->tempDir);
     }
 
-    public function testExecuteUpdatesDataSuccessfully(): void
+    public function testExecuteFallsBackToLocalFiles(): void
     {
-        // 1. Mock HttpClient
-        $mockResponseDrops = $this->createMock(ResponseInterface::class);
-        $mockResponseDrops->method('getStatusCode')->willReturn(200);
-        $mockResponseDrops->method('toArray')->willReturn([
-            ['place' => 'Void Relic', 'item' => 'Forma', 'rarity' => 'Common', 'chance' => 25.33],
-        ]);
-
-        $mockResponseItems = $this->createMock(ResponseInterface::class);
-        $mockResponseItems->method('getStatusCode')->willReturn(200);
-        $mockResponseItems->method('toArray')->willReturn([
-            [
-                'name' => 'Lith G1 Relic',
-                'category' => 'Relics',
-                'rewards' => [
-                    ['itemName' => 'Forma', 'rarity' => 'Common', 'chance' => 25.33],
-                ],
-            ],
-        ]);
+        $mockResponse = $this->createMock(ResponseInterface::class);
+        $mockResponse->method('getStatusCode')->willReturn(502);
 
         $httpClient = $this->createMock(HttpClientInterface::class);
-        $httpClient->method('request')->willReturnCallback(function ($method, $url, $options = []) use ($mockResponseDrops, $mockResponseItems) {
-            if (str_contains($url, '/drops')) {
-                return $mockResponseDrops;
-            }
+        $httpClient->method('request')->willReturn($mockResponse);
 
-            return $mockResponseItems;
-        });
+        $command = new UpdateDataCommand($httpClient, $this->mockMeiliClient, $this->tempDir);
 
-        // 2. Instantiate Command with temp dir
-        $command = new UpdateDataCommand($httpClient, $this->tempDir);
-
-        // 3. Execute
         $application = new Application();
         $application->add($command);
         $command = $application->find('app:update-data');
@@ -71,9 +62,7 @@ class UpdateDataCommandTest extends TestCase
 
         $output = $commandTester->getDisplay();
 
-        // 4. Assertions
+        $this->assertStringContainsString('Falling back to local', $output);
         $this->assertStringContainsString('Data update complete.', $output);
-        $this->assertFileExists($this->tempDir.'/Relics_Normalized.json');
-        $this->assertFileExists($this->tempDir.'/Primes_Normalized.json');
     }
 }

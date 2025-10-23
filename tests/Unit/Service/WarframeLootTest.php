@@ -3,45 +3,35 @@
 namespace App\Tests\Unit\Service;
 
 use App\Service\WarframeLoot;
+use Meilisearch\Client;
+use Meilisearch\Endpoints\Indexes;
 use PHPUnit\Framework\TestCase;
-use Symfony\Contracts\Cache\CacheInterface;
-use Symfony\Contracts\Cache\ItemInterface;
-use Symfony\Contracts\HttpClient\HttpClientInterface;
-use Symfony\Contracts\HttpClient\ResponseInterface;
 
 class WarframeLootTest extends TestCase
 {
-    public function testGetMissionsForRelicParsesJsonCorrectly(): void
+    public function testGetMissionsForRelicReturnsLocations(): void
     {
-        $mockResponse = $this->createMock(ResponseInterface::class);
-        $mockResponse->method('getStatusCode')->willReturn(200);
-        $mockResponse->method('toArray')->willReturn([
-            'missionRewards' => [
-                'Void' => [
-                    'Hepit' => [
-                        'gameMode' => 'Capture',
-                        'rewards' => [
-                            'A' => [
-                                ['itemName' => 'Lith G1 Relic', 'chance' => 14.29],
-                            ],
-                        ],
-                    ],
+        $mockDocument = [
+            'id' => 'lith_g1',
+            'name' => 'Lith G1 Relic',
+            'locations' => [
+                [
+                    'planet' => 'Void',
+                    'mission' => 'Hepit',
+                    'rotation' => 'A',
+                    'chance' => 14.29,
+                    'gameMode' => 'Capture',
                 ],
             ],
-        ]);
+        ];
 
-        $httpClient = $this->createMock(HttpClientInterface::class);
-        $httpClient->method('request')->willReturn($mockResponse);
+        $mockIndex = $this->createMock(Indexes::class);
+        $mockIndex->method('getDocument')->willReturn($mockDocument);
 
-        $cache = $this->createMock(CacheInterface::class);
-        $cache->method('get')
-            ->willReturnCallback(function ($key, $callback) {
-                $item = $this->createMock(ItemInterface::class);
+        $mockClient = $this->createMock(Client::class);
+        $mockClient->method('index')->willReturn($mockIndex);
 
-                return $callback($item);
-            });
-
-        $service = new WarframeLoot($httpClient, $cache);
+        $service = new WarframeLoot($mockClient);
 
         $results = $service->getMissionsForRelic('Lith G1');
 
@@ -50,5 +40,21 @@ class WarframeLootTest extends TestCase
         $this->assertEquals('Hepit', $results[0]['mission']);
         $this->assertEquals('Capture', $results[0]['gameMode']);
         $this->assertEquals(14.29, $results[0]['chance']);
+    }
+
+    public function testGetMissionsForRelicReturnsEmptyOnNotFound(): void
+    {
+        $mockIndex = $this->createMock(Indexes::class);
+        $mockIndex->method('getDocument')->willThrowException(new \Exception('Document not found'));
+
+        $mockClient = $this->createMock(Client::class);
+        $mockClient->method('index')->willReturn($mockIndex);
+
+        $service = new WarframeLoot($mockClient);
+
+        $results = $service->getMissionsForRelic('Nonexistent Z9');
+
+        $this->assertIsArray($results);
+        $this->assertEmpty($results);
     }
 }

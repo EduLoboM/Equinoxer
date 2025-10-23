@@ -3,6 +3,8 @@
 namespace App\Tests\Unit\Controller;
 
 use App\Controller\RelicController;
+use App\DTO\DropEfficiencyResult;
+use App\Service\DropEfficiencyCalculator;
 use App\Service\JsonLoader;
 use App\Service\WarframeLoot;
 use PHPUnit\Framework\TestCase;
@@ -24,6 +26,10 @@ class RelicControllerTest extends TestCase
         $search = $this->createMock(WarframeLoot::class);
         $search->method('getMissionsForRelic')->willReturn($mockMissions);
 
+        $calculator = $this->createMock(DropEfficiencyCalculator::class);
+        $calculator->method('calculateFromChanceStrings')
+            ->willReturn(new DropEfficiencyResult(0.1429, 2, 0.07145));
+
         $twig = $this->createMock(Environment::class);
         $twig->expects($this->once())
              ->method('render')
@@ -39,8 +45,9 @@ class RelicControllerTest extends TestCase
         $controller = new RelicController();
         $controller->setContainer($container);
 
-        $response = $controller->show('lith_g1', $loader, $search);
+        $response = $controller->show('lith_g1', $loader, $search, $calculator);
 
         $this->assertEquals('ok', $response->getContent());
     }
 }
+
