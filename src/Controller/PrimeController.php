@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Service\DropEfficiencyCalculator;
 use App\Service\JsonLoader;
 use App\Service\WarframeLoot;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -25,6 +26,7 @@ class PrimeController extends AbstractController
         string $slug,
         JsonLoader $loader,
         WarframeLoot $search,
+        DropEfficiencyCalculator $calculator,
     ): Response {
         $primes = $loader->load('Primes_Normalized.json');
         $entry = array_values(
@@ -35,8 +37,6 @@ class PrimeController extends AbstractController
             throw $this->createNotFoundException("Prime '{$slug}' não encontrado");
         }
         $prime = $entry[0];
-
-        $positions = ['A' => 1, 'B' => 2, 'C' => 3];
 
         $parts = [];
         foreach ($prime['parts'] as $partData) {
@@ -78,24 +78,12 @@ class PrimeController extends AbstractController
                 }
 
                 foreach ($groups as &$g) {
-                    $ps = array_map(
-                        fn ($c) => floatval(rtrim($c, '%')) / 100,
-                        $g['chances'],
-                    );
-                    $prod = array_reduce(
-                        $ps,
-                        fn ($carry, $p) => $carry * (1 - $p),
-                        1.0,
-                    );
-                    $cycleChance = 1 - $prod;
-
                     $maxRot = max($g['rotations']);
-                    $missions = $positions[$maxRot] + 1;
-                    $efficiency = $cycleChance / $missions;
+                    $result = $calculator->calculateFromChanceStrings($g['chances'], $maxRot);
 
-                    $g['cycleChance'] = round($cycleChance * 100, 2).'%';
-                    $g['missionsUsed'] = $missions;
-                    $g['efficiency'] = round($efficiency * 100, 2).'%';
+                    $g['cycleChance'] = $result->getCycleChanceFormatted();
+                    $g['missionsUsed'] = $result->missionsUsed;
+                    $g['efficiency'] = $result->getEfficiencyFormatted();
                 }
                 unset($g);
 

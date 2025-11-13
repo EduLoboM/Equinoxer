@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Service\DropEfficiencyCalculator;
 use App\Service\JsonLoader;
 use App\Service\WarframeLoot;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,6 +16,7 @@ class RelicController extends AbstractController
         string $slug,
         JsonLoader $loader,
         WarframeLoot $search,
+        DropEfficiencyCalculator $calculator,
     ): Response {
         $allRelics = $loader->load('Relics_Normalized.json');
         $relic = array_filter($allRelics, fn (array $r) => $r['slug'] === $slug);
@@ -22,7 +24,6 @@ class RelicController extends AbstractController
         $rawRewards = $search->getMissionsForRelic($relic['name']);
 
         $groups = [];
-        $positions = ['A' => 1, 'B' => 2, 'C' => 3];
 
         foreach ($rawRewards as $d) {
             $key = "{$d['planet']}|{$d['mission']}|{$d['gameMode']}";
@@ -42,16 +43,11 @@ class RelicController extends AbstractController
         }
 
         foreach ($groups as &$g) {
-            $ps = array_map(fn ($c) => floatval(rtrim($c, '%')) / 100, $g['chances']);
-            $prod = array_reduce($ps, fn ($carry, $p) => $carry * (1 - $p), 1.0);
-            $cycleChance = 1 - $prod;
-
             $maxRot = max($g['rotations']);
-            $missions = ($positions[$maxRot] ?? 3) + 1;
-            $efficiency = $cycleChance / $missions;
+            $result = $calculator->calculateFromChanceStrings($g['chances'], $maxRot);
 
-            $g['cycleChance'] = round($cycleChance * 100, 2).'%';
-            $g['efficiency'] = round($efficiency * 100, 2).'%';
+            $g['cycleChance'] = $result->getCycleChanceFormatted();
+            $g['efficiency'] = $result->getEfficiencyFormatted();
         }
         unset($g);
 

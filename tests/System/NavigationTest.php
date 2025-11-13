@@ -2,13 +2,15 @@
 
 namespace App\Tests\System;
 
+use PHPUnit\Framework\Attributes\Group;
 use Symfony\Component\Panther\PantherTestCase;
 
+#[Group('panther')]
 class NavigationTest extends PantherTestCase
 {
     public function testNavigationFlow(): void
     {
-        $client = static::createPantherClient();
+        $client = static::createPantherClient(['browser' => static::CHROME]);
 
         $crawler = $client->request('GET', '/');
         $this->assertSelectorTextContains('h1', 'WELCOME TO EQUINOXER');
