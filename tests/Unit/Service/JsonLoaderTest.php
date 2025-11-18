@@ -14,7 +14,7 @@ class JsonLoaderTest extends TestCase
     {
         $mockResults = $this->createMock(DocumentsResults::class);
         $mockResults->method('getIterator')->willReturn(new \ArrayIterator([
-            ['name' => 'Test Prime', 'slug' => 'test_prime']
+            ['name' => 'Test Prime', 'slug' => 'test_prime'],
         ]));
 
         $mockIndex = $this->createMock(Indexes::class);

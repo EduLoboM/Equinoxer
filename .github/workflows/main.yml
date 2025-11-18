@@ -1,5 +1,5 @@
 name: CI Pipeline
-run-name: 🧪 CI Pipeline - ${{ github.event.head_commit.message }}
+run-name: 🧪 CI Pipeline Containerized - ${{ github.event.head_commit.message }}
 
 
 on:

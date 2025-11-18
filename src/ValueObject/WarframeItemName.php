@@ -22,7 +22,7 @@ readonly class WarframeItemName
     public function getTier(): ?string
     {
         foreach (self::TIERS as $tier) {
-            if (stripos($this->rawName, $tier) !== false) {
+            if (false !== stripos($this->rawName, $tier)) {
                 return $tier;
             }
         }
@@ -32,8 +32,8 @@ readonly class WarframeItemName
 
     public function isRelic(): bool
     {
-        return stripos($this->rawName, 'Relic') !== false
-            || $this->getTier() !== null;
+        return false !== stripos($this->rawName, 'Relic')
+            || null !== $this->getTier();
     }
 
     public function getSlug(): string

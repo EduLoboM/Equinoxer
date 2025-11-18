@@ -50,4 +50,3 @@ class RelicControllerTest extends TestCase
         $this->assertEquals('ok', $response->getContent());
     }
 }
-

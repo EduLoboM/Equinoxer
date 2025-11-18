@@ -25,12 +25,13 @@ class WarframeLoot
             try {
                 $slug = (new \App\ValueObject\WarframeItemName($candidate))->getSlug();
                 $slug = preg_replace('/[^a-zA-Z0-9_-]/', '_', $slug);
-                
+
                 $document = $index->getDocument($slug);
-                
+
                 if ($document) {
-                     $data = (array) $document;
-                     return $data['locations'] ?? [];
+                    $data = (array) $document;
+
+                    return $data['locations'] ?? [];
                 }
             } catch (\Throwable $e) {
                 continue;
