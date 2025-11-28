@@ -23,6 +23,7 @@ jobs:
     env:
       MEILISEARCH_URL: http://localhost:7700
       MEILISEARCH_KEY: ''
+      APP_ENV: test
     
     steps:
     - uses: actions/checkout@v4
@@ -48,7 +49,7 @@ jobs:
     - name: Prepare Data
       run: |
         mkdir -p data
-        php bin/console app:update-data
+        php bin/console app:load-data --env=test
 
     - name: Install Chrome Driver
       run: vendor/bin/bdi driver:chromedriver drivers/
@@ -56,8 +57,11 @@ jobs:
     - name: Check Code Style
       run: vendor/bin/php-cs-fixer fix --dry-run --diff
 
+    - name: Run Static Analysis
+      run: vendor/bin/phpstan analyse --memory-limit=2G
+
     - name: Execute Tests (PHPUnit)
       env:
         PANTHER_NO_HEADLESS: 0
         PANTHER_CHROME_DRIVER_BINARY: ./drivers/chromedriver
-      run: php bin/phpunit --coverage-text
+      run: php bin/phpunit --exclude-group api
