@@ -19,6 +19,6 @@ class SearchTest extends PantherTestCase
 
         sleep(1);
 
-        $this->assertTrue(true);
+        $this->assertSelectorExists('#primeSearch');
     }
 }

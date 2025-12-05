@@ -54,7 +54,7 @@ class WarframeLootTest extends TestCase
 
         $results = $service->getMissionsForRelic('Nonexistent Z9');
 
-        $this->assertIsArray($results);
+        $this->assertSame([], $results);
         $this->assertEmpty($results);
     }
 }

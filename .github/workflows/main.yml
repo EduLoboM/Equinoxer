@@ -64,4 +64,4 @@ jobs:
       env:
         PANTHER_NO_HEADLESS: 0
         PANTHER_CHROME_DRIVER_BINARY: ./drivers/chromedriver
-      run: php bin/phpunit --exclude-group api
+      run: php bin/phpunit --exclude-group api --coverage-text

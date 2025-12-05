@@ -70,6 +70,10 @@ class PrimeController extends AbstractController
                             'gameMode' => $d['gameMode'],
                             'rotations' => [],
                             'chances' => [],
+                            'cycleChance' => '',
+                            'missionsUsed' => 0,
+                            'efficiency' => '',
+                            'rotationPattern' => '',
                         ];
                     }
                     if (
@@ -100,12 +104,10 @@ class PrimeController extends AbstractController
                 $best = null;
                 $bestEff = -1.0;
                 foreach ($dropsGrouped as $drop) {
-                    if (isset($drop['efficiency'])) {
-                        $eff = (float) str_replace('%', '', (string) $drop['efficiency']);
-                        if ($eff > $bestEff) {
-                            $bestEff = $eff;
-                            $best = $drop;
-                        }
+                    $eff = (float) str_replace('%', '', (string) $drop['efficiency']);
+                    if ($eff > $bestEff) {
+                        $bestEff = $eff;
+                        $best = $drop;
                     }
                 }
 

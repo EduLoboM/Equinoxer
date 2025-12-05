@@ -27,7 +27,7 @@ class JsonLoaderTest extends TestCase
 
         $result = $loader->load('Primes_Normalized.json');
 
-        $this->assertIsArray($result);
+        $this->assertNotEmpty($result);
         $this->assertCount(1, $result);
     }
 
@@ -43,7 +43,7 @@ class JsonLoaderTest extends TestCase
 
         $result = $loader->load('Primes_Normalized.json');
 
-        $this->assertIsArray($result);
+        $this->assertSame([], $result);
         $this->assertEmpty($result);
     }
 

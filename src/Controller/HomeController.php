@@ -41,6 +41,7 @@ class HomeController extends AbstractController
 
         return $this->render('home/update_result.html.twig', [
             'output' => $content,
+            'title' => 'DATA UPDATE RESULT',
         ]);
     }
 
@@ -61,6 +62,7 @@ class HomeController extends AbstractController
 
         return $this->render('home/update_result.html.twig', [
             'output' => $content,
+            'title' => 'DATA LOAD RESULT',
         ]);
     }
 }

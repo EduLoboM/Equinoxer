@@ -33,13 +33,11 @@ class UpAndLoadDataTest extends PantherTestCase
             'browser' => static::CHROME,
             'connection_timeout_in_ms' => 600000,
             'request_timeout_in_ms' => 600000,
+        ], [], [
+            'port' => 9081,
         ]);
 
-        $crawler = $client->request('GET', '/');
-
-        $this->assertSelectorExists('.btn-load');
-
-        $client->clickLink('Load Data');
+        $crawler = $client->request('GET', '/run-load');
 
         $client->waitFor('h1', 600);
 

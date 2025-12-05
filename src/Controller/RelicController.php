@@ -36,6 +36,9 @@ class RelicController extends AbstractController
                     'gameMode' => $d['gameMode'],
                     'rotations' => [],
                     'chances' => [],
+                    'cycleChance' => '',
+                    'efficiency' => '',
+                    'rotationPattern' => '',
                 ];
             }
             if (!in_array($d['rotation'], $groups[$key]['rotations'], true)) {
@@ -55,8 +58,8 @@ class RelicController extends AbstractController
         unset($g);
 
         usort($groups, function ($a, $b) {
-            $effA = isset($a['efficiency']) ? floatval($a['efficiency']) : 0.0;
-            $effB = isset($b['efficiency']) ? floatval($b['efficiency']) : 0.0;
+            $effA = floatval($a['efficiency']);
+            $effB = floatval($b['efficiency']);
 
             return $effB <=> $effA;
         });

@@ -9,7 +9,7 @@ class IgnoredResourcesTest extends TestCase
 {
     public function testPrimePartsConstantExists(): void
     {
-        $this->assertIsArray(IgnoredResources::PRIME_PARTS);
+        $this->assertNotEmpty(IgnoredResources::PRIME_PARTS);
     }
 
     public function testPrimePartsContainsExpectedResources(): void

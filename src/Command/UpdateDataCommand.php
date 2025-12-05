@@ -325,10 +325,6 @@ class UpdateDataCommand extends Command
         $seenRelics = [];
 
         foreach ($items as $item) {
-            if (!is_array($item)) {
-                continue;
-            }
-
             $cat = $item['category'] ?? '';
             $name = $item['name'] ?? '';
 
@@ -403,10 +399,6 @@ class UpdateDataCommand extends Command
         $seen = [];
 
         foreach ($items as $item) {
-            if (!is_array($item)) {
-                continue;
-            }
-
             $name = $item['name'] ?? '';
             if ('' === $name) {
                 continue;
