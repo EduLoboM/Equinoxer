@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Console\Application;
@@ -15,7 +17,11 @@ class HomeController extends AbstractController
     #[Route('/', name: 'home')]
     public function index(): Response
     {
-        return $this->render('home/index.html.twig');
+        $response = $this->render('home/index.html.twig');
+        $response->setSharedMaxAge(3600);
+        $response->setMaxAge(300);
+
+        return $response;
     }
 
     #[Route('/run-update', name: 'run_update')]
@@ -26,6 +32,26 @@ class HomeController extends AbstractController
 
         $input = new ArrayInput([
             'command' => 'app:update-data',
+        ]);
+
+        $output = new BufferedOutput();
+        $application->run($input, $output);
+
+        $content = $output->fetch();
+
+        return $this->render('home/update_result.html.twig', [
+            'output' => $content,
+        ]);
+    }
+
+    #[Route('/run-load', name: 'run_load')]
+    public function runLoad(KernelInterface $kernel): Response
+    {
+        $application = new Application($kernel);
+        $application->setAutoExit(false);
+
+        $input = new ArrayInput([
+            'command' => 'app:load-data',
         ]);
 
         $output = new BufferedOutput();

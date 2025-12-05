@@ -9,9 +9,12 @@ services:
       APP_ENV: dev
       APP_SECRET: ${APP_SECRET:-changeme}
       MEILISEARCH_URL: http://meilisearch:7700
-      MEILISEARCH_KEY: ${MEILISEARCH_MASTER_KEY:-masterKey}
+      MEILISEARCH_KEY: ""
     depends_on:
-      - meilisearch
+      meilisearch:
+        condition: service_healthy
+    networks:
+      - equinoxer
 
   nginx:
     image: docker.io/library/nginx:alpine
@@ -22,16 +25,29 @@ services:
       - ./docker/nginx/conf.d:/etc/nginx/conf.d
     depends_on:
       - app
+    networks:
+      - equinoxer
 
   meilisearch:
     image: docker.io/getmeili/meilisearch:latest
     ports:
       - "7700:7700"
     environment:
-      MEILI_MASTER_KEY: ${MEILISEARCH_MASTER_KEY:-masterKey}
+      MEILI_ENV: development
       MEILI_NO_ANALYTICS: "true"
     volumes:
       - meili_data:/meili_data
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:7700/health" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - equinoxer
+
+networks:
+  equinoxer:
+    driver: bridge
 
 volumes:
   meili_data:

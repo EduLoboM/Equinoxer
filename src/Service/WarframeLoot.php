@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Service;
 
 class WarframeLoot
@@ -11,6 +13,9 @@ class WarframeLoot
         $this->client = $client;
     }
 
+    /**
+     * @return array<int, array<string, mixed>>
+     */
     public function getMissionsForRelic(string $relicName): array
     {
         $candidates = [

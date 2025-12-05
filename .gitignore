@@ -1,4 +1,3 @@
-
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
@@ -15,22 +14,26 @@
 .phpunit.cache/
 ###< phpunit/phpunit ###
 
-###> IDEs and OS ###
-.idea/
-.vscode/
-.DS_Store
-Thumbs.db
-###< IDEs and OS ###
-
-###> Node / Frontend ###
-/node_modules/
-/npm-debug.log
-/yarn-error.log
-/public/build/
-###< Node / Frontend ###
-/drivers/
+###> symfony/phpunit-bridge ###
+.phpunit.result.cache
+###< symfony/phpunit-bridge ###
 
 ###> friendsofphp/php-cs-fixer ###
-/.php-cs-fixer.php
 /.php-cs-fixer.cache
 ###< friendsofphp/php-cs-fixer ###
+
+###> phpstan/phpstan ###
+/phpstan.neon
+###< phpstan/phpstan ###
+
+###> drivers ###
+/drivers/
+###< drivers ###
+
+###> IDE ###
+/.idea/
+/.vscode/
+*.swp
+*.swo
+*~
+###< IDE ###

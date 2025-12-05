@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
+use App\Config\IgnoredResources;
 use App\Service\DropEfficiencyCalculator;
 use App\Service\JsonLoader;
 use App\Service\WarframeLoot;
@@ -16,9 +19,13 @@ class PrimeController extends AbstractController
     {
         $primes = $loader->load('Primes_Normalized.json');
 
-        return $this->render('primes/list.html.twig', [
+        $response = $this->render('primes/list.html.twig', [
             'primes' => $primes,
         ]);
+        $response->setSharedMaxAge(3600);
+        $response->setMaxAge(300);
+
+        return $response;
     }
 
     #[Route('/primes/{slug}', name: 'primes_show')]
@@ -42,7 +49,7 @@ class PrimeController extends AbstractController
         foreach ($prime['parts'] as $partData) {
             $partName = is_array($partData) ? ($partData['name'] ?? 'Unknown') : $partData;
 
-            if (in_array($partName, ['Orokin Cell', 'Argon Crystal', 'Tellurium', 'Nitain Extract', 'Neural Sensors', 'Neurodes'])) {
+            if (in_array($partName, IgnoredResources::PRIME_PARTS, true)) {
                 continue;
             }
 
@@ -84,13 +91,30 @@ class PrimeController extends AbstractController
                     $g['cycleChance'] = $result->getCycleChanceFormatted();
                     $g['missionsUsed'] = $result->missionsUsed;
                     $g['efficiency'] = $result->getEfficiencyFormatted();
+                    $g['rotationPattern'] = $this->computeRotationPattern($maxRot);
                 }
                 unset($g);
 
                 $dropsGrouped = array_values($groups);
 
+                $best = null;
+                $bestEff = -1.0;
+                foreach ($dropsGrouped as $drop) {
+                    if (isset($drop['efficiency'])) {
+                        $eff = (float) str_replace('%', '', (string) $drop['efficiency']);
+                        if ($eff > $bestEff) {
+                            $bestEff = $eff;
+                            $best = $drop;
+                        }
+                    }
+                }
+
+                $slug = strtolower(str_replace([' Relic', ' '], ['', '_'], $relic['name']));
+
                 $relicsWithDrops[] = array_merge($relic, [
                     'dropsGrouped' => $dropsGrouped,
+                    'bestMission' => $best,
+                    'slug' => $slug,
                 ]);
             }
 
@@ -101,9 +125,22 @@ class PrimeController extends AbstractController
             ];
         }
 
-        return $this->render('primes/show.html.twig', [
+        $response = $this->render('primes/show.html.twig', [
             'prime' => $prime,
             'parts' => $parts,
         ]);
+        $response->setSharedMaxAge(3600);
+        $response->setMaxAge(300);
+
+        return $response;
+    }
+
+    private function computeRotationPattern(string $maxRotation): string
+    {
+        return match ($maxRotation) {
+            'A' => 'AA',
+            'B' => 'AAB',
+            default => 'AABC',
+        };
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
 use App\Service\DropEfficiencyCalculator;
@@ -48,14 +50,33 @@ class RelicController extends AbstractController
 
             $g['cycleChance'] = $result->getCycleChanceFormatted();
             $g['efficiency'] = $result->getEfficiencyFormatted();
+            $g['rotationPattern'] = $this->computeRotationPattern($maxRot);
         }
         unset($g);
 
-        usort($groups, fn ($a, $b) => floatval($b['efficiency']) <=> floatval($a['efficiency']));
+        usort($groups, function ($a, $b) {
+            $effA = isset($a['efficiency']) ? floatval($a['efficiency']) : 0.0;
+            $effB = isset($b['efficiency']) ? floatval($b['efficiency']) : 0.0;
 
-        return $this->render('relics/show.html.twig', [
+            return $effB <=> $effA;
+        });
+
+        $response = $this->render('relics/show.html.twig', [
             'relic' => $relic,
             'rewards' => $groups,
         ]);
+        $response->setSharedMaxAge(3600);
+        $response->setMaxAge(300);
+
+        return $response;
+    }
+
+    private function computeRotationPattern(string $maxRotation): string
+    {
+        return match ($maxRotation) {
+            'A' => 'AA',
+            'B' => 'AAB',
+            default => 'AABC',
+        };
     }
 }

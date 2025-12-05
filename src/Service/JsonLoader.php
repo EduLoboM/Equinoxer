@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Service;
 
 use Meilisearch\Client;
@@ -13,6 +15,9 @@ class JsonLoader
         $this->client = $client;
     }
 
+    /**
+     * @return array<int, array<string, mixed>>
+     */
     public function load(string $filename): array
     {
         $indexName = $this->getIndexName($filename);
@@ -23,12 +28,7 @@ class JsonLoader
         try {
             $query = (new \Meilisearch\Contracts\DocumentsQuery())->setLimit(10000);
             $result = $this->client->index($indexName)->getDocuments($query);
-
-            if (is_iterable($result)) {
-                $hits = iterator_to_array($result);
-            } else {
-                $hits = method_exists($result, 'getResults') ? $result->getResults() : (array) $result;
-            }
+            $hits = iterator_to_array($result);
 
             return array_map(function ($hit) {
                 return (array) $hit;
@@ -38,6 +38,9 @@ class JsonLoader
         }
     }
 
+    /**
+     * @return array<int, array<string, mixed>>
+     */
     public function findRelicsByItem(string $itemName): array
     {
         $index = $this->client->index('relics');

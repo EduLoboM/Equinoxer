@@ -6594,7 +6594,7 @@
     },
     {
         "name": "Community Tennobaum Relic Glyph",
-        "slug": "community_tennobaum",
+        "slug": "community_tennobaum_relic_glyph",
         "rewards": []
     },
     {
@@ -6614,7 +6614,7 @@
     },
     {
         "name": "Festive Relic Ornament",
-        "slug": "festive_relic",
+        "slug": "festive_relic_ornament",
         "rewards": []
     },
     {
@@ -26038,12 +26038,12 @@
     },
     {
         "name": "Orokin Derelict Plaza Scene",
-        "slug": "orokin_derelict",
+        "slug": "orokin_derelict_plaza_scene",
         "rewards": []
     },
     {
         "name": "Orokin Derelict Simulacrum",
-        "slug": "orokin_derelict",
+        "slug": "orokin_derelict_simulacrum",
         "rewards": []
     },
     {
@@ -26197,12 +26197,12 @@
     },
     {
         "name": "The Steel Path - Derelicts",
-        "slug": "the_steel",
+        "slug": "the_steel_path_-_derelicts",
         "rewards": []
     },
     {
         "name": "The Steel Path: Derelict",
-        "slug": "the_steel",
+        "slug": "the_steel_path_derelict",
         "rewards": []
     },
     {
@@ -26212,7 +26212,7 @@
     },
     {
         "name": "VOID RELIC SEGMENT",
-        "slug": "void_relic",
+        "slug": "void_relic_segment",
         "rewards": []
     },
     {
@@ -26366,7 +26366,7 @@
     },
     {
         "name": "Zealot Derelict Code",
-        "slug": "zealot_derelict",
+        "slug": "zealot_derelict_code",
         "rewards": []
     }
 ]

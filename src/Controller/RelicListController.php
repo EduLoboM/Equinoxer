@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
 use App\Service\JsonLoader;
@@ -14,8 +16,12 @@ class RelicListController extends AbstractController
     {
         $relics = $loader->load('Relics_Normalized.json');
 
-        return $this->render('relics/list.html.twig', [
+        $response = $this->render('relics/list.html.twig', [
             'relics' => $relics,
         ]);
+        $response->setSharedMaxAge(3600);
+        $response->setMaxAge(300);
+
+        return $response;
     }
 }

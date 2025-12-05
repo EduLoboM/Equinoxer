@@ -47,15 +47,6 @@
     {% else %}
       <ul>
         {% for entry in rewards %}
-          {% set highest = entry.rotations|sort|last %}
-          {% if highest == 'A' %}
-            {% set pattern = 'AA' %}
-          {% elseif highest == 'B' %}
-            {% set pattern = 'AAB' %}
-          {% else %}
-            {% set pattern = 'AABC' %}
-          {% endif %}
-
           <li>
             <a href="#">
               <strong>{{ entry.planet }} / {{ entry.mission }}</strong>
@@ -64,7 +55,7 @@
                 {{ entry.gameMode }}<br>
                 Chance no ciclo: {{ entry.cycleChance }}<br>
                 Eficiência: {{ entry.efficiency }}<br>
-                Parar em: {{ pattern }}
+                Parar em: {{ entry.rotationPattern }}
               </span>
             </a>
           </li>

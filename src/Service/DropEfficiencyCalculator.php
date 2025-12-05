@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Service;
 
 use App\DTO\DropEfficiencyResult;
@@ -8,6 +10,9 @@ class DropEfficiencyCalculator
 {
     private const ROTATION_POSITIONS = ['A' => 1, 'B' => 2, 'C' => 3];
 
+    /**
+     * @param array<float> $chances
+     */
     public function calculate(array $chances, string $maxRotation): DropEfficiencyResult
     {
         $probabilities = array_map(
@@ -29,6 +34,9 @@ class DropEfficiencyCalculator
         return new DropEfficiencyResult($cycleChance, $missions, $efficiency);
     }
 
+    /**
+     * @param array<string> $chanceStrings
+     */
     public function calculateFromChanceStrings(array $chanceStrings, string $maxRotation): DropEfficiencyResult
     {
         $chances = array_map(

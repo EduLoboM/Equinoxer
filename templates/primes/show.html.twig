@@ -11,56 +11,35 @@
     <section>
       <h2>{{ part.name }}</h2>
 
-      {% if part.relics is empty %}
-        <p>Nenhuma relic dropa esse componente.</p>
-      {% else %}
-        <ul>
-          {% for relic in part.relics %}
-            {% if relic.dropsGrouped is not empty %}
-              {% set best = null %}
-              {% for d in relic.dropsGrouped %}
-                {% set eff = (d.efficiency|replace({'%':''})) + 0 %}
-                {% if best is null or eff > ((best.efficiency|replace({'%':''})) + 0) %}
-                  {% set best = d %}
-                {% endif %}
-              {% endfor %}
-
-              {% set highest = best.rotations|last %}
-
-              {% if highest == 'A' %}
-                {% set pattern = 'AA' %}
-              {% elseif highest == 'B' %}
-                {% set pattern = 'AAB' %}
+        {% if part.relics is empty %}
+          <p>Nenhuma relic dropa esse componente.</p>
+        {% else %}
+          <ul>
+            {% for relic in part.relics %}
+              {% if relic.bestMission is not null %}
+                <li>
+                  <a href="/relics/{{ relic.slug }}">
+                      <strong>{{ relic.name }}</strong>
+                      <span class="mission-info">
+                          <br>
+                          {{ relic.bestMission.planet }} / {{ relic.bestMission.mission }} ({{ relic.bestMission.gameMode }})<br>
+                          Chance no ciclo: {{ relic.bestMission.cycleChance }}<br>
+                          Eficiência: {{ relic.bestMission.efficiency }}<br>
+                          Parar em: {{ relic.bestMission.rotationPattern }}
+                      </span>
+                  </a>
+                </li>
               {% else %}
-                {% set pattern = 'AABC' %}
+                <li>
+                  <a href="/relics/{{ relic.slug }}">
+                      <strong>{{ relic.name }}</strong>
+                      <span class="mission-info"><br>Sem drops disponíveis no momento.</span>
+                  </a>
+                </li>
               {% endif %}
-
-              {% set slug = relic.name|replace({' Relic':''})|lower|replace({' ':'_'}) %}
-
-              <li>
-                <a href="/relics/{{ slug }}">
-                    <strong>{{ relic.name }}</strong>
-                    <span class="mission-info">
-                        <br>
-                        {{ best.planet }} / {{ best.mission }} ({{ best.gameMode }})<br>
-                        Chance no ciclo: {{ best.cycleChance }}<br>
-                        Eficiência: {{ best.efficiency }}<br>
-                        Parar em: {{ pattern }}
-                    </span>
-                </a>
-              </li>
-            {% else %}
-              <li>
-                {% set slug = relic.name|replace({' Relic':''})|lower|replace({' ':'_'}) %}
-                <a href="/relics/{{ slug }}">
-                    <strong>{{ relic.name }}</strong>
-                    <span class="mission-info"><br>Sem drops disponíveis no momento.</span>
-                </a>
-              </li>
-            {% endif %}
-          {% endfor %}
-        </ul>
-      {% endif %}
+            {% endfor %}
+          </ul>
+        {% endif %}
     </section>
   {% endfor %}
 
