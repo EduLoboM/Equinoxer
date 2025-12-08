@@ -1,17 +1,19 @@
 # 🌑🌕 Equinoxer
 
 ![Theme](https://img.shields.io/badge/Theme-Warframe-lightgrey?style=for-the-badge&labelColor=black)
-![Framework](https://img.shields.io/badge/Framework-Symfony-lightgrey?style=for-the-badge&logo=symfony&logoColor=white&labelColor=black)
-![Language](https://img.shields.io/badge/Made_with-PHP-lightgrey?style=for-the-badge&logo=php&logoColor=white&labelColor=black)
+![Framework](https://img.shields.io/badge/Framework-Symfony_7.3-lightgrey?style=for-the-badge&logo=symfony&logoColor=white&labelColor=black)
+![Language](https://img.shields.io/badge/Made_with-PHP_8.3+-lightgrey?style=for-the-badge&logo=php&logoColor=white&labelColor=black)
+![Search](https://img.shields.io/badge/DB-Meilisearch-lightgrey?style=for-the-badge&logo=meilisearch&logoColor=white&labelColor=black)
+![Docker](https://img.shields.io/badge/Docker-Ready-lightgrey?style=for-the-badge&logo=docker&logoColor=white&labelColor=black)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey?style=for-the-badge&labelColor=black)
-![Status](https://img.shields.io/badge/Status-Functional-lightgrey?style=for-the-badge&labelColor=black)
 ![Last Commit](https://img.shields.io/github/last-commit/EduLoboM/Equinoxer?style=for-the-badge&logo=github&color=lightgrey&labelColor=black)
 ![Stars](https://img.shields.io/github/stars/EduLoboM/Equinoxer?style=for-the-badge&color=lightgrey&logo=github&labelColor=black)
 ![Forks](https://img.shields.io/github/forks/EduLoboM/Equinoxer?style=for-the-badge&color=lightgrey&logo=github&labelColor=black)
+![CI](https://img.shields.io/github/actions/workflow/status/EduLoboM/Equinoxer/main.yml?style=for-the-badge&logo=github&label=CI&labelColor=black)
 
 > **Uma plataforma otimizada para rastreamento de drops e relíquias de Warframe.**
 
-**Equinoxer** é uma aplicação web desenvolvida em **PHP/Symfony**, criada para fornecer aos jogadores de Warframe uma maneira rápida, limpa e eficiente de planejar seus farms de itens Prime com o fator de eficiência que te da a melhor missão para farmar uma relíquia específica com base na chance de drop e tempo médio da rotação te informando a rotação mais eficiente para farmar a relíquia.
+**Equinoxer** é uma aplicação web desenvolvida em **PHP 8.3+ / Symfony 7.3**, criada para fornecer aos jogadores de Warframe uma maneira rápida, limpa e eficiente de planejar seus farms de itens Prime com o fator de eficiência que te da a melhor missão para farmar uma relíquia específica com base na chance de drop e tempo médio da rotação te informando a rotação mais eficiente para farmar a relíquia.
 
 A interface utiliza uma estética moderna "Sci-Fi" com cores neon (Azul/Amarelo) inspirada na identidade visual do jogo e no warframe equinox prime, focando em usabilidade e performance.
 
@@ -21,10 +23,10 @@ O projeto resolve o problema de navegar por wikis desatualizadas ou lentas, cent
 
 | Feature de Jogo | Tecnologia / Implementação | Descrição |
 | :--- | :--- | :--- |
-| **Busca de Relíquias** | `Cache System` | Listagem completa de relíquias com busca instantânea e filtragem por era (Lith, Meso, Neo, Axi). |
-| **Cálculo de Eficiência** | `Math Logic` | Algoritmo que determina a melhor missão para farmar uma relíquia específica com base na chance de drop e tempo médio. |
+| **Busca de Relíquias** | `Meilisearch` | Listagem completa de relíquias com busca instantânea e filtragem por era (Lith, Meso, Neo, Axi). |
+| **Cálculo de Eficiência** | `DropEfficiencyCalculator` | Algoritmo que determina a melhor missão para farmar uma relíquia específica com base na chance de drop e tempo médio. |
 | **Primes Tracker** | `Data Aggregation` | Visualização de todos os Warframes e armas Prime, com links diretos para as relíquias de seus componentes. |
-| **Atualização Automática** | `Console Command` | Sistema de comando (`app:update-data`) que sincroniza o banco de dados local com a API `warframestat.us`. |
+| **Atualização Automática** | `Console Command` | Sistema de comandos (`app:update-data`, `app:load-data`) que sincroniza o banco de dados com a API `warframestat.us`. |
 
 ## 🗺️ Roadmap Futuro
 
@@ -35,78 +37,160 @@ O projeto resolve o problema de navegar por wikis desatualizadas ou lentas, cent
 
 ## 🏗️ Arquitetura do Sistema
 
-O fluxo de dados segue uma estrutura MVC padrão do Symfony:
+O fluxo de dados segue uma estrutura MVC padrão do Symfony com Meilisearch como search engine:
 
 ```mermaid
 graph LR
 
     User["Usuário"]:::user --> Browser[Browser]:::client
-    Browser --> Controller["Controller (Symfony)"]:::process
+    Browser --> Nginx["Nginx"]:::proxy
+    Nginx --> Controller["Controller (Symfony)"]:::process
     
-    subgraph Backend
-        Controller --> Service["Services (Data Loader)"]:::logic
-        Service --> API["Warframe API"]:::external
-        Service --> Cache["Local JSON / Cache"]:::storage
+    subgraph Docker["Docker Compose"]
+        subgraph Backend["PHP-FPM"]
+            Controller --> Service["Services"]:::logic
+            Service --> JsonLoader["JsonLoader"]:::data
+        end
+        JsonLoader --> Meilisearch["Meilisearch"]:::search
     end
 
     Controller --> Template["Twig Templates"]:::view
-    Template --> Browser
+    Template --> Nginx
 ```
 
 ## 🚀 Como Executar
 
-### Requisitos
-
-* **PHP** (versão 8.1 ou superior)
-* **Composer**
-* **Symfony CLI**
-
-### Instalação
+### Com Docker (Recomendado)
 
 ```bash
 git clone https://github.com/EduLoboM/Equinoxer.git
 cd Equinoxer
+
+# Suba os containers
+docker compose up -d
+
+# Carregue os dados no Meilisearch
+docker compose exec app php bin/console app:update-data
+docker compose exec app php bin/console app:load-data
+
+# Acesse em http://localhost:8080
 ```
 
-### Configuração e Execução
+### Sem Docker (Desenvolvimento Local)
 
-1.  Instale as dependências:
-    ```bash
-    composer install
-    ```
+#### Requisitos
 
-2.  (Opcional) Atualize os dados locais:
-    ```bash
-    php bin/console app:update-data
-    ```
+* **PHP** 8.3+
+* **Composer**
+* **Symfony CLI**
+* **Meilisearch** rodando em `localhost:7700`
 
-3.  Inicie o servidor:
-    ```bash
-    symfony server:start
-    ```
-    Ou use o servidor embutido do PHP:
-    ```bash
-    php -S 127.0.0.1:8000 -t public
-    ```
+#### Instalação
+
+```bash
+git clone https://github.com/EduLoboM/Equinoxer.git
+cd Equinoxer
+composer install
+
+# Configure as variáveis de ambiente
+cp .env .env.local
+# Edite .env.local com MEILISEARCH_URL e MEILISEARCH_KEY
+
+# Atualize e carregue os dados
+php bin/console app:update-data
+php bin/console app:load-data
+
+# Inicie o servidor
+symfony server:start
+```
 
 ## 📚 Estrutura do Projeto
 
-* `src/Command/UpdateDataCommand.php`: Comando para baixar e normalizar dados da API.
-* `src/Controller`: Controladores para páginas de Home, Primes e Relíquias.
-* `src/Service/WarframeLoot.php`: Lógica de busca e cálculo de drop tables.
-* `templates/`: Arquivos de visualização Twig com tema customizado.
-* `public/css/main.css`: Estilização global (Dark Theme + Neon).
+```
+src/
+├── Command/
+│   ├── LoadDataCommand.php       # Carrega dados no Meilisearch
+│   └── UpdateDataCommand.php     # Baixa dados da API warframestat.us
+├── Config/
+│   └── MeilisearchConfig.php     # Configuração do cliente Meilisearch
+├── Controller/
+│   ├── HomeController.php        # Página inicial
+│   ├── PrimeController.php       # Listagem e detalhes de Primes
+│   ├── RelicController.php       # Detalhes de Relíquias
+│   └── RelicListController.php   # Listagem de Relíquias
+├── DTO/
+│   ├── DropEfficiencyResult.php  # Resultado do cálculo de eficiência
+│   ├── MissionDrop.php           # Dados de drop de missão
+│   └── RelicDrop.php             # Dados de drop de relíquia
+├── Service/
+│   ├── DropEfficiencyCalculator.php  # Cálculo de eficiência de farm
+│   ├── JsonLoader.php                # Interface com Meilisearch
+│   └── WarframeLoot.php              # Lógica de drop tables
+└── ValueObject/
+    └── WarframeItemName.php      # Value object para nomes de itens
+```
 
 ## 🧪 Testes
 
-*   **Testes de Sistema (Panther):** Simulam a interação real do usuário no navegador (Chrome/Chromium), verificando fluxos de navegação, busca e atualização de dados.
-*   **Testes de Integração (WebTestCase):** Validam a resposta HTTP, rotas, renderização de templates e acessibilidade de elementos chave sem necessidade de um browser completo.
-*   **Testes Unitários (PHPUnit):** Cobrem isoladamente a lógica de negócios em Services e Controllers, garantindo que cálculos de eficiência e parsing de JSON funcionem corretamente.
+O projeto possui uma suíte completa de testes organizados em 4 categorias:
 
-Para rodar os testes:
+| Tipo | Descrição | Tecnologia |
+| :--- | :--- | :--- |
+| **Unit** | Testes isolados de Services, DTOs e ValueObjects | PHPUnit |
+| **Integration** | Testes de rotas HTTP e renderização de templates | WebTestCase |
+| **System** | Testes E2E simulando interação real do usuário | Panther + Chrome |
+| **Api** | Testes que dependem de chamadas à API externa | PHPUnit (excluídos no CI) |
+
+### Executar Testes
+
 ```bash
-php bin/phpunit
+# Todos os testes (exceto API)
+php bin/phpunit --exclude-group api
+
+# Apenas testes unitários
+php bin/phpunit tests/Unit
+
+# Apenas testes de integração
+php bin/phpunit tests/Integration
+
+# Com cobertura de código
+php bin/phpunit --coverage-text
 ```
+
+### Análise Estática
+
+```bash
+# PHPStan (Level max)
+composer analyse
+
+# PHP-CS-Fixer
+vendor/bin/php-cs-fixer fix --dry-run --diff
+```
+
+## 🔄 CI/CD
+
+O projeto utiliza **GitHub Actions** com o seguinte pipeline:
+
+1. **Setup** - PHP 8.4, Meilisearch service
+2. **Install** - Composer dependencies
+3. **Prepare** - Carregar dados no Meilisearch
+4. **Style** - PHP-CS-Fixer (dry-run)
+5. **Analyse** - PHPStan (level max)
+6. **Test** - PHPUnit com cobertura
+
+## 🔧 Destaques Técnicos
+
+### HTTP Cache Headers
+
+Todas as páginas públicas utilizam cache HTTP com `SharedMaxAge` (1h para CDN) e `MaxAge` (5min para browser), permitindo escalabilidade sem infraestrutura adicional:
+
+### Meilisearch como Database + Search Engine
+
+Uso do Meilisearch tanto como banco de dados primário quanto como search engine, eliminando a necessidade de um RDBMS tradicional:
+- **Armazenamento de documentos** JSON-native para primes e relics
+- **Busca full-text** com typo-tolerance
+- **Filtragem instantânea** por atributos (tier, era)
+- **Paginação eficiente** com limite de 10k documentos
 
 ## 📸 Screenshots
 
