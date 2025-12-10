@@ -160,3 +160,48 @@ th {
         grid-template-columns: 1fr;
     }
 }
+
+/* Credits Overlay */
+.credits-overlay {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.credits-text {
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 1px;
+    position: relative;
+    transition: color 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.credits-text:hover {
+    color: var(--accent-cyan);
+    text-shadow: 0 0 10px rgba(255, 253, 208, 0.4);
+}
+
+.credits-avatar {
+    width: 0;
+    height: 24px;
+    opacity: 0;
+    transform: translateX(10px);
+    object-fit: contain;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    margin-right: 0;
+}
+
+.credits-text:hover .credits-avatar {
+    width: 24px;
+    opacity: 1;
+    transform: translateX(0);
+    margin-right: 8px;
+}

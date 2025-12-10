@@ -12,7 +12,9 @@
       <h2>{{ part.name }}</h2>
 
         {% if part.relics is empty %}
-          <p>Nenhuma relic dropa esse componente.</p>
+          <div style="text-align: center; margin-top: 1rem; font-style: italic;">
+            Not a single relic :( If we are wrong try loading data
+          </div>
         {% else %}
           <ul>
             {% for relic in part.relics %}
@@ -33,7 +35,7 @@
                 <li>
                   <a href="/relics/{{ relic.slug }}">
                       <strong>{{ relic.name }}</strong>
-                      <span class="mission-info"><br>Sem drops disponíveis no momento.</span>
+                      <span class="mission-info"><br>Not a single mission :( If we are wrong try loading data</span>
                   </a>
                 </li>
               {% endif %}

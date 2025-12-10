@@ -7,10 +7,14 @@ namespace App\Service;
 class WarframeLoot
 {
     private \Meilisearch\Client $client;
+    private \Psr\Log\LoggerInterface $logger;
 
-    public function __construct(\Meilisearch\Client $client)
-    {
+    public function __construct(
+        \Meilisearch\Client $client,
+        \Psr\Log\LoggerInterface $logger,
+    ) {
         $this->client = $client;
+        $this->logger = $logger;
     }
 
     /**
@@ -38,8 +42,22 @@ class WarframeLoot
 
                     return $data['locations'] ?? [];
                 }
+            } catch (\Meilisearch\Exceptions\ApiException $e) {
+                if (isset($e->httpStatus) && $e->httpStatus === 404) {
+                    // Document not found, try next candidate
+                    continue;
+                }
+                $this->logger->error('Meilisearch error fetching relic missions', [
+                    'relic' => $relicName,
+                    'candidate' => $candidate,
+                    'error' => $e->getMessage(),
+                ]);
             } catch (\Throwable $e) {
-                continue;
+                $this->logger->critical('Unexpected error fetching relic missions', [
+                    'relic' => $relicName,
+                    'candidate' => $candidate,
+                    'error' => $e->getMessage(),
+                ]);
             }
         }
 

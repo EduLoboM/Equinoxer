@@ -8,7 +8,6 @@
 ![License](https://img.shields.io/badge/License-MIT-lightgrey?style=for-the-badge&labelColor=black)
 ![Last Commit](https://img.shields.io/github/last-commit/EduLoboM/Equinoxer?style=for-the-badge&logo=github&color=lightgrey&labelColor=black)
 ![Stars](https://img.shields.io/github/stars/EduLoboM/Equinoxer?style=for-the-badge&color=lightgrey&logo=github&labelColor=black)
-![Forks](https://img.shields.io/github/forks/EduLoboM/Equinoxer?style=for-the-badge&color=lightgrey&logo=github&labelColor=black)
 ![CI](https://img.shields.io/github/actions/workflow/status/EduLoboM/Equinoxer/main.yml?style=for-the-badge&logo=github&label=CI&labelColor=black)
 
 > **Uma plataforma otimizada para rastreamento de drops e relíquias de Warframe.**

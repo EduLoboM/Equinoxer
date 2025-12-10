@@ -34,6 +34,10 @@
               {% endfor %}
             </div>
         </li>
+      {% else %}
+        <div style="text-align: center; margin-top: 1rem; font-style: italic;">
+          Not a single drop :( If we are wrong try loading data
+        </div>
       {% endfor %}
     </ul>
   </section>
@@ -41,8 +45,8 @@
   <section>
     <h2>Where to find (Locations)</h2>
     {% if rewards is empty %}
-      <div class="alert-info">
-        <p>Nenhuma missão disponível para esta relíquia no momento.</p>
+      <div style="text-align: center; margin-top: 1rem; font-style: italic;">
+        Not a single mission :( If we are wrong try loading data
       </div>
     {% else %}
       <ul>
