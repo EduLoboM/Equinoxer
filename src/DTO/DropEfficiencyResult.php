@@ -4,22 +4,22 @@ declare(strict_types=1);
 
 namespace App\DTO;
 
-readonly class DropEfficiencyResult
+class DropEfficiencyResult
 {
     public function __construct(
-        public float $cycleChance,
-        public int $missionsUsed,
-        public float $efficiency,
+        public readonly float $cycleChance,
+        public readonly float $missionsUsed,
+        public readonly float $efficiency,
     ) {
     }
 
     public function getCycleChanceFormatted(): string
     {
-        return round($this->cycleChance * 100, 2).'%';
+        return (string) $this->cycleChance;
     }
 
     public function getEfficiencyFormatted(): string
     {
-        return round($this->efficiency * 100, 2).'%';
+        return number_format($this->efficiency, 2) . '%';
     }
 }

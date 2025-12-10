@@ -24,8 +24,8 @@ class WarframeLoot
     {
         $candidates = [
             $relicName,
-            $relicName.' Relic',
-            preg_replace('/ (Intact|Exceptional|Flawless|Radiant)$/', '', $relicName).' Relic',
+            $relicName . ' Relic',
+            preg_replace('/ (Intact|Exceptional|Flawless|Radiant)$/', '', $relicName) . ' Relic',
         ];
 
         $index = $this->client->index('mission_rewards');
@@ -43,7 +43,7 @@ class WarframeLoot
                     return $data['locations'] ?? [];
                 }
             } catch (\Meilisearch\Exceptions\ApiException $e) {
-                if (isset($e->httpStatus) && $e->httpStatus === 404) {
+                if (isset($e->httpStatus) && 404 === $e->httpStatus) {
                     // Document not found, try next candidate
                     continue;
                 }

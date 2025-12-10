@@ -16,7 +16,7 @@ class JsonLoader
     public function __construct(
         Client $client,
         \Psr\Log\LoggerInterface $logger,
-        #[Autowire('%kernel.project_dir%/data')] string $dataDir
+        #[Autowire('%kernel.project_dir%/data')] string $dataDir,
     ) {
         $this->client = $client;
         $this->logger = $logger;
@@ -47,10 +47,9 @@ class JsonLoader
             }, $hits);
         } catch (\Throwable $e) {
             $this->logger->warning('Meilisearch load failed, falling back to file', [
-               'index' => $indexName,
-               'error' => $e->getMessage()
+                'index' => $indexName,
+                'error' => $e->getMessage(),
             ]);
-            
             return $this->loadFromFile($filename);
         }
     }
@@ -60,6 +59,7 @@ class JsonLoader
         $path = $this->dataDir . '/' . $filename;
         if (!file_exists($path)) {
             $this->logger->error('File not found for fallback', ['path' => $path]);
+
             return [];
         }
 
@@ -71,8 +71,9 @@ class JsonLoader
         try {
             return json_decode($content, true, 512, JSON_THROW_ON_ERROR);
         } catch (\JsonException $e) {
-             $this->logger->error('JSON decode error', ['error' => $e->getMessage()]);
-             return [];
+            $this->logger->error('JSON decode error', ['error' => $e->getMessage()]);
+
+            return [];
         }
     }
 
@@ -92,14 +93,16 @@ class JsonLoader
             return $hits;
         } catch (\Meilisearch\Exceptions\ApiException $e) {
             // Index might not exist yet if no data loaded
-            if (isset($e->httpStatus) && $e->httpStatus === 404) {
-                 return [];
+            if (isset($e->httpStatus) && 404 === $e->httpStatus) {
+                return [];
             }
-             $this->logger->warning('Error searching relics index', ['error' => $e->getMessage()]);
+            $this->logger->warning('Error searching relics index', ['error' => $e->getMessage()]);
+
             return [];
         } catch (\Throwable $e) {
-             $this->logger->error('Unexpected error searching relics', ['error' => $e->getMessage()]);
-             return [];
+            $this->logger->error('Unexpected error searching relics', ['error' => $e->getMessage()]);
+
+            return [];
         }
     }
 

@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Tests\Unit\Service;
 
-use App\Config\IgnoredResources;
+
 use App\Service\DropEfficiencyCalculator;
 use App\Service\JsonLoader;
 use App\Service\PrimeService;
 use App\Service\WarframeLoot;
-use App\ValueObject\DropEfficiencyResult;
+use App\DTO\DropEfficiencyResult;
 use PHPUnit\Framework\TestCase;
 
 class PrimeServiceTest extends TestCase
@@ -62,7 +62,7 @@ class PrimeServiceTest extends TestCase
                 'gameMode' => 'Capture',
                 'rotation' => 'A',
                 'chance' => '10.00',
-            ]
+            ],
         ];
 
         $efficiencyResult = new DropEfficiencyResult(
@@ -73,7 +73,6 @@ class PrimeServiceTest extends TestCase
 
         $this->jsonLoader->method('load')
             ->willReturn([$primeData]);
-        
         $this->jsonLoader->method('findRelicsByItem')
             ->willReturn($relicData);
 
@@ -89,8 +88,6 @@ class PrimeServiceTest extends TestCase
         $this->assertEquals($primeData, $result['prime']);
         $this->assertCount(2, $result['parts']);
         $this->assertEquals('Part1', $result['parts'][0]['name']);
-        
-        // Detailed check for calculated fields
         $relicTry = $result['parts'][0]['relics'][0]['dropsGrouped'][0];
         $this->assertEquals('1.5', $relicTry['cycleChance']);
         $this->assertEquals('1.50%', $relicTry['efficiency']);
