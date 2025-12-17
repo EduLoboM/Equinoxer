@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace App\Tests\Unit\Service;
 
-
+use App\DTO\DropEfficiencyResult;
 use App\Service\DropEfficiencyCalculator;
 use App\Service\JsonLoader;
 use App\Service\PrimeService;
 use App\Service\WarframeLoot;
-use App\DTO\DropEfficiencyResult;
 use PHPUnit\Framework\TestCase;
 
 class PrimeServiceTest extends TestCase

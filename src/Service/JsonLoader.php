@@ -50,6 +50,7 @@ class JsonLoader
                 'index' => $indexName,
                 'error' => $e->getMessage(),
             ]);
+
             return $this->loadFromFile($filename);
         }
     }
