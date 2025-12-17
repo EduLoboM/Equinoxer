@@ -24,8 +24,8 @@ class WarframeLoot
     {
         $candidates = [
             $relicName,
-            $relicName . ' Relic',
-            preg_replace('/ (Intact|Exceptional|Flawless|Radiant)$/', '', $relicName) . ' Relic',
+            $relicName.' Relic',
+            preg_replace('/ (Intact|Exceptional|Flawless|Radiant)$/', '', $relicName).' Relic',
         ];
 
         $index = $this->client->index('mission_rewards');

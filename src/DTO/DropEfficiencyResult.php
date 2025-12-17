@@ -20,6 +20,6 @@ class DropEfficiencyResult
 
     public function getEfficiencyFormatted(): string
     {
-        return number_format($this->efficiency, 2) . '%';
+        return number_format($this->efficiency, 2).'%';
     }
 }
