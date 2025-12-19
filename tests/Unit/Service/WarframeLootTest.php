@@ -31,7 +31,8 @@ class WarframeLootTest extends TestCase
         $mockClient = $this->createMock(Client::class);
         $mockClient->method('index')->willReturn($mockIndex);
 
-        $service = new WarframeLoot($mockClient);
+        $mockLogger = $this->createMock(\Psr\Log\LoggerInterface::class);
+        $service = new WarframeLoot($mockClient, $mockLogger);
 
         $results = $service->getMissionsForRelic('Lith G1');
 
@@ -50,7 +51,8 @@ class WarframeLootTest extends TestCase
         $mockClient = $this->createMock(Client::class);
         $mockClient->method('index')->willReturn($mockIndex);
 
-        $service = new WarframeLoot($mockClient);
+        $mockLogger = $this->createMock(\Psr\Log\LoggerInterface::class);
+        $service = new WarframeLoot($mockClient, $mockLogger);
 
         $results = $service->getMissionsForRelic('Nonexistent Z9');
 

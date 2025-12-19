@@ -23,7 +23,8 @@ class JsonLoaderTest extends TestCase
         $mockClient = $this->createMock(Client::class);
         $mockClient->method('index')->willReturn($mockIndex);
 
-        $loader = new JsonLoader($mockClient);
+        $mockLogger = $this->createMock(\Psr\Log\LoggerInterface::class);
+        $loader = new JsonLoader($mockClient, $mockLogger, '/tmp');
 
         $result = $loader->load('Primes_Normalized.json');
 
@@ -39,7 +40,8 @@ class JsonLoaderTest extends TestCase
         $mockClient = $this->createMock(Client::class);
         $mockClient->method('index')->willReturn($mockIndex);
 
-        $loader = new JsonLoader($mockClient);
+        $mockLogger = $this->createMock(\Psr\Log\LoggerInterface::class);
+        $loader = new JsonLoader($mockClient, $mockLogger, '/tmp');
 
         $result = $loader->load('Primes_Normalized.json');
 
@@ -50,7 +52,8 @@ class JsonLoaderTest extends TestCase
     public function testLoadThrowsExceptionForUnknownFile(): void
     {
         $mockClient = $this->createMock(Client::class);
-        $loader = new JsonLoader($mockClient);
+        $mockLogger = $this->createMock(\Psr\Log\LoggerInterface::class);
+        $loader = new JsonLoader($mockClient, $mockLogger, '/tmp');
 
         $this->expectException(\RuntimeException::class);
         $loader->load('Unknown.json');

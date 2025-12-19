@@ -10,7 +10,7 @@ use Symfony\Component\DependencyInjection\Attribute\Autowire;
 class JsonLoader
 {
     private Client $client;
-    private $logger;
+    private \Psr\Log\LoggerInterface $logger;
     private string $dataDir;
 
     public function __construct(
@@ -55,9 +55,12 @@ class JsonLoader
         }
     }
 
+    /**
+     * @return array<int, array<string, mixed>>
+     */
     private function loadFromFile(string $filename): array
     {
-        $path = $this->dataDir.'/'.$filename;
+        $path = $this->dataDir . '/' . $filename;
         if (!file_exists($path)) {
             $this->logger->error('File not found for fallback', ['path' => $path]);
 

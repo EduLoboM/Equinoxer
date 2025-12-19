@@ -13,10 +13,10 @@ use PHPUnit\Framework\TestCase;
 
 class PrimeServiceTest extends TestCase
 {
-    private $jsonLoader;
-    private $warframeLoot;
-    private $calculator;
-    private $primeService;
+    private JsonLoader&\PHPUnit\Framework\MockObject\MockObject $jsonLoader;
+    private WarframeLoot&\PHPUnit\Framework\MockObject\MockObject $warframeLoot;
+    private DropEfficiencyCalculator&\PHPUnit\Framework\MockObject\MockObject $calculator;
+    private PrimeService $primeService;
 
     protected function setUp(): void
     {

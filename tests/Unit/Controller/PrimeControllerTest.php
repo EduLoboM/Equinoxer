@@ -34,17 +34,14 @@ class PrimeControllerTest extends TestCase
 
     public function testShowNotFound(): void
     {
-        $loader = $this->createMock(JsonLoader::class);
-        $loader->method('load')->willReturn([]); // Empty primes
-
-        $search = $this->createMock(WarframeLoot::class);
-        $calculator = $this->createMock(DropEfficiencyCalculator::class);
+        $primeService = $this->createMock(\App\Service\PrimeService::class);
+        $primeService->method('getPrimeDetails')->willReturn(null);
 
         $controller = new PrimeController();
         $container = $this->createMock(ContainerInterface::class);
         $controller->setContainer($container);
 
         $this->expectException(NotFoundHttpException::class);
-        $controller->show('slug', $loader, $search, $calculator);
+        $controller->show('slug', $primeService);
     }
 }

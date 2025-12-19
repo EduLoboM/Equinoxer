@@ -15,11 +15,14 @@ class PrimeService
     ) {
     }
 
+    /**
+     * @return array<string, mixed>|null
+     */
     public function getPrimeDetails(string $slug): ?array
     {
         $primes = $this->loader->load('Primes_Normalized.json');
         $entry = array_values(
-            array_filter($primes, fn ($w) => $w['slug'] === $slug),
+            array_filter($primes, fn($w) => $w['slug'] === $slug),
         );
 
         if (!$entry) {
@@ -67,7 +70,7 @@ class PrimeService
                     ) {
                         $groups[$key]['rotations'][] = $d['rotation'];
                     }
-                    $groups[$key]['chances'][] = $d['chance'].'%';
+                    $groups[$key]['chances'][] = $d['chance'] . '%';
                 }
 
                 foreach ($groups as &$g) {
