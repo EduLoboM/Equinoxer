@@ -3,9 +3,7 @@
 namespace App\Tests\Unit\Controller;
 
 use App\Controller\PrimeController;
-use App\Service\DropEfficiencyCalculator;
 use App\Service\JsonLoader;
-use App\Service\WarframeLoot;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;

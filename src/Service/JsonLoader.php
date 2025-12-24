@@ -60,7 +60,7 @@ class JsonLoader
      */
     private function loadFromFile(string $filename): array
     {
-        $path = $this->dataDir . '/' . $filename;
+        $path = $this->dataDir.'/'.$filename;
         if (!file_exists($path)) {
             $this->logger->error('File not found for fallback', ['path' => $path]);
 
