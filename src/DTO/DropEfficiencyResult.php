@@ -15,11 +15,11 @@ class DropEfficiencyResult
 
     public function getCycleChanceFormatted(): string
     {
-        return (string) $this->cycleChance;
+        return (string) round($this->cycleChance * 100, 2) . '%';
     }
 
     public function getEfficiencyFormatted(): string
     {
-        return number_format($this->efficiency, 2).'%';
+        return (string) round($this->efficiency * 100, 2) . '%';
     }
 }
