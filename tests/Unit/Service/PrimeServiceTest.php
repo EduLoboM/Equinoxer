@@ -88,8 +88,8 @@ class PrimeServiceTest extends TestCase
         $this->assertCount(2, $result['parts']);
         $this->assertEquals('Part1', $result['parts'][0]['name']);
         $relicTry = $result['parts'][0]['relics'][0]['dropsGrouped'][0];
-        $this->assertEquals('1.5', $relicTry['cycleChance']);
-        $this->assertEquals('1.50%', $relicTry['efficiency']);
+        $this->assertEquals('150%', $relicTry['cycleChance']);
+        $this->assertEquals('150%', $relicTry['efficiency']);
         $this->assertEquals('AA', $relicTry['rotationPattern']);
     }
 }
