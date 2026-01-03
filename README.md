@@ -27,13 +27,6 @@ O projeto resolve o problema de navegar por wikis desatualizadas ou lentas, cent
 | **Primes Tracker** | `Data Aggregation` | Visualização de todos os Warframes e armas Prime, com links diretos para as relíquias de seus componentes. |
 | **Atualização Automática** | `Console Command` | Sistema de comandos (`app:update-data`, `app:load-data`) que sincroniza o banco de dados com a API `warframestat.us`. |
 
-## 🗺️ Roadmap Futuro
-
-* **v1.1** - Filtros avançados por Planeta e Tipo de Missão
-* **v1.2** - Criação de "Wishlists" para rastrear sets completos
-* **v1.3** - Integração com o Warframe Market para preços de platina
-* **v1.4** - Sistema de contas de usuário para salvar progresso
-
 ## 🏗️ Arquitetura do Sistema
 
 O fluxo de dados segue uma estrutura MVC padrão do Symfony com Meilisearch como search engine:
@@ -124,6 +117,7 @@ src/
 ├── Service/
 │   ├── DropEfficiencyCalculator.php  # Cálculo de eficiência de farm
 │   ├── JsonLoader.php                # Interface com Meilisearch
+│   ├── PrimeService.php              # Lógica de manipulação de Primes
 │   └── WarframeLoot.php              # Lógica de drop tables
 └── ValueObject/
     └── WarframeItemName.php      # Value object para nomes de itens
